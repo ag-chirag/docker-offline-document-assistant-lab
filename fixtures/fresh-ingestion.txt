@@ -1,0 +1,3 @@
+Fresh-ingestion memo, revision 1.
+The synthetic maintenance switch code is marigold-jetty-906.
+This invented fact is only introduced after the offline network cut.

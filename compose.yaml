@@ -1,0 +1,60 @@
+name: offline-doc-lab
+
+services:
+  ollama:
+    image: ollama/ollama:0.40.17@sha256:ccc42bcd3d5fcf7ab0d532b300382154e1a4da56fc666bdb313b78ebdd912754
+    volumes:
+      - ollama-data:/root/.ollama
+    networks:
+      - app
+    restart: unless-stopped
+
+  webui:
+    image: ghcr.io/open-webui/open-webui:v0.13.4@sha256:d5168bfbc28609eff5bea1b438dd864cf64d185cf6582c02244865e18385b901
+    depends_on:
+      - ollama
+    environment:
+      OLLAMA_BASE_URL: http://ollama:11434
+      ENABLE_OPENAI_API: "false"
+      ENABLE_VERSION_UPDATE_CHECK: "false"
+      ENABLE_WEB_SEARCH: "false"
+      ENABLE_PLUGINS: "false"
+      ENABLE_SIGNUP: "false"
+      ENABLE_PERSISTENT_CONFIG: "false"
+      DEFAULT_MODELS: qwen2.5:1.5b
+      DEFAULT_MODEL_METADATA: '{"capabilities":{"file_context":true}}'
+      DEFAULT_MODEL_PARAMS: '{"temperature":0}'
+      WEBUI_ADMIN_EMAIL: ${WEBUI_ADMIN_EMAIL:?set WEBUI_ADMIN_EMAIL in .env}
+      WEBUI_ADMIN_PASSWORD: ${WEBUI_ADMIN_PASSWORD:?set WEBUI_ADMIN_PASSWORD in .env}
+      WEBUI_SECRET_KEY: ${WEBUI_SECRET_KEY:?set WEBUI_SECRET_KEY in .env}
+      RAG_EMBEDDING_ENGINE: ollama
+      RAG_EMBEDDING_MODEL: all-minilm:latest
+      RAG_TEXT_SPLITTER: character
+      RAG_TOP_K: "3"
+      ENABLE_RAG_HYBRID_SEARCH: "false"
+    volumes:
+      - webui-data:/app/backend/data
+    networks:
+      - app
+    restart: unless-stopped
+
+  edge:
+    image: nginx:1.31.10-alpine@sha256:aceb952b920393b7d0bc7b978927fc283370bea89fb082c6fef0ce18c60f96a9
+    depends_on:
+      - webui
+    ports:
+      - "127.0.0.1:${WEBUI_PORT:-3077}:80"
+    volumes:
+      - ./nginx.conf:/etc/nginx/conf.d/default.conf:ro
+    networks:
+      - app
+      - access
+    restart: unless-stopped
+
+networks:
+  app: {}
+  access: {}
+
+volumes:
+  ollama-data: {}
+  webui-data: {}

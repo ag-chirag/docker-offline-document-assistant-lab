@@ -1,0 +1,77 @@
+{
+  "case": "delivery-cold",
+  "started_at": "2026-11-23T23:37:11.681152+00:00",
+  "document": "harbor-access.txt",
+  "question": "Read the attached file. What exact time does the synthetic harbor office open on weekdays? Cite the file.",
+  "expected": "09:15",
+  "steps": [
+    {
+      "at": "2026-11-23T23:37:11.898015+00:00",
+      "name": "local_signin",
+      "http_status": 200,
+      "data": {
+        "role": "admin",
+        "token_received": true
+      }
+    },
+    {
+      "at": "2026-11-23T23:37:11.927139+00:00",
+      "name": "upload",
+      "http_status": 200,
+      "data": {
+        "file_id": "b6fee5ef-e29e-4a20-95ca-289172732664",
+        "error": null
+      }
+    },
+    {
+      "at": "2026-11-23T23:37:13.996263+00:00",
+      "name": "processing",
+      "http_status": 200,
+      "data": {
+        "status": "completed"
+      }
+    },
+    {
+      "at": "2026-11-23T23:37:14.001779+00:00",
+      "name": "extracted_text",
+      "http_status": 200,
+      "data": {
+        "content": "Harbor access memo, revision 1.\nThe synthetic harbor office opens at 09:15 on weekdays.\nThe access badge color is violet. No real site uses these details.\n"
+      }
+    },
+    {
+      "at": "2026-11-23T23:37:17.472209+00:00",
+      "name": "chat",
+      "http_status": 200,
+      "data": {
+        "answer": "The synthetic harbor office opens at 09:15 on weekdays. [1]",
+        "sources": [
+          {
+            "source": {
+              "type": "file",
+              "id": "b6fee5ef-e29e-4a20-95ca-289172732664"
+            },
+            "document": [
+              "Harbor access memo, revision 1.\nThe synthetic harbor office opens at 09:15 on weekdays.\nThe access badge color is violet. No real site uses these details.\n"
+            ],
+            "metadata": [
+              {
+                "file_id": "b6fee5ef-e29e-4a20-95ca-289172732664",
+                "name": "harbor-access.txt",
+                "source": "harbor-access.txt"
+              }
+            ]
+          }
+        ],
+        "error": null
+      }
+    }
+  ],
+  "assessment": {
+    "retrieved_fact": true,
+    "cited_file": true,
+    "answer_contains_fact": true
+  },
+  "pass": true,
+  "finished_at": "2026-11-23T23:37:17.472265+00:00"
+}

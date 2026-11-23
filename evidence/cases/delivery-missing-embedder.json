@@ -1,0 +1,37 @@
+{
+  "case": "delivery-missing-embedder",
+  "started_at": "2026-11-23T23:39:48.483950+00:00",
+  "document": "negative-final.txt",
+  "question": "What is the synthetic recovery beacon code?",
+  "expected": "silver-bay-604",
+  "steps": [
+    {
+      "at": "2026-11-23T23:39:48.695134+00:00",
+      "name": "local_signin",
+      "http_status": 200,
+      "data": {
+        "role": "admin",
+        "token_received": true
+      }
+    },
+    {
+      "at": "2026-11-23T23:39:48.726850+00:00",
+      "name": "upload",
+      "http_status": 200,
+      "data": {
+        "file_id": "a2c6f639-c459-43fd-b2f5-5159dc203f12",
+        "error": null
+      }
+    },
+    {
+      "at": "2026-11-23T23:39:50.801328+00:00",
+      "name": "processing",
+      "http_status": 200,
+      "data": {
+        "status": "failed"
+      }
+    }
+  ],
+  "pass": true,
+  "finished_at": "2026-11-23T23:39:50.801351+00:00"
+}

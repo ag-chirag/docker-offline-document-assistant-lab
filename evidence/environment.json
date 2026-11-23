@@ -1,0 +1,27 @@
+{
+  "date_utc": "2026-11-23",
+  "host": {
+    "os": "macOS 15.4.1",
+    "architecture": "arm64",
+    "docker_desktop_application": "4.62.0"
+  },
+  "docker_engine": {
+    "server_version": "29.2.1",
+    "operating_system": "Docker Desktop Linux VM",
+    "kernel": "6.12.69-linuxkit",
+    "architecture": "linux/arm64",
+    "virtual_cpus": 14,
+    "memory_bytes": 8216498176,
+    "cgroup_version": "2"
+  },
+  "compose_version": "5.0.2",
+  "open_webui_version": "v0.13.4",
+  "ollama_version": "0.40.17",
+  "browser": "Google Chrome 158.0.8127.37, fresh Playwright context",
+  "browser_automation": "Playwright Python 1.56.0",
+  "image_and_model_hashes": "../assets.lock.json",
+  "limits": [
+    "The Engine ran inside Docker Desktop's Linux VM, not on a separate Linux host or physical air-gapped machine.",
+    "The proxy restriction applied only to the disposable browser process; the host management network stayed connected."
+  ]
+}

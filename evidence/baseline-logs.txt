@@ -1,0 +1,500 @@
+ollama-1  | 2026-11-23T23:37:28.781196836Z srv          load:    - prompt with length     475, lcp =      27, f_keep = 0.057, f_sim = 0.093
+ollama-1  | 2026-11-23T23:37:28.781197711Z srv        update:  - cache state: 2 prompts, 23.363 MiB (limits: 8192.000 MiB, 4096 tokens, 299450 est)
+ollama-1  | 2026-11-23T23:37:28.781198545Z srv        update:    - prompt 0x39ee4980:     379 tokens, checkpoints:  0,    10.368 MiB
+ollama-1  | 2026-11-23T23:37:28.781199336Z srv        update:    - prompt 0x39ee1570:     475 tokens, checkpoints:  0,    12.994 MiB
+ollama-1  | 2026-11-23T23:37:28.781200128Z srv  get_availabl: prompt cache update took 2.04 ms
+ollama-1  | 2026-11-23T23:37:28.781200878Z slot launch_slot_: id  0 | task -1 | sampler chain: logits -> ?penalties -> ?dry -> ?top-n-sigma -> top-k -> ?typical -> top-p -> ?min-p -> ?xtc -> temp-ext -> dist
+ollama-1  | 2026-11-23T23:37:28.781202086Z slot launch_slot_: id  0 | task -1 | sampler params:
+ollama-1  | 2026-11-23T23:37:28.781208836Z 	repeat_last_n = 64, repeat_penalty = 1.000, frequency_penalty = 0.000, presence_penalty = 0.000
+ollama-1  | 2026-11-23T23:37:28.781209586Z 	dry_multiplier = 0.000, dry_base = 1.750, dry_allowed_length = 2, dry_penalty_last_n = 64
+ollama-1  | 2026-11-23T23:37:28.781210253Z 	top_k = 40, top_p = 0.900, min_p = 0.000, xtc_probability = 0.000, xtc_threshold = 0.100, typical_p = 1.000, top_n_sigma = -1.000, temp = 0.800
+ollama-1  | 2026-11-23T23:37:28.781210961Z 	mirostat = 0, mirostat_lr = 0.100, mirostat_ent = 5.000, adaptive_target = -1.000, adaptive_decay = 0.900
+ollama-1  | 2026-11-23T23:37:28.781211628Z slot launch_slot_: id  0 | task 48 | processing task, is_child = 0
+ollama-1  | 2026-11-23T23:37:28.781212253Z slot   operator(): id  0 | task 48 | new prompt, n_ctx_slot = 4096, n_keep = 4, task.n_tokens = 291
+ollama-1  | 2026-11-23T23:37:28.781212878Z slot   operator(): id  0 | task 48 | cached n_tokens = 27, memory_seq_rm [27, end)
+ollama-1  | 2026-11-23T23:37:28.781213503Z slot init_sampler: id  0 | task 48 | init sampler, took 0.02 ms, tokens: text = 291, total = 291
+ollama-1  | 2026-11-23T23:37:29.959908962Z slot print_timing: id  0 | task 48 | prompt eval time =     965.93 ms /   264 tokens (    3.66 ms per token,   273.31 tokens per second)
+ollama-1  | 2026-11-23T23:37:29.959935212Z slot print_timing: id  0 | task 48 |        eval time =     211.59 ms /    13 tokens (   17.63 ms per token,    56.71 tokens per second)
+ollama-1  | 2026-11-23T23:37:29.959937503Z slot print_timing: id  0 | task 48 |       total time =    1177.52 ms /   277 tokens
+ollama-1  | 2026-11-23T23:37:29.959938962Z slot print_timing: id  0 | task 48 |    graphs reused =         54
+ollama-1  | 2026-11-23T23:37:29.959940170Z slot print_timing: id  0 | task 48 |   graph reallocs =          0    /     0        (same size) / (changed size)
+ollama-1  | 2026-11-23T23:37:29.959941545Z slot      release: id  0 | task 48 | stop processing: n_tokens = 303, truncated = 0
+ollama-1  | 2026-11-23T23:37:29.959942712Z srv  update_slots: all slots are idle
+ollama-1  | 2026-11-23T23:37:29.959948378Z [GIN] 2026/11/23 - 23:37:29 | 200 |    1.18s |      172.18.0.3 | POST     "/api/chat"
+ollama-1  | 2026-11-23T23:37:29.960735795Z srv  server_strea: conv_id= (empty=1)
+ollama-1  | 2026-11-23T23:37:29.962862128Z slot get_availabl: id  0 | task -1 |  - checking sim = 0.060 (27/451) > 0.100
+ollama-1  | 2026-11-23T23:37:29.962874170Z slot get_availabl: id  0 | task -1 | selected slot by LRU, n_tokens = 303, t_last = 2079226046
+ollama-1  | 2026-11-23T23:37:29.962875420Z srv  get_availabl: updating prompt cache
+ollama-1  | 2026-11-23T23:37:29.962879420Z srv   prompt_save:  - saving prompt with length 303, total state size = 8.289 MiB (draft: 0.000 MiB)
+ollama-1  | 2026-11-23T23:37:29.964176670Z srv          load:  - looking for better prompt, base f_keep = 0.089, f_sim = 0.060
+ollama-1  | 2026-11-23T23:37:29.964185712Z srv          load:    - prompt with length     379, lcp =     316, f_keep = 0.834, f_sim = 0.701
+ollama-1  | 2026-11-23T23:37:29.964187003Z srv          load:    - prompt with length     475, lcp =      27, f_keep = 0.057, f_sim = 0.060
+ollama-1  | 2026-11-23T23:37:29.964198295Z srv          load:    - prompt with length     303, lcp =      27, f_keep = 0.089, f_sim = 0.060
+ollama-1  | 2026-11-23T23:37:29.964199545Z srv          load:  - found better prompt with f_keep = 0.834, f_sim = 0.701
+ollama-1  | 2026-11-23T23:37:29.964569712Z srv        update:  - cache state: 2 prompts, 21.284 MiB (limits: 8192.000 MiB, 4096 tokens, 299448 est)
+ollama-1  | 2026-11-23T23:37:29.964574462Z srv        update:    - prompt 0x39ee1570:     475 tokens, checkpoints:  0,    12.994 MiB
+ollama-1  | 2026-11-23T23:37:29.964575503Z srv        update:    - prompt 0x39edc4c0:     303 tokens, checkpoints:  0,     8.289 MiB
+ollama-1  | 2026-11-23T23:37:29.964576212Z srv  get_availabl: prompt cache update took 1.70 ms
+ollama-1  | 2026-11-23T23:37:29.964576962Z slot launch_slot_: id  0 | task -1 | sampler chain: logits -> ?penalties -> ?dry -> ?top-n-sigma -> top-k -> ?typical -> top-p -> ?min-p -> ?xtc -> temp-ext -> dist
+ollama-1  | 2026-11-23T23:37:29.964627212Z slot launch_slot_: id  0 | task -1 | sampler params:
+ollama-1  | 2026-11-23T23:37:29.964678878Z 	repeat_last_n = 64, repeat_penalty = 1.000, frequency_penalty = 0.000, presence_penalty = 0.000
+ollama-1  | 2026-11-23T23:37:29.964682128Z 	dry_multiplier = 0.000, dry_base = 1.750, dry_allowed_length = 2, dry_penalty_last_n = 64
+ollama-1  | 2026-11-23T23:37:29.964690545Z 	top_k = 40, top_p = 0.900, min_p = 0.000, xtc_probability = 0.000, xtc_threshold = 0.100, typical_p = 1.000, top_n_sigma = -1.000, temp = 0.800
+ollama-1  | 2026-11-23T23:37:29.964691545Z 	mirostat = 0, mirostat_lr = 0.100, mirostat_ent = 5.000, adaptive_target = -1.000, adaptive_decay = 0.900
+ollama-1  | 2026-11-23T23:37:29.964692378Z slot launch_slot_: id  0 | task 62 | processing task, is_child = 0
+ollama-1  | 2026-11-23T23:37:29.964729878Z slot   operator(): id  0 | task 62 | new prompt, n_ctx_slot = 4096, n_keep = 4, task.n_tokens = 451
+ollama-1  | 2026-11-23T23:37:29.964732045Z slot   operator(): id  0 | task 62 | cached n_tokens = 316, memory_seq_rm [316, end)
+ollama-1  | 2026-11-23T23:37:29.964732878Z slot init_sampler: id  0 | task 62 | init sampler, took 0.03 ms, tokens: text = 451, total = 451
+ollama-1  | 2026-11-23T23:37:31.025260546Z [GIN] 2026/11/23 - 23:37:31 | 200 |    2.17s |      172.18.0.3 | POST     "/api/chat"
+ollama-1  | 2026-11-23T23:37:31.025870796Z slot print_timing: id  0 | task 62 | prompt eval time =     577.09 ms /   135 tokens (    4.27 ms per token,   233.93 tokens per second)
+ollama-1  | 2026-11-23T23:37:31.025885921Z slot print_timing: id  0 | task 62 |        eval time =     483.17 ms /    16 tokens (   32.21 ms per token,    31.04 tokens per second)
+ollama-1  | 2026-11-23T23:37:31.025888087Z slot print_timing: id  0 | task 62 |       total time =    1060.26 ms /   151 tokens
+ollama-1  | 2026-11-23T23:37:31.025889546Z slot print_timing: id  0 | task 62 |    graphs reused =         68
+ollama-1  | 2026-11-23T23:37:31.025890754Z slot print_timing: id  0 | task 62 |   graph reallocs =          0    /     0        (same size) / (changed size)
+ollama-1  | 2026-11-23T23:37:31.025891962Z slot      release: id  0 | task 62 | stop processing: n_tokens = 466, truncated = 0
+ollama-1  | 2026-11-23T23:37:31.025893129Z srv  update_slots: all slots are idle
+ollama-1  | 2026-11-23T23:37:31.058339254Z time=2026-11-23T23:37:31.058Z level=WARN source=llama_server.go:350 msg="truncating input prompt" limit=2050 prompt=6268 keep=4 new=2050
+ollama-1  | 2026-11-23T23:37:31.058813004Z srv  server_strea: conv_id= (empty=1)
+ollama-1  | 2026-11-23T23:37:31.058916712Z slot get_availabl: id  0 | task -1 |  - checking sim = 0.002 (4/2050) > 0.100
+ollama-1  | 2026-11-23T23:37:31.058920254Z slot get_availabl: id  0 | task -1 | selected slot by LRU, n_tokens = 466, t_last = 2080292175
+ollama-1  | 2026-11-23T23:37:31.058921296Z srv  get_availabl: updating prompt cache
+ollama-1  | 2026-11-23T23:37:31.058922171Z srv   prompt_save:  - saving prompt with length 466, total state size = 12.748 MiB (draft: 0.000 MiB)
+ollama-1  | 2026-11-23T23:37:31.060823254Z srv          load:  - looking for better prompt, base f_keep = 0.009, f_sim = 0.002
+ollama-1  | 2026-11-23T23:37:31.060831462Z srv          load:    - prompt with length     475, lcp =       4, f_keep = 0.008, f_sim = 0.002
+ollama-1  | 2026-11-23T23:37:31.060832421Z srv          load:    - prompt with length     303, lcp =       4, f_keep = 0.013, f_sim = 0.002
+ollama-1  | 2026-11-23T23:37:31.060833087Z srv          load:    - prompt with length     466, lcp =       4, f_keep = 0.009, f_sim = 0.002
+ollama-1  | 2026-11-23T23:37:31.060833629Z srv        update:  - cache state: 3 prompts, 34.032 MiB (limits: 8192.000 MiB, 4096 tokens, 299450 est)
+ollama-1  | 2026-11-23T23:37:31.060834212Z srv        update:    - prompt 0x39ee1570:     475 tokens, checkpoints:  0,    12.994 MiB
+ollama-1  | 2026-11-23T23:37:31.060834879Z srv        update:    - prompt 0x39edc4c0:     303 tokens, checkpoints:  0,     8.289 MiB
+ollama-1  | 2026-11-23T23:37:31.060835421Z srv        update:    - prompt 0x39ee4980:     466 tokens, checkpoints:  0,    12.748 MiB
+ollama-1  | 2026-11-23T23:37:31.060835962Z srv  get_availabl: prompt cache update took 1.77 ms
+ollama-1  | 2026-11-23T23:37:31.060836504Z slot launch_slot_: id  0 | task -1 | sampler chain: logits -> ?penalties -> ?dry -> ?top-n-sigma -> top-k -> ?typical -> top-p -> ?min-p -> ?xtc -> temp-ext -> greedy
+ollama-1  | 2026-11-23T23:37:31.060837837Z slot launch_slot_: id  0 | task -1 | sampler params:
+ollama-1  | 2026-11-23T23:37:31.060838421Z 	repeat_last_n = 64, repeat_penalty = 1.000, frequency_penalty = 0.000, presence_penalty = 0.000
+ollama-1  | 2026-11-23T23:37:31.060839212Z 	dry_multiplier = 0.000, dry_base = 1.750, dry_allowed_length = 2, dry_penalty_last_n = 64
+ollama-1  | 2026-11-23T23:37:31.060839837Z 	top_k = 40, top_p = 0.900, min_p = 0.000, xtc_probability = 0.000, xtc_threshold = 0.100, typical_p = 1.000, top_n_sigma = -1.000, temp = 0.000
+ollama-1  | 2026-11-23T23:37:31.060840504Z 	mirostat = 0, mirostat_lr = 0.100, mirostat_ent = 5.000, adaptive_target = -1.000, adaptive_decay = 0.900
+ollama-1  | 2026-11-23T23:37:31.060841087Z slot launch_slot_: id  0 | task 79 | processing task, is_child = 0
+ollama-1  | 2026-11-23T23:37:31.060841587Z slot   operator(): id  0 | task 79 | new prompt, n_ctx_slot = 4096, n_keep = 4, task.n_tokens = 2050
+ollama-1  | 2026-11-23T23:37:31.060842171Z slot   operator(): id  0 | task 79 | cached n_tokens = 4, memory_seq_rm [4, end)
+ollama-1  | 2026-11-23T23:37:32.774832713Z slot   operator(): id  0 | task 79 | cached n_tokens = 516, memory_seq_rm [516, end)
+ollama-1  | 2026-11-23T23:37:34.230771589Z slot print_timing: id  0 | task 79 | prompt processing, n_tokens =   1024, progress = 0.50, t =   3.17 s / 323.10 tokens per second
+ollama-1  | 2026-11-23T23:37:34.230792422Z slot   operator(): id  0 | task 79 | cached n_tokens = 1028, memory_seq_rm [1028, end)
+ollama-1  | 2026-11-23T23:37:35.631585923Z slot print_timing: id  0 | task 79 | prompt processing, n_tokens =   1536, progress = 0.75, t =   4.57 s / 336.04 tokens per second
+ollama-1  | 2026-11-23T23:37:35.631607506Z slot   operator(): id  0 | task 79 | cached n_tokens = 1540, memory_seq_rm [1540, end)
+ollama-1  | 2026-11-23T23:37:35.631718840Z slot init_sampler: id  0 | task 79 | init sampler, took 0.18 ms, tokens: text = 2050, total = 2050
+ollama-1  | 2026-11-23T23:37:37.765888257Z slot print_timing: id  0 | task 79 | prompt eval time =    6129.73 ms /  2046 tokens (    3.00 ms per token,   333.78 tokens per second)
+ollama-1  | 2026-11-23T23:37:37.765905924Z slot print_timing: id  0 | task 79 |        eval time =     575.06 ms /    19 tokens (   31.95 ms per token,    31.30 tokens per second)
+ollama-1  | 2026-11-23T23:37:37.765907132Z slot print_timing: id  0 | task 79 |       total time =    6704.79 ms /  2065 tokens
+ollama-1  | 2026-11-23T23:37:37.765908007Z slot print_timing: id  0 | task 79 |    graphs reused =         85
+ollama-1  | 2026-11-23T23:37:37.765908674Z slot print_timing: id  0 | task 79 |   graph reallocs =          0    /     0        (same size) / (changed size)
+ollama-1  | 2026-11-23T23:37:37.765909382Z slot      release: id  0 | task 79 | stop processing: n_tokens = 2068, truncated = 0
+ollama-1  | 2026-11-23T23:37:37.765910049Z srv  update_slots: all slots are idle
+ollama-1  | 2026-11-23T23:37:37.766065007Z [GIN] 2026/11/23 - 23:37:37 | 200 |    6.73s |      172.18.0.3 | POST     "/api/chat"
+ollama-1  | 2026-11-23T23:37:37.784177841Z srv  server_strea: conv_id= (empty=1)
+ollama-1  | 2026-11-23T23:37:37.785086924Z slot get_availabl: id  0 | task -1 |  - checking sim = 0.011 (4/369) > 0.100
+ollama-1  | 2026-11-23T23:37:37.785095799Z slot get_availabl: id  0 | task -1 | selected slot by LRU, n_tokens = 2068, t_last = 2087033043
+ollama-1  | 2026-11-23T23:37:37.785097424Z srv  get_availabl: updating prompt cache
+ollama-1  | 2026-11-23T23:37:37.785098507Z srv   prompt_save:  - saving prompt with length 2068, total state size = 56.571 MiB (draft: 0.000 MiB)
+ollama-1  | 2026-11-23T23:37:37.794110174Z srv          load:  - looking for better prompt, base f_keep = 0.002, f_sim = 0.011
+ollama-1  | 2026-11-23T23:37:37.794121716Z srv          load:    - prompt with length     475, lcp =      27, f_keep = 0.057, f_sim = 0.073
+ollama-1  | 2026-11-23T23:37:37.794122882Z srv          load:    - prompt with length     303, lcp =      27, f_keep = 0.089, f_sim = 0.073
+ollama-1  | 2026-11-23T23:37:37.794123632Z srv          load:    - prompt with length     466, lcp =      27, f_keep = 0.058, f_sim = 0.073
+ollama-1  | 2026-11-23T23:37:37.794124257Z srv          load:    - prompt with length    2068, lcp =       4, f_keep = 0.002, f_sim = 0.011
+ollama-1  | 2026-11-23T23:37:37.794124924Z srv        update:  - cache state: 4 prompts, 90.603 MiB (limits: 8192.000 MiB, 4096 tokens, 299458 est)
+ollama-1  | 2026-11-23T23:37:37.794125591Z srv        update:    - prompt 0x39ee1570:     475 tokens, checkpoints:  0,    12.994 MiB
+ollama-1  | 2026-11-23T23:37:37.794126216Z srv        update:    - prompt 0x39edc4c0:     303 tokens, checkpoints:  0,     8.289 MiB
+ollama-1  | 2026-11-23T23:37:37.794126841Z srv        update:    - prompt 0x39ee4980:     466 tokens, checkpoints:  0,    12.748 MiB
+ollama-1  | 2026-11-23T23:37:37.794134799Z srv        update:    - prompt 0x39edbad0:    2068 tokens, checkpoints:  0,    56.571 MiB
+ollama-1  | 2026-11-23T23:37:37.794135716Z srv  get_availabl: prompt cache update took 8.90 ms
+ollama-1  | 2026-11-23T23:37:37.794136507Z slot launch_slot_: id  0 | task -1 | sampler chain: logits -> ?penalties -> ?dry -> ?top-n-sigma -> top-k -> ?typical -> top-p -> ?min-p -> ?xtc -> temp-ext -> dist
+ollama-1  | 2026-11-23T23:37:37.794138466Z slot launch_slot_: id  0 | task -1 | sampler params:
+ollama-1  | 2026-11-23T23:37:37.794139216Z 	repeat_last_n = 64, repeat_penalty = 1.000, frequency_penalty = 0.000, presence_penalty = 0.000
+ollama-1  | 2026-11-23T23:37:37.794140091Z 	dry_multiplier = 0.000, dry_base = 1.750, dry_allowed_length = 2, dry_penalty_last_n = 64
+ollama-1  | 2026-11-23T23:37:37.794140882Z 	top_k = 40, top_p = 0.900, min_p = 0.000, xtc_probability = 0.000, xtc_threshold = 0.100, typical_p = 1.000, top_n_sigma = -1.000, temp = 0.800
+ollama-1  | 2026-11-23T23:37:37.794141716Z 	mirostat = 0, mirostat_lr = 0.100, mirostat_ent = 5.000, adaptive_target = -1.000, adaptive_decay = 0.900
+ollama-1  | 2026-11-23T23:37:37.794142507Z slot launch_slot_: id  0 | task 102 | processing task, is_child = 0
+ollama-1  | 2026-11-23T23:37:37.794143132Z slot   operator(): id  0 | task 102 | new prompt, n_ctx_slot = 4096, n_keep = 4, task.n_tokens = 369
+ollama-1  | 2026-11-23T23:37:37.794143799Z slot   operator(): id  0 | task 102 | cached n_tokens = 4, memory_seq_rm [4, end)
+ollama-1  | 2026-11-23T23:37:37.794205466Z slot init_sampler: id  0 | task 102 | init sampler, took 0.02 ms, tokens: text = 369, total = 369
+ollama-1  | 2026-11-23T23:37:39.277739550Z slot print_timing: id  0 | task 102 | prompt eval time =     779.82 ms /   365 tokens (    2.14 ms per token,   468.05 tokens per second)
+ollama-1  | 2026-11-23T23:37:39.277765300Z slot print_timing: id  0 | task 102 |        eval time =     702.70 ms /    50 tokens (   14.34 ms per token,    69.73 tokens per second)
+ollama-1  | 2026-11-23T23:37:39.277766633Z slot print_timing: id  0 | task 102 |       total time =    1482.53 ms /   415 tokens
+ollama-1  | 2026-11-23T23:37:39.277767466Z slot print_timing: id  0 | task 102 |    graphs reused =        133
+ollama-1  | 2026-11-23T23:37:39.277768175Z slot print_timing: id  0 | task 102 |   graph reallocs =          0    /     0        (same size) / (changed size)
+ollama-1  | 2026-11-23T23:37:39.277769050Z slot      release: id  0 | task 102 | stop processing: n_tokens = 418, truncated = 0
+ollama-1  | 2026-11-23T23:37:39.277769883Z srv  update_slots: all slots are idle
+ollama-1  | 2026-11-23T23:37:39.277742258Z [GIN] 2026/11/23 - 23:37:39 | 200 |    1.49s |      172.18.0.3 | POST     "/api/chat"
+ollama-1  | 2026-11-23T23:37:39.283519091Z srv  server_strea: conv_id= (empty=1)
+ollama-1  | 2026-11-23T23:37:39.283942175Z slot get_availabl: id  0 | task -1 |  - checking sim = 0.111 (27/243) > 0.100
+ollama-1  | 2026-11-23T23:37:39.283950841Z slot get_availabl: id  0 | task -1 | selected slot by LCP similarity, f_sim_best = 0.111 (> 0.100 thold), f_keep = 0.065
+ollama-1  | 2026-11-23T23:37:39.283955091Z srv  get_availabl: updating prompt cache
+ollama-1  | 2026-11-23T23:37:39.283958341Z srv   prompt_save:  - saving prompt with length 418, total state size = 11.435 MiB (draft: 0.000 MiB)
+ollama-1  | 2026-11-23T23:37:39.286060216Z srv          load:  - looking for better prompt, base f_keep = 0.065, f_sim = 0.111
+ollama-1  | 2026-11-23T23:37:39.286071050Z srv          load:    - prompt with length     475, lcp =      27, f_keep = 0.057, f_sim = 0.111
+ollama-1  | 2026-11-23T23:37:39.286072175Z srv          load:    - prompt with length     303, lcp =      28, f_keep = 0.092, f_sim = 0.115
+ollama-1  | 2026-11-23T23:37:39.286072966Z srv          load:    - prompt with length     466, lcp =      27, f_keep = 0.058, f_sim = 0.111
+ollama-1  | 2026-11-23T23:37:39.286073841Z srv          load:    - prompt with length    2068, lcp =       4, f_keep = 0.002, f_sim = 0.016
+ollama-1  | 2026-11-23T23:37:39.286074508Z srv          load:    - prompt with length     418, lcp =      27, f_keep = 0.065, f_sim = 0.111
+ollama-1  | 2026-11-23T23:37:39.286075425Z srv        update:  - cache state: 5 prompts, 102.038 MiB (limits: 8192.000 MiB, 4096 tokens, 299457 est)
+ollama-1  | 2026-11-23T23:37:39.286076175Z srv        update:    - prompt 0x39ee1570:     475 tokens, checkpoints:  0,    12.994 MiB
+ollama-1  | 2026-11-23T23:37:39.286076841Z srv        update:    - prompt 0x39edc4c0:     303 tokens, checkpoints:  0,     8.289 MiB
+ollama-1  | 2026-11-23T23:37:39.286077508Z srv        update:    - prompt 0x39ee4980:     466 tokens, checkpoints:  0,    12.748 MiB
+ollama-1  | 2026-11-23T23:37:39.286078133Z srv        update:    - prompt 0x39edbad0:    2068 tokens, checkpoints:  0,    56.571 MiB
+ollama-1  | 2026-11-23T23:37:39.286078841Z srv        update:    - prompt 0x39edade0:     418 tokens, checkpoints:  0,    11.435 MiB
+ollama-1  | 2026-11-23T23:37:39.286079550Z srv  get_availabl: prompt cache update took 2.07 ms
+ollama-1  | 2026-11-23T23:37:39.286098841Z slot launch_slot_: id  0 | task -1 | sampler chain: logits -> ?penalties -> ?dry -> ?top-n-sigma -> top-k -> ?typical -> top-p -> ?min-p -> ?xtc -> temp-ext -> dist
+ollama-1  | 2026-11-23T23:37:39.286106758Z slot launch_slot_: id  0 | task -1 | sampler params:
+ollama-1  | 2026-11-23T23:37:39.286107883Z 	repeat_last_n = 64, repeat_penalty = 1.000, frequency_penalty = 0.000, presence_penalty = 0.000
+ollama-1  | 2026-11-23T23:37:39.286108716Z 	dry_multiplier = 0.000, dry_base = 1.750, dry_allowed_length = 2, dry_penalty_last_n = 64
+ollama-1  | 2026-11-23T23:37:39.286109466Z 	top_k = 40, top_p = 0.900, min_p = 0.000, xtc_probability = 0.000, xtc_threshold = 0.100, typical_p = 1.000, top_n_sigma = -1.000, temp = 0.800
+ollama-1  | 2026-11-23T23:37:39.286110175Z 	mirostat = 0, mirostat_lr = 0.100, mirostat_ent = 5.000, adaptive_target = -1.000, adaptive_decay = 0.900
+ollama-1  | 2026-11-23T23:37:39.286111050Z slot launch_slot_: id  0 | task 153 | processing task, is_child = 0
+ollama-1  | 2026-11-23T23:37:39.286111716Z slot   operator(): id  0 | task 153 | new prompt, n_ctx_slot = 4096, n_keep = 4, task.n_tokens = 243
+ollama-1  | 2026-11-23T23:37:39.286112425Z slot   operator(): id  0 | task 153 | cached n_tokens = 27, memory_seq_rm [27, end)
+ollama-1  | 2026-11-23T23:37:39.286113091Z slot init_sampler: id  0 | task 153 | init sampler, took 0.02 ms, tokens: text = 243, total = 243
+ollama-1  | 2026-11-23T23:37:40.191070133Z [GIN] 2026/11/23 - 23:37:40 | 200 | 909.07ms |      172.18.0.3 | POST     "/api/chat"
+ollama-1  | 2026-11-23T23:37:40.193161633Z slot print_timing: id  0 | task 153 | prompt eval time =     606.37 ms /   216 tokens (    2.81 ms per token,   356.22 tokens per second)
+ollama-1  | 2026-11-23T23:37:40.193287050Z slot print_timing: id  0 | task 153 |        eval time =     298.38 ms /    20 tokens (   15.70 ms per token,    63.68 tokens per second)
+ollama-1  | 2026-11-23T23:37:40.193288217Z slot print_timing: id  0 | task 153 |       total time =     904.74 ms /   236 tokens
+ollama-1  | 2026-11-23T23:37:40.193289008Z slot print_timing: id  0 | task 153 |    graphs reused =        150
+ollama-1  | 2026-11-23T23:37:40.193289633Z slot print_timing: id  0 | task 153 |   graph reallocs =          0    /     0        (same size) / (changed size)
+ollama-1  | 2026-11-23T23:37:40.193290342Z slot      release: id  0 | task 153 | stop processing: n_tokens = 262, truncated = 0
+ollama-1  | 2026-11-23T23:37:40.193290967Z srv  update_slots: all slots are idle
+ollama-1  | 2026-11-23T23:37:53.188449584Z slot get_availabl: id  0 | task -1 |  - skipping, slot is empty
+ollama-1  | 2026-11-23T23:37:53.188458209Z slot get_availabl: id  0 | task -1 | selected slot by LRU, n_tokens = 0, t_last = 2076939905
+ollama-1  | 2026-11-23T23:37:53.188459584Z slot launch_slot_: id  0 | task 4 | processing task, is_child = 0
+ollama-1  | 2026-11-23T23:37:53.188460625Z slot   operator(): id  0 | task 4 | new prompt, n_ctx_slot = 256, n_keep = 0, task.n_tokens = 40
+ollama-1  | 2026-11-23T23:37:53.188461667Z slot   operator(): id  0 | task 4 | cached n_tokens = 0, memory_seq_rm [0, end)
+ollama-1  | 2026-11-23T23:37:53.199831084Z slot      release: id  0 | task 4 | stop processing: n_tokens = 40, truncated = 0
+ollama-1  | 2026-11-23T23:37:53.199858292Z slot prompt_clear: id  0 | task 4 | clearing prompt with 40 tokens
+ollama-1  | 2026-11-23T23:37:53.199860792Z srv  update_slots: all slots are idle
+ollama-1  | 2026-11-23T23:37:53.200382500Z [GIN] 2026/11/23 - 23:37:53 | 200 |  12.96ms |      172.18.0.3 | POST     "/api/embed"
+ollama-1  | 2026-11-23T23:37:55.231615251Z srv  server_strea: conv_id= (empty=1)
+ollama-1  | 2026-11-23T23:37:55.232537251Z slot get_availabl: id  0 | task -1 |  - checking sim = 0.077 (27/349) > 0.100
+ollama-1  | 2026-11-23T23:37:55.232552668Z slot get_availabl: id  0 | task -1 | selected slot by LRU, n_tokens = 262, t_last = 2089458090
+ollama-1  | 2026-11-23T23:37:55.232554960Z srv  get_availabl: updating prompt cache
+ollama-1  | 2026-11-23T23:37:55.232556543Z srv   prompt_save:  - saving prompt with length 262, total state size = 7.168 MiB (draft: 0.000 MiB)
+ollama-1  | 2026-11-23T23:37:55.233181918Z srv          load:  - looking for better prompt, base f_keep = 0.103, f_sim = 0.077
+ollama-1  | 2026-11-23T23:37:55.233192001Z srv          load:    - prompt with length     475, lcp =      27, f_keep = 0.057, f_sim = 0.077
+ollama-1  | 2026-11-23T23:37:55.233194001Z srv          load:    - prompt with length     303, lcp =      27, f_keep = 0.089, f_sim = 0.077
+ollama-1  | 2026-11-23T23:37:55.233195418Z srv          load:    - prompt with length     466, lcp =     316, f_keep = 0.678, f_sim = 0.905
+ollama-1  | 2026-11-23T23:37:55.233196793Z srv          load:    - prompt with length    2068, lcp =       4, f_keep = 0.002, f_sim = 0.011
+ollama-1  | 2026-11-23T23:37:55.233198335Z srv          load:    - prompt with length     418, lcp =      27, f_keep = 0.065, f_sim = 0.077
+ollama-1  | 2026-11-23T23:37:55.233220126Z srv          load:    - prompt with length     262, lcp =      27, f_keep = 0.103, f_sim = 0.077
+ollama-1  | 2026-11-23T23:37:55.233221210Z srv          load:  - found better prompt with f_keep = 0.678, f_sim = 0.905
+ollama-1  | 2026-11-23T23:37:55.234769751Z srv        update:  - cache state: 5 prompts, 96.458 MiB (limits: 8192.000 MiB, 4096 tokens, 299457 est)
+ollama-1  | 2026-11-23T23:37:55.234778710Z srv        update:    - prompt 0x39ee1570:     475 tokens, checkpoints:  0,    12.994 MiB
+ollama-1  | 2026-11-23T23:37:55.234780168Z srv        update:    - prompt 0x39edc4c0:     303 tokens, checkpoints:  0,     8.289 MiB
+ollama-1  | 2026-11-23T23:37:55.234781168Z srv        update:    - prompt 0x39edbad0:    2068 tokens, checkpoints:  0,    56.571 MiB
+ollama-1  | 2026-11-23T23:37:55.234782126Z srv        update:    - prompt 0x39edade0:     418 tokens, checkpoints:  0,    11.435 MiB
+ollama-1  | 2026-11-23T23:37:55.234783126Z srv        update:    - prompt 0x39ed9000:     262 tokens, checkpoints:  0,     7.168 MiB
+ollama-1  | 2026-11-23T23:37:55.234784043Z srv  get_availabl: prompt cache update took 2.20 ms
+ollama-1  | 2026-11-23T23:37:55.234997835Z slot launch_slot_: id  0 | task -1 | sampler chain: logits -> ?penalties -> ?dry -> ?top-n-sigma -> top-k -> ?typical -> top-p -> ?min-p -> ?xtc -> temp-ext -> dist
+ollama-1  | 2026-11-23T23:37:55.235013793Z slot launch_slot_: id  0 | task -1 | sampler params:
+ollama-1  | 2026-11-23T23:37:55.235016001Z 	repeat_last_n = 64, repeat_penalty = 1.000, frequency_penalty = 0.000, presence_penalty = 0.000
+ollama-1  | 2026-11-23T23:37:55.235017585Z 	dry_multiplier = 0.000, dry_base = 1.750, dry_allowed_length = 2, dry_penalty_last_n = 64
+ollama-1  | 2026-11-23T23:37:55.235018918Z 	top_k = 40, top_p = 0.900, min_p = 0.000, xtc_probability = 0.000, xtc_threshold = 0.100, typical_p = 1.000, top_n_sigma = -1.000, temp = 0.800
+ollama-1  | 2026-11-23T23:37:55.235020251Z 	mirostat = 0, mirostat_lr = 0.100, mirostat_ent = 5.000, adaptive_target = -1.000, adaptive_decay = 0.900
+ollama-1  | 2026-11-23T23:37:55.235021501Z slot launch_slot_: id  0 | task 174 | processing task, is_child = 0
+ollama-1  | 2026-11-23T23:37:55.235022626Z slot   operator(): id  0 | task 174 | new prompt, n_ctx_slot = 4096, n_keep = 4, task.n_tokens = 349
+ollama-1  | 2026-11-23T23:37:55.235023835Z slot   operator(): id  0 | task 174 | cached n_tokens = 316, memory_seq_rm [316, end)
+ollama-1  | 2026-11-23T23:37:55.235025001Z slot init_sampler: id  0 | task 174 | init sampler, took 0.04 ms, tokens: text = 349, total = 349
+ollama-1  | 2026-11-23T23:37:55.797706377Z slot print_timing: id  0 | task 174 | prompt eval time =     129.02 ms /    33 tokens (    3.91 ms per token,   255.77 tokens per second)
+ollama-1  | 2026-11-23T23:37:55.797719668Z [GIN] 2026/11/23 - 23:37:55 | 200 | 569.38ms |      172.18.0.3 | POST     "/api/chat"
+ollama-1  | 2026-11-23T23:37:55.797723502Z slot print_timing: id  0 | task 174 |        eval time =     433.32 ms /    33 tokens (   13.54 ms per token,    73.85 tokens per second)
+ollama-1  | 2026-11-23T23:37:55.797731168Z slot print_timing: id  0 | task 174 |       total time =     562.35 ms /    66 tokens
+ollama-1  | 2026-11-23T23:37:55.797732418Z slot print_timing: id  0 | task 174 |    graphs reused =        181
+ollama-1  | 2026-11-23T23:37:55.797733127Z slot print_timing: id  0 | task 174 |   graph reallocs =          0    /     0        (same size) / (changed size)
+ollama-1  | 2026-11-23T23:37:55.797743085Z slot      release: id  0 | task 174 | stop processing: n_tokens = 381, truncated = 0
+ollama-1  | 2026-11-23T23:37:55.797743877Z srv  update_slots: all slots are idle
+ollama-1  | 2026-11-23T23:37:55.802902793Z srv  server_strea: conv_id= (empty=1)
+ollama-1  | 2026-11-23T23:37:55.803771960Z slot get_availabl: id  0 | task -1 |  - checking sim = 0.059 (27/454) > 0.100
+ollama-1  | 2026-11-23T23:37:55.803776627Z slot get_availabl: id  0 | task -1 | selected slot by LRU, n_tokens = 381, t_last = 2105064890
+ollama-1  | 2026-11-23T23:37:55.803777627Z srv  get_availabl: updating prompt cache
+ollama-1  | 2026-11-23T23:37:55.803778418Z srv   prompt_save:  - saving prompt with length 381, total state size = 10.423 MiB (draft: 0.000 MiB)
+ollama-1  | 2026-11-23T23:37:55.804900543Z srv          load:  - looking for better prompt, base f_keep = 0.071, f_sim = 0.059
+ollama-1  | 2026-11-23T23:37:55.804906335Z srv          load:    - prompt with length     475, lcp =     348, f_keep = 0.733, f_sim = 0.767
+ollama-1  | 2026-11-23T23:37:55.804907210Z srv          load:    - prompt with length     303, lcp =      27, f_keep = 0.089, f_sim = 0.059
+ollama-1  | 2026-11-23T23:37:55.804907877Z srv          load:    - prompt with length    2068, lcp =       4, f_keep = 0.002, f_sim = 0.009
+ollama-1  | 2026-11-23T23:37:55.804908668Z srv          load:    - prompt with length     418, lcp =      27, f_keep = 0.065, f_sim = 0.059
+ollama-1  | 2026-11-23T23:37:55.804909293Z srv          load:    - prompt with length     262, lcp =      27, f_keep = 0.103, f_sim = 0.059
+ollama-1  | 2026-11-23T23:37:55.804909960Z srv          load:    - prompt with length     381, lcp =      27, f_keep = 0.071, f_sim = 0.059
+ollama-1  | 2026-11-23T23:37:55.804910668Z srv          load:  - found better prompt with f_keep = 0.733, f_sim = 0.767
+ollama-1  | 2026-11-23T23:37:55.805614918Z srv        update:  - cache state: 5 prompts, 93.886 MiB (limits: 8192.000 MiB, 4096 tokens, 299457 est)
+ollama-1  | 2026-11-23T23:37:55.805631460Z srv        update:    - prompt 0x39edc4c0:     303 tokens, checkpoints:  0,     8.289 MiB
+ollama-1  | 2026-11-23T23:37:55.805632793Z srv        update:    - prompt 0x39edbad0:    2068 tokens, checkpoints:  0,    56.571 MiB
+ollama-1  | 2026-11-23T23:37:55.805633627Z srv        update:    - prompt 0x39edade0:     418 tokens, checkpoints:  0,    11.435 MiB
+ollama-1  | 2026-11-23T23:37:55.805634502Z srv        update:    - prompt 0x39ed9000:     262 tokens, checkpoints:  0,     7.168 MiB
+ollama-1  | 2026-11-23T23:37:55.805635377Z srv        update:    - prompt 0x39ee4980:     381 tokens, checkpoints:  0,    10.423 MiB
+ollama-1  | 2026-11-23T23:37:55.805636127Z srv  get_availabl: prompt cache update took 1.89 ms
+ollama-1  | 2026-11-23T23:37:55.805636877Z slot launch_slot_: id  0 | task -1 | sampler chain: logits -> ?penalties -> ?dry -> ?top-n-sigma -> top-k -> ?typical -> top-p -> ?min-p -> ?xtc -> temp-ext -> greedy
+ollama-1  | 2026-11-23T23:37:55.805638543Z slot launch_slot_: id  0 | task -1 | sampler params:
+ollama-1  | 2026-11-23T23:37:55.805639168Z 	repeat_last_n = 64, repeat_penalty = 1.000, frequency_penalty = 0.000, presence_penalty = 0.000
+ollama-1  | 2026-11-23T23:37:55.805647043Z 	dry_multiplier = 0.000, dry_base = 1.750, dry_allowed_length = 2, dry_penalty_last_n = 64
+ollama-1  | 2026-11-23T23:37:55.805647793Z 	top_k = 40, top_p = 0.900, min_p = 0.000, xtc_probability = 0.000, xtc_threshold = 0.100, typical_p = 1.000, top_n_sigma = -1.000, temp = 0.000
+ollama-1  | 2026-11-23T23:37:55.805648543Z 	mirostat = 0, mirostat_lr = 0.100, mirostat_ent = 5.000, adaptive_target = -1.000, adaptive_decay = 0.900
+ollama-1  | 2026-11-23T23:37:55.805649210Z slot launch_slot_: id  0 | task 208 | processing task, is_child = 0
+ollama-1  | 2026-11-23T23:37:55.805649835Z slot   operator(): id  0 | task 208 | new prompt, n_ctx_slot = 4096, n_keep = 4, task.n_tokens = 454
+ollama-1  | 2026-11-23T23:37:55.805650502Z slot   operator(): id  0 | task 208 | cached n_tokens = 348, memory_seq_rm [348, end)
+ollama-1  | 2026-11-23T23:37:55.805651127Z slot init_sampler: id  0 | task 208 | init sampler, took 0.03 ms, tokens: text = 454, total = 454
+ollama-1  | 2026-11-23T23:37:56.567755169Z [GIN] 2026/11/23 - 23:37:56 | 200 |  765.9ms |      172.18.0.3 | POST     "/api/chat"
+ollama-1  | 2026-11-23T23:37:56.567779835Z slot print_timing: id  0 | task 208 | prompt eval time =     438.18 ms /   106 tokens (    4.13 ms per token,   241.91 tokens per second)
+ollama-1  | 2026-11-23T23:37:56.567781294Z slot print_timing: id  0 | task 208 |        eval time =     322.69 ms /    20 tokens (   16.98 ms per token,    58.88 tokens per second)
+ollama-1  | 2026-11-23T23:37:56.567782294Z slot print_timing: id  0 | task 208 |       total time =     760.87 ms /   126 tokens
+ollama-1  | 2026-11-23T23:37:56.567783210Z slot print_timing: id  0 | task 208 |    graphs reused =        199
+ollama-1  | 2026-11-23T23:37:56.567783877Z slot print_timing: id  0 | task 208 |   graph reallocs =          0    /     0        (same size) / (changed size)
+ollama-1  | 2026-11-23T23:37:56.567784585Z slot      release: id  0 | task 208 | stop processing: n_tokens = 473, truncated = 0
+ollama-1  | 2026-11-23T23:37:56.567785460Z srv  update_slots: all slots are idle
+ollama-1  | 2026-11-23T23:39:14.159646094Z [GIN] 2026/11/23 - 23:39:14 | 200 | 30.167µs |      172.18.0.3 | GET      "/api/version"
+ollama-1  | 2026-11-23T23:39:14.707419636Z [GIN] 2026/11/23 - 23:39:14 | 200 | 28.334µs |      172.18.0.2 | GET      "/api/version"
+webui-1   | 2026-11-23T23:37:25.815758793Z 2026-11-23 23:37:25.815 | INFO     | uvicorn.protocols.http.httptools_impl:send:482 - 172.19.0.1:0 - "GET /_app/immutable/chunks/DxqrWayw.js HTTP/1.1" 200
+webui-1   | 2026-11-23T23:37:25.815924918Z 2026-11-23 23:37:25.815 | INFO     | uvicorn.protocols.http.httptools_impl:send:482 - 172.19.0.1:0 - "GET /_app/immutable/chunks/BJ8t2XEn.js HTTP/1.1" 200
+webui-1   | 2026-11-23T23:37:25.818053002Z 2026-11-23 23:37:25.817 | INFO     | uvicorn.protocols.http.httptools_impl:send:482 - 172.19.0.1:0 - "GET /_app/immutable/chunks/sL1UFO9q.js HTTP/1.1" 200
+webui-1   | 2026-11-23T23:37:25.818304877Z 2026-11-23 23:37:25.818 | INFO     | uvicorn.protocols.http.httptools_impl:send:482 - 172.19.0.1:0 - "GET /_app/immutable/chunks/B4gOgP0C.js HTTP/1.1" 200
+webui-1   | 2026-11-23T23:37:25.820249835Z 2026-11-23 23:37:25.820 | INFO     | uvicorn.protocols.http.httptools_impl:send:482 - 172.19.0.1:0 - "GET /_app/immutable/nodes/0.CAO82wNH.js HTTP/1.1" 200
+webui-1   | 2026-11-23T23:37:25.821975793Z 2026-11-23 23:37:25.821 | INFO     | uvicorn.protocols.http.httptools_impl:send:482 - 172.19.0.1:0 - "GET /_app/immutable/chunks/69_IOA4Y.js HTTP/1.1" 200
+webui-1   | 2026-11-23T23:37:25.822223793Z 2026-11-23 23:37:25.822 | INFO     | uvicorn.protocols.http.httptools_impl:send:482 - 172.19.0.1:0 - "GET /_app/immutable/chunks/Qb-ryWqj.js HTTP/1.1" 200
+webui-1   | 2026-11-23T23:37:25.823525710Z 2026-11-23 23:37:25.823 | INFO     | uvicorn.protocols.http.httptools_impl:send:482 - 172.19.0.1:0 - "GET /_app/immutable/chunks/Bd477NUg.js HTTP/1.1" 200
+webui-1   | 2026-11-23T23:37:25.826278460Z 2026-11-23 23:37:25.826 | INFO     | uvicorn.protocols.http.httptools_impl:send:482 - 172.19.0.1:0 - "GET /_app/immutable/chunks/BEqU5mxu.js HTTP/1.1" 200
+webui-1   | 2026-11-23T23:37:25.826470502Z 2026-11-23 23:37:25.826 | INFO     | uvicorn.protocols.http.httptools_impl:send:482 - 172.19.0.1:0 - "GET /_app/immutable/chunks/BtQlYNB3.js HTTP/1.1" 200
+webui-1   | 2026-11-23T23:37:25.830290460Z 2026-11-23 23:37:25.830 | INFO     | uvicorn.protocols.http.httptools_impl:send:482 - 172.19.0.1:0 - "GET /_app/immutable/assets/Messages.BHOjnVoc.css HTTP/1.1" 200
+webui-1   | 2026-11-23T23:37:25.831057960Z 2026-11-23 23:37:25.830 | INFO     | uvicorn.protocols.http.httptools_impl:send:482 - 172.19.0.1:0 - "GET /_app/immutable/chunks/CiYg1CIO.js HTTP/1.1" 200
+webui-1   | 2026-11-23T23:37:25.831458585Z 2026-11-23 23:37:25.831 | INFO     | uvicorn.protocols.http.httptools_impl:send:482 - 172.19.0.1:0 - "GET /_app/immutable/assets/VoiceAvatar.Ds5-pvO3.css HTTP/1.1" 200
+webui-1   | 2026-11-23T23:37:25.833773543Z 2026-11-23 23:37:25.833 | INFO     | uvicorn.protocols.http.httptools_impl:send:482 - 172.19.0.1:0 - "GET /_app/immutable/assets/VoiceRecording.D0CG4PmL.css HTTP/1.1" 200
+webui-1   | 2026-11-23T23:37:25.833943418Z 2026-11-23 23:37:25.833 | INFO     | uvicorn.protocols.http.httptools_impl:send:482 - 172.19.0.1:0 - "GET /_app/immutable/chunks/A1BjPtWD.js HTTP/1.1" 200
+webui-1   | 2026-11-23T23:37:25.834333502Z 2026-11-23 23:37:25.834 | INFO     | uvicorn.protocols.http.httptools_impl:send:482 - 172.19.0.1:0 - "GET /_app/immutable/assets/Skeleton.Dt0_pHtx.css HTTP/1.1" 200
+webui-1   | 2026-11-23T23:37:25.839062543Z 2026-11-23 23:37:25.838 | INFO     | uvicorn.protocols.http.httptools_impl:send:482 - 172.19.0.1:0 - "GET /_app/immutable/assets/Message.DYkxniNa.css HTTP/1.1" 200
+webui-1   | 2026-11-23T23:37:25.839825043Z 2026-11-23 23:37:25.839 | INFO     | uvicorn.protocols.http.httptools_impl:send:482 - 172.19.0.1:0 - "GET /_app/immutable/assets/ManifestModal.tn0RQdqM.css HTTP/1.1" 200
+webui-1   | 2026-11-23T23:37:25.840465335Z 2026-11-23 23:37:25.840 | INFO     | uvicorn.protocols.http.httptools_impl:send:482 - 172.19.0.1:0 - "GET /_app/immutable/assets/CommentFilePreview.CpxMnRzx.css HTTP/1.1" 200
+webui-1   | 2026-11-23T23:37:25.840534085Z 2026-11-23 23:37:25.840 | INFO     | uvicorn.protocols.http.httptools_impl:send:482 - 172.19.0.1:0 - "GET /_app/immutable/assets/ResizableSidePanel.BBo9ZRVf.css HTTP/1.1" 200
+webui-1   | 2026-11-23T23:37:25.840672668Z 2026-11-23 23:37:25.840 | INFO     | uvicorn.protocols.http.httptools_impl:send:482 - 172.19.0.1:0 - "GET /_app/immutable/assets/Selector.6ynulu9Y.css HTTP/1.1" 200
+webui-1   | 2026-11-23T23:37:25.846322793Z 2026-11-23 23:37:25.846 | INFO     | uvicorn.protocols.http.httptools_impl:send:482 - 172.19.0.1:0 - "GET /_app/immutable/assets/ModelEditor.BuYg1L8a.css HTTP/1.1" 200
+webui-1   | 2026-11-23T23:37:25.847238335Z 2026-11-23 23:37:25.847 | INFO     | uvicorn.protocols.http.httptools_impl:send:482 - 172.19.0.1:0 - "GET /_app/immutable/assets/Workspace.ie9zV4Tr.css HTTP/1.1" 200
+webui-1   | 2026-11-23T23:37:25.847408460Z 2026-11-23 23:37:25.847 | INFO     | uvicorn.protocols.http.httptools_impl:send:482 - 172.19.0.1:0 - "GET /_app/immutable/assets/2.LheGevX_.css HTTP/1.1" 200
+webui-1   | 2026-11-23T23:37:25.847802585Z 2026-11-23 23:37:25.847 | INFO     | uvicorn.protocols.http.httptools_impl:send:482 - 172.19.0.1:0 - "GET /_app/immutable/assets/SearchModal.B0XyBluH.css HTTP/1.1" 200
+webui-1   | 2026-11-23T23:37:25.850697960Z 2026-11-23 23:37:25.850 | INFO     | uvicorn.protocols.http.httptools_impl:send:482 - 172.19.0.1:0 - "GET /_app/immutable/assets/DiffEditorModal.j7EU-w_y.css HTTP/1.1" 200
+webui-1   | 2026-11-23T23:37:25.851818252Z 2026-11-23 23:37:25.851 | INFO     | uvicorn.protocols.http.httptools_impl:send:482 - 172.19.0.1:0 - "GET /_app/immutable/assets/Chat.CrkdNbBL.css HTTP/1.1" 200
+webui-1   | 2026-11-23T23:37:25.853957210Z 2026-11-23 23:37:25.853 | INFO     | uvicorn.protocols.http.httptools_impl:send:482 - 172.19.0.1:0 - "GET /_app/immutable/chunks/DpQYrpl6.js HTTP/1.1" 200
+webui-1   | 2026-11-23T23:37:25.854898168Z 2026-11-23 23:37:25.854 | INFO     | uvicorn.protocols.http.httptools_impl:send:482 - 172.19.0.1:0 - "GET /_app/immutable/chunks/CdEA5IGF.js HTTP/1.1" 200
+webui-1   | 2026-11-23T23:37:25.855019043Z 2026-11-23 23:37:25.854 | INFO     | uvicorn.protocols.http.httptools_impl:send:482 - 172.19.0.1:0 - "GET /_app/immutable/chunks/DTppTR4X.js HTTP/1.1" 200
+webui-1   | 2026-11-23T23:37:25.855403335Z 2026-11-23 23:37:25.855 | INFO     | uvicorn.protocols.http.httptools_impl:send:482 - 172.19.0.1:0 - "GET /_app/immutable/chunks/C0PViZfx.js HTTP/1.1" 200
+webui-1   | 2026-11-23T23:37:25.857085793Z 2026-11-23 23:37:25.856 | INFO     | uvicorn.protocols.http.httptools_impl:send:482 - 172.19.0.1:0 - "GET /_app/immutable/chunks/LDvh6mW-.js HTTP/1.1" 200
+webui-1   | 2026-11-23T23:37:25.858953710Z 2026-11-23 23:37:25.858 | INFO     | uvicorn.protocols.http.httptools_impl:send:482 - 172.19.0.1:0 - "GET /_app/immutable/chunks/NagFHB_G.js HTTP/1.1" 200
+webui-1   | 2026-11-23T23:37:25.861602877Z 2026-11-23 23:37:25.861 | INFO     | uvicorn.protocols.http.httptools_impl:send:482 - 172.19.0.1:0 - "GET /_app/immutable/chunks/Bhn6gsld.js HTTP/1.1" 200
+webui-1   | 2026-11-23T23:37:25.861803210Z 2026-11-23 23:37:25.861 | INFO     | uvicorn.protocols.http.httptools_impl:send:482 - 172.19.0.1:0 - "GET /_app/immutable/chunks/4KUeLKj1.js HTTP/1.1" 200
+webui-1   | 2026-11-23T23:37:25.862501502Z 2026-11-23 23:37:25.862 | INFO     | uvicorn.protocols.http.httptools_impl:send:482 - 172.19.0.1:0 - "GET /_app/immutable/chunks/CjU8m_MG.js HTTP/1.1" 200
+webui-1   | 2026-11-23T23:37:25.862719335Z 2026-11-23 23:37:25.862 | INFO     | uvicorn.protocols.http.httptools_impl:send:482 - 172.19.0.1:0 - "GET /_app/immutable/chunks/DqJZGdnw.js HTTP/1.1" 200
+webui-1   | 2026-11-23T23:37:25.864804543Z 2026-11-23 23:37:25.864 | INFO     | uvicorn.protocols.http.httptools_impl:send:482 - 172.19.0.1:0 - "GET /_app/immutable/chunks/CO7oxPpT.js HTTP/1.1" 200
+webui-1   | 2026-11-23T23:37:25.865243043Z 2026-11-23 23:37:25.865 | INFO     | uvicorn.protocols.http.httptools_impl:send:482 - 172.19.0.1:0 - "GET /_app/immutable/chunks/C_MbXwCF.js HTTP/1.1" 200
+webui-1   | 2026-11-23T23:37:25.868727710Z 2026-11-23 23:37:25.868 | INFO     | uvicorn.protocols.http.httptools_impl:send:482 - 172.19.0.1:0 - "GET /_app/immutable/chunks/DK40c3w2.js HTTP/1.1" 200
+webui-1   | 2026-11-23T23:37:25.869044960Z 2026-11-23 23:37:25.868 | INFO     | uvicorn.protocols.http.httptools_impl:send:482 - 172.19.0.1:0 - "GET /_app/immutable/chunks/WFV07iAt.js HTTP/1.1" 200
+webui-1   | 2026-11-23T23:37:25.875103835Z 2026-11-23 23:37:25.875 | INFO     | uvicorn.protocols.http.httptools_impl:send:482 - 172.19.0.1:0 - "GET /_app/immutable/chunks/B2a2cvBb.js HTTP/1.1" 200
+webui-1   | 2026-11-23T23:37:25.875187377Z 2026-11-23 23:37:25.875 | INFO     | uvicorn.protocols.http.httptools_impl:send:482 - 172.19.0.1:0 - "GET /_app/immutable/chunks/C09Eugg1.js HTTP/1.1" 200
+webui-1   | 2026-11-23T23:37:25.877996918Z 2026-11-23 23:37:25.877 | INFO     | uvicorn.protocols.http.httptools_impl:send:482 - 172.19.0.1:0 - "GET /_app/immutable/chunks/DQ0b0gWE.js HTTP/1.1" 200
+webui-1   | 2026-11-23T23:37:25.881430710Z 2026-11-23 23:37:25.881 | INFO     | uvicorn.protocols.http.httptools_impl:send:482 - 172.19.0.1:0 - "GET /_app/immutable/chunks/CDFp6Y-7.js HTTP/1.1" 200
+webui-1   | 2026-11-23T23:37:25.882330127Z 2026-11-23 23:37:25.882 | INFO     | uvicorn.protocols.http.httptools_impl:send:482 - 172.19.0.1:0 - "GET /_app/immutable/chunks/BQMNKXi2.js HTTP/1.1" 200
+webui-1   | 2026-11-23T23:37:25.883327085Z 2026-11-23 23:37:25.883 | INFO     | uvicorn.protocols.http.httptools_impl:send:482 - 172.19.0.1:0 - "GET /_app/immutable/chunks/CAjDUBYo.js HTTP/1.1" 200
+webui-1   | 2026-11-23T23:37:25.883386377Z 2026-11-23 23:37:25.883 | INFO     | uvicorn.protocols.http.httptools_impl:send:482 - 172.19.0.1:0 - "GET /_app/immutable/chunks/CbtsD9oz.js HTTP/1.1" 200
+webui-1   | 2026-11-23T23:37:25.886591377Z 2026-11-23 23:37:25.886 | INFO     | uvicorn.protocols.http.httptools_impl:send:482 - 172.19.0.1:0 - "GET /_app/immutable/chunks/wCZlPA5v.js HTTP/1.1" 200
+webui-1   | 2026-11-23T23:37:25.889761585Z 2026-11-23 23:37:25.889 | INFO     | uvicorn.protocols.http.httptools_impl:send:482 - 172.19.0.1:0 - "GET /_app/immutable/chunks/A8egRgcI.js HTTP/1.1" 200
+webui-1   | 2026-11-23T23:37:25.890280668Z 2026-11-23 23:37:25.890 | INFO     | uvicorn.protocols.http.httptools_impl:send:482 - 172.19.0.1:0 - "GET /_app/immutable/chunks/_bxVDLGU.js HTTP/1.1" 200
+webui-1   | 2026-11-23T23:37:25.890655877Z 2026-11-23 23:37:25.890 | INFO     | uvicorn.protocols.http.httptools_impl:send:482 - 172.19.0.1:0 - "GET /_app/immutable/chunks/Cl7et4So.js HTTP/1.1" 200
+webui-1   | 2026-11-23T23:37:25.893287585Z 2026-11-23 23:37:25.893 | INFO     | uvicorn.protocols.http.httptools_impl:send:482 - 172.19.0.1:0 - "GET /_app/immutable/chunks/Cy87pY1d.js HTTP/1.1" 200
+webui-1   | 2026-11-23T23:37:25.895472918Z 2026-11-23 23:37:25.895 | INFO     | uvicorn.protocols.http.httptools_impl:send:482 - 172.19.0.1:0 - "GET /_app/immutable/chunks/BE7qcEK3.js HTTP/1.1" 200
+webui-1   | 2026-11-23T23:37:25.896101585Z 2026-11-23 23:37:25.895 | INFO     | uvicorn.protocols.http.httptools_impl:send:482 - 172.19.0.1:0 - "GET /_app/immutable/chunks/EGVGtOXX.js HTTP/1.1" 200
+webui-1   | 2026-11-23T23:37:25.897109252Z 2026-11-23 23:37:25.897 | INFO     | uvicorn.protocols.http.httptools_impl:send:482 - 172.19.0.1:0 - "GET /_app/immutable/chunks/DN6kh-xv.js HTTP/1.1" 200
+webui-1   | 2026-11-23T23:37:25.901416418Z 2026-11-23 23:37:25.901 | INFO     | uvicorn.protocols.http.httptools_impl:send:482 - 172.19.0.1:0 - "GET /_app/immutable/chunks/D5MLIqKC.js HTTP/1.1" 200
+webui-1   | 2026-11-23T23:37:25.901634710Z 2026-11-23 23:37:25.901 | INFO     | uvicorn.protocols.http.httptools_impl:send:482 - 172.19.0.1:0 - "GET /_app/immutable/chunks/UWE9UQB0.js HTTP/1.1" 200
+webui-1   | 2026-11-23T23:37:25.901829710Z 2026-11-23 23:37:25.901 | INFO     | uvicorn.protocols.http.httptools_impl:send:482 - 172.19.0.1:0 - "GET /_app/immutable/chunks/CJvOpZh6.js HTTP/1.1" 200
+webui-1   | 2026-11-23T23:37:25.902652377Z 2026-11-23 23:37:25.902 | INFO     | uvicorn.protocols.http.httptools_impl:send:482 - 172.19.0.1:0 - "GET /_app/immutable/chunks/CVCMRhWu.js HTTP/1.1" 200
+webui-1   | 2026-11-23T23:37:25.902973293Z 2026-11-23 23:37:25.902 | INFO     | uvicorn.protocols.http.httptools_impl:send:482 - 172.19.0.1:0 - "GET /_app/immutable/chunks/BfD0YwRq.js HTTP/1.1" 200
+webui-1   | 2026-11-23T23:37:25.908956502Z 2026-11-23 23:37:25.908 | INFO     | uvicorn.protocols.http.httptools_impl:send:482 - 172.19.0.1:0 - "GET /_app/immutable/chunks/7shBQruQ.js HTTP/1.1" 200
+webui-1   | 2026-11-23T23:37:25.909119918Z 2026-11-23 23:37:25.909 | INFO     | uvicorn.protocols.http.httptools_impl:send:482 - 172.19.0.1:0 - "GET /_app/immutable/chunks/4VM7fKiV.js HTTP/1.1" 200
+webui-1   | 2026-11-23T23:37:25.909214960Z 2026-11-23 23:37:25.909 | INFO     | uvicorn.protocols.http.httptools_impl:send:482 - 172.19.0.1:0 - "GET /_app/immutable/chunks/CcWoPrFj.js HTTP/1.1" 200
+webui-1   | 2026-11-23T23:37:25.909525252Z 2026-11-23 23:37:25.909 | INFO     | uvicorn.protocols.http.httptools_impl:send:482 - 172.19.0.1:0 - "GET /_app/immutable/chunks/aoRjXSVC.js HTTP/1.1" 200
+webui-1   | 2026-11-23T23:37:25.912636127Z 2026-11-23 23:37:25.912 | INFO     | uvicorn.protocols.http.httptools_impl:send:482 - 172.19.0.1:0 - "GET /_app/immutable/chunks/CC48JTaz.js HTTP/1.1" 200
+webui-1   | 2026-11-23T23:37:25.915139418Z 2026-11-23 23:37:25.915 | INFO     | uvicorn.protocols.http.httptools_impl:send:482 - 172.19.0.1:0 - "GET /_app/immutable/chunks/CSnyZ51I.js HTTP/1.1" 200
+webui-1   | 2026-11-23T23:37:25.916021085Z 2026-11-23 23:37:25.915 | INFO     | uvicorn.protocols.http.httptools_impl:send:482 - 172.19.0.1:0 - "GET /_app/immutable/chunks/BMIUonE6.js HTTP/1.1" 200
+webui-1   | 2026-11-23T23:37:25.917079502Z 2026-11-23 23:37:25.916 | INFO     | uvicorn.protocols.http.httptools_impl:send:482 - 172.19.0.1:0 - "GET /_app/immutable/chunks/BUwQsOVC.js HTTP/1.1" 200
+webui-1   | 2026-11-23T23:37:25.917203002Z 2026-11-23 23:37:25.917 | INFO     | uvicorn.protocols.http.httptools_impl:send:482 - 172.19.0.1:0 - "GET /_app/immutable/chunks/DbfHhVRp.js HTTP/1.1" 200
+webui-1   | 2026-11-23T23:37:25.920667085Z 2026-11-23 23:37:25.920 | INFO     | uvicorn.protocols.http.httptools_impl:send:482 - 172.19.0.1:0 - "GET /_app/immutable/chunks/Dg-jOpPu.js HTTP/1.1" 200
+webui-1   | 2026-11-23T23:37:25.923579960Z 2026-11-23 23:37:25.923 | INFO     | uvicorn.protocols.http.httptools_impl:send:482 - 172.19.0.1:0 - "GET /_app/immutable/chunks/SYmKJpIj.js HTTP/1.1" 200
+webui-1   | 2026-11-23T23:37:25.924447585Z 2026-11-23 23:37:25.924 | INFO     | uvicorn.protocols.http.httptools_impl:send:482 - 172.19.0.1:0 - "GET /_app/immutable/chunks/BiTzlieN.js HTTP/1.1" 200
+webui-1   | 2026-11-23T23:37:25.925012460Z 2026-11-23 23:37:25.924 | INFO     | uvicorn.protocols.http.httptools_impl:send:482 - 172.19.0.1:0 - "GET /_app/immutable/chunks/C9KJIIFc.js HTTP/1.1" 200
+webui-1   | 2026-11-23T23:37:25.927373377Z 2026-11-23 23:37:25.927 | INFO     | uvicorn.protocols.http.httptools_impl:send:482 - 172.19.0.1:0 - "GET /_app/immutable/chunks/DW_Qtc5L.js HTTP/1.1" 200
+webui-1   | 2026-11-23T23:37:25.929353918Z 2026-11-23 23:37:25.929 | INFO     | uvicorn.protocols.http.httptools_impl:send:482 - 172.19.0.1:0 - "GET /_app/immutable/chunks/qpqWdH-l.js HTTP/1.1" 200
+webui-1   | 2026-11-23T23:37:25.931766085Z 2026-11-23 23:37:25.931 | INFO     | uvicorn.protocols.http.httptools_impl:send:482 - 172.19.0.1:0 - "GET /_app/immutable/chunks/QjJsDpFa.js HTTP/1.1" 200
+webui-1   | 2026-11-23T23:37:25.931895585Z 2026-11-23 23:37:25.931 | INFO     | uvicorn.protocols.http.httptools_impl:send:482 - 172.19.0.1:0 - "GET /_app/immutable/chunks/BT28bLwl.js HTTP/1.1" 200
+webui-1   | 2026-11-23T23:37:25.932926585Z 2026-11-23 23:37:25.932 | INFO     | uvicorn.protocols.http.httptools_impl:send:482 - 172.19.0.1:0 - "GET /_app/immutable/chunks/B2185GOa.js HTTP/1.1" 200
+webui-1   | 2026-11-23T23:37:25.936764127Z 2026-11-23 23:37:25.936 | INFO     | uvicorn.protocols.http.httptools_impl:send:482 - 172.19.0.1:0 - "GET /_app/immutable/chunks/B0xt6c5q.js HTTP/1.1" 200
+webui-1   | 2026-11-23T23:37:25.937310960Z 2026-11-23 23:37:25.937 | INFO     | uvicorn.protocols.http.httptools_impl:send:482 - 172.19.0.1:0 - "GET /_app/immutable/chunks/DfaY0hww.js HTTP/1.1" 200
+webui-1   | 2026-11-23T23:37:25.937980460Z 2026-11-23 23:37:25.937 | INFO     | uvicorn.protocols.http.httptools_impl:send:482 - 172.19.0.1:0 - "GET /_app/immutable/chunks/B9m_1EOU.js HTTP/1.1" 200
+webui-1   | 2026-11-23T23:37:25.940150877Z 2026-11-23 23:37:25.940 | INFO     | uvicorn.protocols.http.httptools_impl:send:482 - 172.19.0.1:0 - "GET /_app/immutable/chunks/8kjLddnX.js HTTP/1.1" 200
+webui-1   | 2026-11-23T23:37:25.941789543Z 2026-11-23 23:37:25.941 | INFO     | uvicorn.protocols.http.httptools_impl:send:482 - 172.19.0.1:0 - "GET /_app/immutable/chunks/3ouhg1_2.js HTTP/1.1" 200
+webui-1   | 2026-11-23T23:37:25.942091710Z 2026-11-23 23:37:25.942 | INFO     | uvicorn.protocols.http.httptools_impl:send:482 - 172.19.0.1:0 - "GET /_app/immutable/chunks/CIklIJ_N.js HTTP/1.1" 200
+webui-1   | 2026-11-23T23:37:25.942622002Z 2026-11-23 23:37:25.942 | INFO     | uvicorn.protocols.http.httptools_impl:send:482 - 172.19.0.1:0 - "GET /static/splash.png HTTP/1.1" 200
+webui-1   | 2026-11-23T23:37:25.944300960Z 2026-11-23 23:37:25.944 | INFO     | uvicorn.protocols.http.httptools_impl:send:482 - 172.19.0.1:0 - "GET /_app/immutable/chunks/C8dH6MGE.js HTTP/1.1" 200
+webui-1   | 2026-11-23T23:37:25.946191168Z 2026-11-23 23:37:25.946 | INFO     | uvicorn.protocols.http.httptools_impl:send:482 - 172.19.0.1:0 - "GET /_app/immutable/chunks/CuB7c_td.js HTTP/1.1" 200
+webui-1   | 2026-11-23T23:37:25.948379835Z 2026-11-23 23:37:25.948 | INFO     | uvicorn.protocols.http.httptools_impl:send:482 - 172.19.0.1:0 - "GET /_app/immutable/nodes/1.k_xojsJn.js HTTP/1.1" 200
+webui-1   | 2026-11-23T23:37:25.949169668Z 2026-11-23 23:37:25.949 | INFO     | uvicorn.protocols.http.httptools_impl:send:482 - 172.19.0.1:0 - "GET /_app/immutable/nodes/2.Dki0jDRo.js HTTP/1.1" 200
+webui-1   | 2026-11-23T23:37:25.949484793Z 2026-11-23 23:37:25.949 | INFO     | uvicorn.protocols.http.httptools_impl:send:482 - 172.19.0.1:0 - "GET /_app/immutable/chunks/BuXLUhag.js HTTP/1.1" 200
+webui-1   | 2026-11-23T23:37:25.953340210Z 2026-11-23 23:37:25.953 | INFO     | uvicorn.protocols.http.httptools_impl:send:482 - 172.19.0.1:0 - "GET /_app/immutable/chunks/CUiv7ZWL.js HTTP/1.1" 200
+webui-1   | 2026-11-23T23:37:25.953648877Z 2026-11-23 23:37:25.953 | INFO     | uvicorn.protocols.http.httptools_impl:send:482 - 172.19.0.1:0 - "GET /_app/immutable/chunks/BDj32c6y.js HTTP/1.1" 200
+webui-1   | 2026-11-23T23:37:25.954219960Z 2026-11-23 23:37:25.954 | INFO     | uvicorn.protocols.http.httptools_impl:send:482 - 172.19.0.1:0 - "GET /_app/immutable/chunks/BnHPywC-.js HTTP/1.1" 200
+webui-1   | 2026-11-23T23:37:25.957277585Z 2026-11-23 23:37:25.957 | INFO     | uvicorn.protocols.http.httptools_impl:send:482 - 172.19.0.1:0 - "GET /_app/immutable/chunks/Bqt6LbF5.js HTTP/1.1" 200
+webui-1   | 2026-11-23T23:37:25.960336043Z 2026-11-23 23:37:25.960 | INFO     | uvicorn.protocols.http.httptools_impl:send:482 - 172.19.0.1:0 - "GET /_app/immutable/chunks/HKWRIVEs.js HTTP/1.1" 200
+webui-1   | 2026-11-23T23:37:25.961112918Z 2026-11-23 23:37:25.961 | INFO     | uvicorn.protocols.http.httptools_impl:send:482 - 172.19.0.1:0 - "GET /_app/immutable/chunks/DWDq7uSj.js HTTP/1.1" 200
+webui-1   | 2026-11-23T23:37:25.965083793Z 2026-11-23 23:37:25.964 | INFO     | uvicorn.protocols.http.httptools_impl:send:482 - 172.19.0.1:0 - "GET /_app/immutable/chunks/Ccdli2Fg.js HTTP/1.1" 200
+webui-1   | 2026-11-23T23:37:25.966357127Z 2026-11-23 23:37:25.966 | INFO     | uvicorn.protocols.http.httptools_impl:send:482 - 172.19.0.1:0 - "GET /_app/immutable/chunks/mF98-3LU.js HTTP/1.1" 200
+webui-1   | 2026-11-23T23:37:25.968223918Z 2026-11-23 23:37:25.968 | INFO     | uvicorn.protocols.http.httptools_impl:send:482 - 172.19.0.1:0 - "GET /_app/immutable/chunks/BGPHjT8s.js HTTP/1.1" 200
+webui-1   | 2026-11-23T23:37:25.968289335Z 2026-11-23 23:37:25.968 | INFO     | uvicorn.protocols.http.httptools_impl:send:482 - 172.19.0.1:0 - "GET /_app/immutable/chunks/AZSCJQb3.js HTTP/1.1" 200
+webui-1   | 2026-11-23T23:37:25.972458793Z 2026-11-23 23:37:25.972 | INFO     | uvicorn.protocols.http.httptools_impl:send:482 - 172.19.0.1:0 - "GET /_app/immutable/chunks/BFEKfgtz.js HTTP/1.1" 200
+webui-1   | 2026-11-23T23:37:25.973173168Z 2026-11-23 23:37:25.973 | INFO     | uvicorn.protocols.http.httptools_impl:send:482 - 172.19.0.1:0 - "GET /_app/immutable/chunks/BHFXdnnj.js HTTP/1.1" 200
+webui-1   | 2026-11-23T23:37:25.976010752Z 2026-11-23 23:37:25.975 | INFO     | uvicorn.protocols.http.httptools_impl:send:482 - 172.19.0.1:0 - "GET /_app/immutable/chunks/BQQQdURU.js HTTP/1.1" 200
+webui-1   | 2026-11-23T23:37:25.980341960Z 2026-11-23 23:37:25.980 | INFO     | uvicorn.protocols.http.httptools_impl:send:482 - 172.19.0.1:0 - "GET /_app/immutable/chunks/BT5gJOWn.js HTTP/1.1" 200
+webui-1   | 2026-11-23T23:37:25.980470752Z 2026-11-23 23:37:25.980 | INFO     | uvicorn.protocols.http.httptools_impl:send:482 - 172.19.0.1:0 - "GET /_app/immutable/chunks/pIoGz1e3.js HTTP/1.1" 200
+webui-1   | 2026-11-23T23:37:25.980591585Z 2026-11-23 23:37:25.980 | INFO     | uvicorn.protocols.http.httptools_impl:send:482 - 172.19.0.1:0 - "GET /_app/immutable/chunks/qDmbf4oT.js HTTP/1.1" 200
+webui-1   | 2026-11-23T23:37:25.983170793Z 2026-11-23 23:37:25.983 | INFO     | uvicorn.protocols.http.httptools_impl:send:482 - 172.19.0.1:0 - "GET /_app/immutable/chunks/BfjWznU4.js HTTP/1.1" 200
+webui-1   | 2026-11-23T23:37:25.986537752Z 2026-11-23 23:37:25.986 | INFO     | uvicorn.protocols.http.httptools_impl:send:482 - 172.19.0.1:0 - "GET /_app/immutable/chunks/DvqB018M.js HTTP/1.1" 200
+webui-1   | 2026-11-23T23:37:25.987661377Z 2026-11-23 23:37:25.987 | INFO     | uvicorn.protocols.http.httptools_impl:send:482 - 172.19.0.1:0 - "GET /_app/immutable/chunks/Db8mPEka.js HTTP/1.1" 200
+webui-1   | 2026-11-23T23:37:25.991962252Z 2026-11-23 23:37:25.991 | INFO     | uvicorn.protocols.http.httptools_impl:send:482 - 172.19.0.1:0 - "GET /_app/immutable/chunks/CMS7clTB.js HTTP/1.1" 200
+webui-1   | 2026-11-23T23:37:25.994005668Z 2026-11-23 23:37:25.993 | INFO     | uvicorn.protocols.http.httptools_impl:send:482 - 172.19.0.1:0 - "GET /_app/immutable/chunks/BTw6luB2.js HTTP/1.1" 200
+webui-1   | 2026-11-23T23:37:25.996606835Z 2026-11-23 23:37:25.996 | INFO     | uvicorn.protocols.http.httptools_impl:send:482 - 172.19.0.1:0 - "GET /_app/immutable/chunks/Ch1WBRTM.js HTTP/1.1" 200
+webui-1   | 2026-11-23T23:37:25.998065418Z 2026-11-23 23:37:25.997 | INFO     | uvicorn.protocols.http.httptools_impl:send:482 - 172.19.0.1:0 - "GET /_app/immutable/chunks/BTcRjs5R.js HTTP/1.1" 200
+webui-1   | 2026-11-23T23:37:26.000472377Z 2026-11-23 23:37:26.000 | INFO     | uvicorn.protocols.http.httptools_impl:send:482 - 172.19.0.1:0 - "GET /_app/immutable/chunks/DvADgRSV.js HTTP/1.1" 200
+webui-1   | 2026-11-23T23:37:26.002791960Z 2026-11-23 23:37:26.002 | INFO     | uvicorn.protocols.http.httptools_impl:send:482 - 172.19.0.1:0 - "GET /_app/immutable/chunks/DKD-owpI.js HTTP/1.1" 200
+webui-1   | 2026-11-23T23:37:26.002949793Z 2026-11-23 23:37:26.002 | INFO     | uvicorn.protocols.http.httptools_impl:send:482 - 172.19.0.1:0 - "GET /_app/immutable/chunks/DKUjKzFj.js HTTP/1.1" 200
+webui-1   | 2026-11-23T23:37:26.003195793Z 2026-11-23 23:37:26.003 | INFO     | uvicorn.protocols.http.httptools_impl:send:482 - 172.19.0.1:0 - "GET /_app/immutable/chunks/BU4QICME.js HTTP/1.1" 200
+webui-1   | 2026-11-23T23:37:26.004245168Z 2026-11-23 23:37:26.004 | INFO     | uvicorn.protocols.http.httptools_impl:send:482 - 172.19.0.1:0 - "GET /_app/immutable/chunks/beM5iOKL.js HTTP/1.1" 200
+webui-1   | 2026-11-23T23:37:26.008804668Z 2026-11-23 23:37:26.008 | INFO     | uvicorn.protocols.http.httptools_impl:send:482 - 172.19.0.1:0 - "GET /_app/immutable/chunks/BHoahmiv.js HTTP/1.1" 200
+webui-1   | 2026-11-23T23:37:26.011920627Z 2026-11-23 23:37:26.011 | INFO     | uvicorn.protocols.http.httptools_impl:send:482 - 172.19.0.1:0 - "GET /_app/immutable/chunks/BzizghA2.js HTTP/1.1" 200
+webui-1   | 2026-11-23T23:37:26.012657668Z 2026-11-23 23:37:26.012 | INFO     | uvicorn.protocols.http.httptools_impl:send:482 - 172.19.0.1:0 - "GET /_app/immutable/chunks/DvQSz6E8.js HTTP/1.1" 200
+webui-1   | 2026-11-23T23:37:26.013308460Z 2026-11-23 23:37:26.013 | INFO     | uvicorn.protocols.http.httptools_impl:send:482 - 172.19.0.1:0 - "GET /_app/immutable/chunks/Dyz9XMoa.js HTTP/1.1" 200
+webui-1   | 2026-11-23T23:37:26.016777252Z 2026-11-23 23:37:26.016 | INFO     | uvicorn.protocols.http.httptools_impl:send:482 - 172.19.0.1:0 - "GET /_app/immutable/chunks/DbLduu0y.js HTTP/1.1" 200
+webui-1   | 2026-11-23T23:37:26.017678127Z 2026-11-23 23:37:26.017 | INFO     | uvicorn.protocols.http.httptools_impl:send:482 - 172.19.0.1:0 - "GET /_app/immutable/chunks/DyJgayso.js HTTP/1.1" 200
+webui-1   | 2026-11-23T23:37:26.017935877Z 2026-11-23 23:37:26.017 | INFO     | uvicorn.protocols.http.httptools_impl:send:482 - 172.19.0.1:0 - "GET /_app/immutable/chunks/DLUiU9_Q.js HTTP/1.1" 200
+webui-1   | 2026-11-23T23:37:26.018122668Z 2026-11-23 23:37:26.018 | INFO     | uvicorn.protocols.http.httptools_impl:send:482 - 172.19.0.1:0 - "GET /_app/immutable/chunks/BgTKQjnw.js HTTP/1.1" 200
+webui-1   | 2026-11-23T23:37:26.022116960Z 2026-11-23 23:37:26.022 | INFO     | uvicorn.protocols.http.httptools_impl:send:482 - 172.19.0.1:0 - "GET /_app/immutable/chunks/N-hAss7N.js HTTP/1.1" 200
+webui-1   | 2026-11-23T23:37:26.022852002Z 2026-11-23 23:37:26.022 | INFO     | uvicorn.protocols.http.httptools_impl:send:482 - 172.19.0.1:0 - "GET /_app/immutable/chunks/Dp1PHoZP.js HTTP/1.1" 200
+webui-1   | 2026-11-23T23:37:26.025203252Z 2026-11-23 23:37:26.025 | INFO     | uvicorn.protocols.http.httptools_impl:send:482 - 172.19.0.1:0 - "GET /_app/immutable/chunks/I5SzLBDb.js HTTP/1.1" 200
+webui-1   | 2026-11-23T23:37:26.026697918Z 2026-11-23 23:37:26.026 | INFO     | uvicorn.protocols.http.httptools_impl:send:482 - 172.19.0.1:0 - "GET /_app/immutable/chunks/M4RAxKKI.js HTTP/1.1" 200
+webui-1   | 2026-11-23T23:37:26.027494793Z 2026-11-23 23:37:26.027 | INFO     | uvicorn.protocols.http.httptools_impl:send:482 - 172.19.0.1:0 - "GET /_app/immutable/chunks/CzJ_zWEo.js HTTP/1.1" 200
+webui-1   | 2026-11-23T23:37:26.027740335Z 2026-11-23 23:37:26.027 | INFO     | uvicorn.protocols.http.httptools_impl:send:482 - 172.19.0.1:0 - "GET /_app/immutable/chunks/qwYGBtD3.js HTTP/1.1" 200
+webui-1   | 2026-11-23T23:37:26.029913460Z 2026-11-23 23:37:26.029 | INFO     | uvicorn.protocols.http.httptools_impl:send:482 - 172.19.0.1:0 - "GET /_app/immutable/chunks/CjCwnPWQ.js HTTP/1.1" 200
+webui-1   | 2026-11-23T23:37:26.031227877Z 2026-11-23 23:37:26.031 | INFO     | uvicorn.protocols.http.httptools_impl:send:482 - 172.19.0.1:0 - "GET /_app/immutable/chunks/66-baY6d.js HTTP/1.1" 200
+webui-1   | 2026-11-23T23:37:26.032000210Z 2026-11-23 23:37:26.031 | INFO     | uvicorn.protocols.http.httptools_impl:send:482 - 172.19.0.1:0 - "GET /_app/immutable/chunks/CBvFbp52.js HTTP/1.1" 200
+webui-1   | 2026-11-23T23:37:26.034592668Z 2026-11-23 23:37:26.034 | INFO     | uvicorn.protocols.http.httptools_impl:send:482 - 172.19.0.1:0 - "GET /_app/immutable/chunks/BT0vA0Qe.js HTTP/1.1" 200
+webui-1   | 2026-11-23T23:37:26.034806752Z 2026-11-23 23:37:26.034 | INFO     | uvicorn.protocols.http.httptools_impl:send:482 - 172.19.0.1:0 - "GET /_app/immutable/chunks/BR-QsVQF.js HTTP/1.1" 200
+webui-1   | 2026-11-23T23:37:26.034965960Z 2026-11-23 23:37:26.034 | INFO     | uvicorn.protocols.http.httptools_impl:send:482 - 172.19.0.1:0 - "GET /_app/immutable/chunks/D_jbs736.js HTTP/1.1" 200
+webui-1   | 2026-11-23T23:37:26.037324210Z 2026-11-23 23:37:26.037 | INFO     | uvicorn.protocols.http.httptools_impl:send:482 - 172.19.0.1:0 - "GET /_app/immutable/chunks/D3h0L36U.js HTTP/1.1" 200
+webui-1   | 2026-11-23T23:37:26.037447877Z 2026-11-23 23:37:26.037 | INFO     | uvicorn.protocols.http.httptools_impl:send:482 - 172.19.0.1:0 - "GET /_app/immutable/chunks/DxK1u8QE.js HTTP/1.1" 200
+webui-1   | 2026-11-23T23:37:26.040355210Z 2026-11-23 23:37:26.040 | INFO     | uvicorn.protocols.http.httptools_impl:send:482 - 172.19.0.1:0 - "GET /_app/immutable/chunks/Bpyw7gTn.js HTTP/1.1" 200
+webui-1   | 2026-11-23T23:37:26.040545752Z 2026-11-23 23:37:26.040 | INFO     | uvicorn.protocols.http.httptools_impl:send:482 - 172.19.0.1:0 - "GET /_app/immutable/chunks/DEKXljEY.js HTTP/1.1" 200
+webui-1   | 2026-11-23T23:37:26.041771627Z 2026-11-23 23:37:26.041 | INFO     | uvicorn.protocols.http.httptools_impl:send:482 - 172.19.0.1:0 - "GET /_app/immutable/chunks/bLjoUmCb.js HTTP/1.1" 200
+webui-1   | 2026-11-23T23:37:26.043598752Z 2026-11-23 23:37:26.043 | INFO     | uvicorn.protocols.http.httptools_impl:send:482 - 172.19.0.1:0 - "GET /_app/immutable/chunks/DgS_RUA5.js HTTP/1.1" 200
+webui-1   | 2026-11-23T23:37:26.044410085Z 2026-11-23 23:37:26.044 | INFO     | uvicorn.protocols.http.httptools_impl:send:482 - 172.19.0.1:0 - "GET /_app/immutable/chunks/BPonh0aS.js HTTP/1.1" 200
+webui-1   | 2026-11-23T23:37:26.044544168Z 2026-11-23 23:37:26.044 | INFO     | uvicorn.protocols.http.httptools_impl:send:482 - 172.19.0.1:0 - "GET /_app/immutable/chunks/SpHlEfIb.js HTTP/1.1" 200
+webui-1   | 2026-11-23T23:37:26.047376210Z 2026-11-23 23:37:26.047 | INFO     | uvicorn.protocols.http.httptools_impl:send:482 - 172.19.0.1:0 - "GET /_app/immutable/chunks/_vgJTzEq.js HTTP/1.1" 200
+webui-1   | 2026-11-23T23:37:26.047789043Z 2026-11-23 23:37:26.047 | INFO     | uvicorn.protocols.http.httptools_impl:send:482 - 172.19.0.1:0 - "GET /_app/immutable/chunks/B0GDtP44.js HTTP/1.1" 200
+webui-1   | 2026-11-23T23:37:26.050404418Z 2026-11-23 23:37:26.050 | INFO     | uvicorn.protocols.http.httptools_impl:send:482 - 172.19.0.1:0 - "GET /_app/immutable/chunks/DtzbI1Or.js HTTP/1.1" 200
+webui-1   | 2026-11-23T23:37:26.051438043Z 2026-11-23 23:37:26.051 | INFO     | uvicorn.protocols.http.httptools_impl:send:482 - 172.19.0.1:0 - "GET /_app/immutable/chunks/zNliArUK.js HTTP/1.1" 200
+webui-1   | 2026-11-23T23:37:26.051664335Z 2026-11-23 23:37:26.051 | INFO     | uvicorn.protocols.http.httptools_impl:send:482 - 172.19.0.1:0 - "GET /_app/immutable/chunks/BRKgwZCT.js HTTP/1.1" 200
+webui-1   | 2026-11-23T23:37:26.052322293Z 2026-11-23 23:37:26.052 | INFO     | uvicorn.protocols.http.httptools_impl:send:482 - 172.19.0.1:0 - "GET /_app/immutable/chunks/DJtNVmj5.js HTTP/1.1" 200
+webui-1   | 2026-11-23T23:37:26.055210835Z 2026-11-23 23:37:26.055 | INFO     | uvicorn.protocols.http.httptools_impl:send:482 - 172.19.0.1:0 - "GET /_app/immutable/chunks/DzmX_rHT.js HTTP/1.1" 200
+webui-1   | 2026-11-23T23:37:26.056083377Z 2026-11-23 23:37:26.055 | INFO     | uvicorn.protocols.http.httptools_impl:send:482 - 172.19.0.1:0 - "GET /_app/immutable/chunks/DRAHMqcM.js HTTP/1.1" 200
+webui-1   | 2026-11-23T23:37:26.058424418Z 2026-11-23 23:37:26.058 | INFO     | uvicorn.protocols.http.httptools_impl:send:482 - 172.19.0.1:0 - "GET /_app/immutable/chunks/oB6L1sQc.js HTTP/1.1" 200
+webui-1   | 2026-11-23T23:37:26.058868002Z 2026-11-23 23:37:26.058 | INFO     | uvicorn.protocols.http.httptools_impl:send:482 - 172.19.0.1:0 - "GET /_app/immutable/chunks/d5k19aod.js HTTP/1.1" 200
+webui-1   | 2026-11-23T23:37:26.059366210Z 2026-11-23 23:37:26.059 | INFO     | uvicorn.protocols.http.httptools_impl:send:482 - 172.19.0.1:0 - "GET /_app/immutable/chunks/Dpyd_a8t.js HTTP/1.1" 200
+webui-1   | 2026-11-23T23:37:26.059621168Z 2026-11-23 23:37:26.059 | INFO     | uvicorn.protocols.http.httptools_impl:send:482 - 172.19.0.1:0 - "GET /_app/immutable/chunks/FY2zadx5.js HTTP/1.1" 200
+webui-1   | 2026-11-23T23:37:26.063498585Z 2026-11-23 23:37:26.063 | INFO     | uvicorn.protocols.http.httptools_impl:send:482 - 172.19.0.1:0 - "GET /_app/immutable/chunks/CNdEZzit.js HTTP/1.1" 200
+webui-1   | 2026-11-23T23:37:26.064291793Z 2026-11-23 23:37:26.064 | INFO     | uvicorn.protocols.http.httptools_impl:send:482 - 172.19.0.1:0 - "GET /_app/immutable/chunks/BX5WB7ra.js HTTP/1.1" 200
+webui-1   | 2026-11-23T23:37:26.064399085Z 2026-11-23 23:37:26.064 | INFO     | uvicorn.protocols.http.httptools_impl:send:482 - 172.19.0.1:0 - "GET /_app/immutable/chunks/4xWUqggL.js HTTP/1.1" 200
+webui-1   | 2026-11-23T23:37:26.064543418Z 2026-11-23 23:37:26.064 | INFO     | uvicorn.protocols.http.httptools_impl:send:482 - 172.19.0.1:0 - "GET /_app/immutable/chunks/BP6vyac7.js HTTP/1.1" 200
+webui-1   | 2026-11-23T23:37:26.065123668Z 2026-11-23 23:37:26.065 | INFO     | uvicorn.protocols.http.httptools_impl:send:482 - 172.19.0.1:0 - "GET /_app/immutable/chunks/DUMDlVek.js HTTP/1.1" 200
+webui-1   | 2026-11-23T23:37:26.065267543Z 2026-11-23 23:37:26.065 | INFO     | uvicorn.protocols.http.httptools_impl:send:482 - 172.19.0.1:0 - "GET /_app/immutable/chunks/C3DJBuCU.js HTTP/1.1" 200
+webui-1   | 2026-11-23T23:37:26.070182752Z 2026-11-23 23:37:26.070 | INFO     | uvicorn.protocols.http.httptools_impl:send:482 - 172.19.0.1:0 - "GET /_app/immutable/chunks/CGEFt5-M.js HTTP/1.1" 200
+webui-1   | 2026-11-23T23:37:26.071048252Z 2026-11-23 23:37:26.070 | INFO     | uvicorn.protocols.http.httptools_impl:send:482 - 172.19.0.1:0 - "GET /_app/immutable/chunks/v7-sI7FN.js HTTP/1.1" 200
+webui-1   | 2026-11-23T23:37:26.071989877Z 2026-11-23 23:37:26.071 | INFO     | uvicorn.protocols.http.httptools_impl:send:482 - 172.19.0.1:0 - "GET /_app/immutable/chunks/C-V_EQOO.js HTTP/1.1" 200
+webui-1   | 2026-11-23T23:37:26.073015585Z 2026-11-23 23:37:26.072 | INFO     | uvicorn.protocols.http.httptools_impl:send:482 - 172.19.0.1:0 - "GET /_app/immutable/chunks/wGPi9KNA.js HTTP/1.1" 200
+webui-1   | 2026-11-23T23:37:26.073976960Z 2026-11-23 23:37:26.073 | INFO     | uvicorn.protocols.http.httptools_impl:send:482 - 172.19.0.1:0 - "GET /_app/immutable/chunks/D8nNHFmH.js HTTP/1.1" 200
+webui-1   | 2026-11-23T23:37:26.075073127Z 2026-11-23 23:37:26.074 | INFO     | uvicorn.protocols.http.httptools_impl:send:482 - 172.19.0.1:0 - "GET /_app/immutable/chunks/RfsIE8Oe.js HTTP/1.1" 200
+webui-1   | 2026-11-23T23:37:26.077401127Z 2026-11-23 23:37:26.077 | INFO     | uvicorn.protocols.http.httptools_impl:send:482 - 172.19.0.1:0 - "GET /_app/immutable/chunks/CUiDJoSL.js HTTP/1.1" 200
+webui-1   | 2026-11-23T23:37:26.077911710Z 2026-11-23 23:37:26.077 | INFO     | uvicorn.protocols.http.httptools_impl:send:482 - 172.19.0.1:0 - "GET /_app/immutable/chunks/CjPp95Ih.js HTTP/1.1" 200
+webui-1   | 2026-11-23T23:37:26.078444960Z 2026-11-23 23:37:26.078 | INFO     | uvicorn.protocols.http.httptools_impl:send:482 - 172.19.0.1:0 - "GET /_app/immutable/chunks/BHOUfHnt.js HTTP/1.1" 200
+webui-1   | 2026-11-23T23:37:26.080148168Z 2026-11-23 23:37:26.080 | INFO     | uvicorn.protocols.http.httptools_impl:send:482 - 172.19.0.1:0 - "GET /_app/immutable/chunks/BCdCYVg4.js HTTP/1.1" 200
+webui-1   | 2026-11-23T23:37:26.083381502Z 2026-11-23 23:37:26.083 | INFO     | uvicorn.protocols.http.httptools_impl:send:482 - 172.19.0.1:0 - "GET /_app/immutable/chunks/B8GTGEtq.js HTTP/1.1" 200
+webui-1   | 2026-11-23T23:37:26.085093252Z 2026-11-23 23:37:26.085 | INFO     | uvicorn.protocols.http.httptools_impl:send:482 - 172.19.0.1:0 - "GET /_app/immutable/chunks/DG2yEFjO.js HTTP/1.1" 200
+webui-1   | 2026-11-23T23:37:26.085419168Z 2026-11-23 23:37:26.085 | INFO     | uvicorn.protocols.http.httptools_impl:send:482 - 172.19.0.1:0 - "GET /_app/immutable/chunks/CKTdvzvm.js HTTP/1.1" 200
+webui-1   | 2026-11-23T23:37:26.086201460Z 2026-11-23 23:37:26.086 | INFO     | uvicorn.protocols.http.httptools_impl:send:482 - 172.19.0.1:0 - "GET /_app/immutable/chunks/CIBWFRHy.js HTTP/1.1" 200
+webui-1   | 2026-11-23T23:37:26.087637002Z 2026-11-23 23:37:26.087 | INFO     | uvicorn.protocols.http.httptools_impl:send:482 - 172.19.0.1:0 - "GET /_app/immutable/chunks/C1fYX4E2.js HTTP/1.1" 200
+webui-1   | 2026-11-23T23:37:26.088409543Z 2026-11-23 23:37:26.088 | INFO     | uvicorn.protocols.http.httptools_impl:send:482 - 172.19.0.1:0 - "GET /_app/immutable/nodes/9.RvBj1Fzf.js HTTP/1.1" 200
+webui-1   | 2026-11-23T23:37:26.088977793Z 2026-11-23 23:37:26.088 | INFO     | uvicorn.protocols.http.httptools_impl:send:482 - 172.19.0.1:0 - "GET /static/favicon.ico HTTP/1.1" 200
+webui-1   | 2026-11-23T23:37:26.091052835Z 2026-11-23 23:37:26.090 | INFO     | uvicorn.protocols.http.httptools_impl:send:482 - 172.19.0.1:0 - "GET /static/favicon.svg HTTP/1.1" 200
+webui-1   | 2026-11-23T23:37:26.102359752Z 2026-11-23 23:37:26.102 | INFO     | uvicorn.protocols.http.httptools_impl:send:482 - 172.19.0.1:0 - "GET /api/config HTTP/1.1" 200
+webui-1   | 2026-11-23T23:37:26.104169710Z 2026-11-23 23:37:26.104 | INFO     | uvicorn.protocols.http.httptools_impl:send:482 - 172.19.0.1:0 - "GET /static/favicon.png HTTP/1.1" 200
+webui-1   | 2026-11-23T23:37:26.121001585Z 2026-11-23 23:37:26.120 | INFO     | uvicorn.protocols.http.httptools_impl:send:482 - 172.19.0.1:0 - "GET /_app/immutable/nodes/53.Dg9TGR5C.js HTTP/1.1" 200
+webui-1   | 2026-11-23T23:37:26.122860377Z 2026-11-23 23:37:26.122 | INFO     | uvicorn.protocols.http.httptools_impl:send:482 - 172.19.0.1:0 - "GET /api/version HTTP/1.1" 200
+webui-1   | 2026-11-23T23:37:26.128145752Z 2026-11-23 23:37:26.128 | INFO     | uvicorn.protocols.http.httptools_impl:send:482 - 172.19.0.1:0 - "GET /static/favicon.png HTTP/1.1" 304
+webui-1   | 2026-11-23T23:37:26.129766918Z 2026-11-23 23:37:26.129 | INFO     | uvicorn.protocols.http.httptools_impl:send:482 - 172.19.0.1:0 - "GET /static/favicon.png HTTP/1.1" 304
+webui-1   | 2026-11-23T23:37:26.294951252Z 2026-11-23 23:37:26.294 | INFO     | open_webui.models.auths:authenticate_user:336 - authenticate_user: admin@offline.test
+webui-1   | 2026-11-23T23:37:26.485838877Z 2026-11-23 23:37:26.485 | INFO     | uvicorn.protocols.http.httptools_impl:send:482 - 172.19.0.1:0 - "POST /api/v1/auths/signin HTTP/1.1" 200
+webui-1   | 2026-11-23T23:37:26.496843627Z 2026-11-23 23:37:26.496 | INFO     | uvicorn.protocols.http.httptools_impl:send:482 - 172.19.0.1:0 - "GET /api/config HTTP/1.1" 200
+webui-1   | 2026-11-23T23:37:26.509320877Z 2026-11-23 23:37:26.509 | INFO     | uvicorn.protocols.http.httptools_impl:send:482 - 172.19.0.1:0 - "POST /api/v1/auths/update/timezone HTTP/1.1" 200
+webui-1   | 2026-11-23T23:37:26.546125210Z 2026-11-23 23:37:26.545 | INFO     | uvicorn.protocols.http.httptools_impl:send:482 - 172.19.0.1:0 - "GET /static/favicon.png HTTP/1.1" 304
+webui-1   | 2026-11-23T23:37:26.551045210Z 2026-11-23 23:37:26.550 | INFO     | uvicorn.protocols.http.httptools_impl:send:482 - 172.19.0.1:0 - "GET /api/v1/configs/banners HTTP/1.1" 200
+webui-1   | 2026-11-23T23:37:26.560380127Z 2026-11-23 23:37:26.560 | INFO     | uvicorn.protocols.http.httptools_impl:send:482 - 172.19.0.1:0 - "GET /api/v1/notifications/inbox/count HTTP/1.1" 200
+webui-1   | 2026-11-23T23:37:26.569927502Z 2026-11-23 23:37:26.569 | INFO     | uvicorn.protocols.http.httptools_impl:send:482 - 172.19.0.1:0 - "GET /api/v1/notes/pinned HTTP/1.1" 200
+webui-1   | 2026-11-23T23:37:26.578559752Z 2026-11-23 23:37:26.578 | INFO     | uvicorn.protocols.http.httptools_impl:send:482 - 172.19.0.1:0 - "GET /api/v1/chats/?page=1 HTTP/1.1" 200
+webui-1   | 2026-11-23T23:37:26.579315794Z 2026-11-23 23:37:26.579 | INFO     | uvicorn.protocols.http.httptools_impl:send:482 - 172.19.0.1:0 - "GET /api/v1/tools/ HTTP/1.1" 200
+webui-1   | 2026-11-23T23:37:26.581456710Z 2026-11-23 23:37:26.581 | INFO     | uvicorn.protocols.http.httptools_impl:send:482 - 172.19.0.1:0 - "GET /static/favicon.png HTTP/1.1" 304
+webui-1   | 2026-11-23T23:37:26.583307835Z 2026-11-23 23:37:26.583 | INFO     | uvicorn.protocols.http.httptools_impl:send:482 - 172.19.0.1:0 - "GET /api/v1/users/7e4eb0f5-797b-46df-97b1-df6143bcadfb/profile/image HTTP/1.1" 200
+webui-1   | 2026-11-23T23:37:26.583440585Z 2026-11-23 23:37:26.583 | INFO     | uvicorn.protocols.http.httptools_impl:send:482 - 172.19.0.1:0 - "GET /api/v1/chats/pinned HTTP/1.1" 200
+webui-1   | 2026-11-23T23:37:26.584006919Z 2026-11-23 23:37:26.583 | INFO     | uvicorn.protocols.http.httptools_impl:send:482 - 172.19.0.1:0 - "GET /api/v1/users/user/settings HTTP/1.1" 200
+webui-1   | 2026-11-23T23:37:26.585535669Z 2026-11-23 23:37:26.585 | INFO     | uvicorn.protocols.http.httptools_impl:send:482 - 172.19.0.1:0 - "GET /api/v1/chats/all/tags HTTP/1.1" 200
+webui-1   | 2026-11-23T23:37:26.600127710Z 2026-11-23 23:37:26.599 | INFO     | open_webui.routers.ollama:get_all_models:380 - get_all_models()
+webui-1   | 2026-11-23T23:37:26.607591835Z 2026-11-23 23:37:26.607 | INFO     | uvicorn.protocols.http.httptools_impl:send:482 - 172.19.0.1:0 - "GET /api/models HTTP/1.1" 200
+webui-1   | 2026-11-23T23:37:26.608508502Z 2026-11-23 23:37:26.608 | INFO     | uvicorn.protocols.http.httptools_impl:send:482 - 172.19.0.1:0 - "GET /api/v1/folders/ HTTP/1.1" 200
+webui-1   | 2026-11-23T23:37:26.608668044Z 2026-11-23 23:37:26.608 | INFO     | uvicorn.protocols.http.httptools_impl:send:482 - 172.19.0.1:0 - "GET /api/v1/folders/shared HTTP/1.1" 200
+webui-1   | 2026-11-23T23:37:26.622673044Z 2026-11-23 23:37:26.622 | INFO     | uvicorn.protocols.http.httptools_impl:send:482 - 172.19.0.1:0 - "GET /api/v1/functions/ HTTP/1.1" 200
+webui-1   | 2026-11-23T23:37:26.628557335Z 2026-11-23 23:37:26.628 | INFO     | uvicorn.protocols.http.httptools_impl:send:482 - 172.19.0.1:0 - "GET /api/v1/skills/ HTTP/1.1" 200
+webui-1   | 2026-11-23T23:37:26.658601169Z 2026-11-23 23:37:26.658 | INFO     | uvicorn.protocols.http.httptools_impl:send:482 - 172.19.0.1:0 - "GET /api/v1/models/model/profile/image?id=qwen2.5:1.5b&lang=en-US HTTP/1.1" 302
+webui-1   | 2026-11-23T23:37:27.612844169Z 2026-11-23 23:37:27.612 | INFO     | open_webui.routers.files:upload_file_handler:350 - file.content_type: text/plain True
+webui-1   | 2026-11-23T23:37:27.614692294Z 2026-11-23 23:37:27.614 | INFO     | uvicorn.protocols.http.httptools_impl:send:482 - 172.19.0.1:0 - "POST /api/v1/files/?process=true HTTP/1.1" 200
+webui-1   | 2026-11-23T23:37:27.620108836Z 2026-11-23 23:37:27.619 | INFO     | open_webui.routers.retrieval:_chunk_docs:1445 - Using markdown header text splitter
+webui-1   | 2026-11-23T23:37:27.620578586Z 2026-11-23 23:37:27.620 | INFO     | open_webui.routers.retrieval:save_docs_to_vector_db:1551 - generating embeddings for file-6beb49d7-09e0-490d-894f-1446d873bada
+webui-1   | 2026-11-23T23:37:27.620626336Z 2026-11-23 23:37:27.620 | INFO     | open_webui.routers.retrieval:save_docs_to_vector_db:1590 - adding to collection file-6beb49d7-09e0-490d-894f-1446d873bada
+webui-1   | 2026-11-23T23:37:27.627452669Z 2026-11-23 23:37:27.626 | INFO     | uvicorn.protocols.http.httptools_impl:send:482 - 172.19.0.1:0 - "GET /assets/fonts/Inter-Variable.ttf HTTP/1.1" 200
+webui-1   | 2026-11-23T23:37:27.659621002Z 2026-11-23 23:37:27.659 | INFO     | uvicorn.protocols.http.httptools_impl:send:482 - 172.19.0.1:0 - "GET /api/v1/files/6beb49d7-09e0-490d-894f-1446d873bada/process/status?stream=true HTTP/1.1" 200
+webui-1   | 2026-11-23T23:37:27.674253794Z 2026-11-23 23:37:27.674 | INFO     | open_webui.routers.retrieval:save_docs_to_vector_db:1606 - embeddings generated 1 for 1 items
+webui-1   | 2026-11-23T23:37:27.685548711Z 2026-11-23 23:37:27.685 | INFO     | open_webui.routers.retrieval:save_docs_to_vector_db:1638 - added 1 items to collection file-6beb49d7-09e0-490d-894f-1446d873bada
+webui-1   | 2026-11-23T23:37:27.685561961Z 2026-11-23 23:37:27.685 | INFO     | open_webui.routers.retrieval:index_file:1858 - added 1 items to collection file-6beb49d7-09e0-490d-894f-1446d873bada
+webui-1   | 2026-11-23T23:37:28.749041753Z 2026-11-23 23:37:28.748 | INFO     | uvicorn.protocols.http.httptools_impl:send:482 - 172.19.0.1:0 - "GET /api/v1/chats/pinned HTTP/1.1" 200
+webui-1   | 2026-11-23T23:37:28.758673961Z 2026-11-23 23:37:28.758 | INFO     | uvicorn.protocols.http.httptools_impl:send:482 - 172.19.0.1:0 - "GET /api/v1/chats/?page=1 HTTP/1.1" 200
+webui-1   | 2026-11-23T23:37:28.777321795Z 2026-11-23 23:37:28.777 | INFO     | uvicorn.protocols.http.httptools_impl:send:482 - 172.19.0.1:0 - "GET /api/v1/folders/ HTTP/1.1" 200
+webui-1   | 2026-11-23T23:37:28.778487211Z 2026-11-23 23:37:28.778 | INFO     | uvicorn.protocols.http.httptools_impl:send:482 - 172.19.0.1:0 - "GET /api/v1/chats/a3b19d43-59b4-401f-8ee7-d722e7ad2f15 HTTP/1.1" 200
+webui-1   | 2026-11-23T23:37:28.779293336Z 2026-11-23 23:37:28.779 | INFO     | uvicorn.protocols.http.httptools_impl:send:482 - 172.19.0.1:0 - "POST /api/v1/chats/a3b19d43-59b4-401f-8ee7-d722e7ad2f15/view HTTP/1.1" 200
+webui-1   | 2026-11-23T23:37:28.780197128Z 2026-11-23 23:37:28.780 | INFO     | uvicorn.protocols.http.httptools_impl:send:482 - 172.19.0.1:0 - "POST /api/chat/completions HTTP/1.1" 200
+webui-1   | 2026-11-23T23:37:28.794589961Z 2026-11-23 23:37:28.794 | INFO     | uvicorn.protocols.http.httptools_impl:send:482 - 172.19.0.1:0 - "GET /api/v1/folders/shared HTTP/1.1" 200
+webui-1   | 2026-11-23T23:37:28.815010045Z 2026-11-23 23:37:28.814 | INFO     | uvicorn.protocols.http.httptools_impl:send:482 - 172.19.0.1:0 - "GET /api/v1/chats/?page=1 HTTP/1.1" 200
+webui-1   | 2026-11-23T23:37:29.148273670Z 2026-11-23 23:37:29.147 | INFO     | uvicorn.protocols.http.httptools_impl:send:482 - 172.19.0.1:0 - "POST /api/v1/chats/a3b19d43-59b4-401f-8ee7-d722e7ad2f15 HTTP/1.1" 200
+webui-1   | 2026-11-23T23:37:29.970317462Z 2026-11-23 23:37:29.970 | INFO     | uvicorn.protocols.http.httptools_impl:send:482 - 172.19.0.1:0 - "GET /api/v1/chats/?page=1 HTTP/1.1" 200
+webui-1   | 2026-11-23T23:37:37.782347216Z 2026-11-23 23:37:37.782 | INFO     | uvicorn.protocols.http.httptools_impl:send:482 - 172.19.0.1:0 - "GET /api/v1/chats/pinned HTTP/1.1" 200
+webui-1   | 2026-11-23T23:37:37.784264882Z 2026-11-23 23:37:37.784 | INFO     | uvicorn.protocols.http.httptools_impl:send:482 - 172.19.0.1:0 - "GET /api/v1/chats/?page=1 HTTP/1.1" 200
+webui-1   | 2026-11-23T23:37:37.790214841Z 2026-11-23 23:37:37.790 | INFO     | uvicorn.protocols.http.httptools_impl:send:482 - 172.19.0.1:0 - "GET /api/v1/chats/?page=1 HTTP/1.1" 200
+webui-1   | 2026-11-23T23:37:40.209147300Z 2026-11-23 23:37:40.209 | INFO     | uvicorn.protocols.http.httptools_impl:send:482 - 172.19.0.1:0 - "GET /api/v1/chats/a3b19d43-59b4-401f-8ee7-d722e7ad2f15 HTTP/1.1" 200
+webui-1   | 2026-11-23T23:37:40.213403633Z 2026-11-23 23:37:40.213 | INFO     | uvicorn.protocols.http.httptools_impl:send:482 - 172.19.0.1:0 - "GET /api/v1/chats/all/tags HTTP/1.1" 200
+webui-1   | 2026-11-23T23:37:52.968549583Z 2026-11-23 23:37:52.968 | INFO     | open_webui.models.auths:authenticate_user:336 - authenticate_user: admin@offline.test
+webui-1   | 2026-11-23T23:37:53.168594667Z 2026-11-23 23:37:53.168 | INFO     | uvicorn.protocols.http.httptools_impl:send:482 - 172.19.0.1:0 - "POST /api/v1/auths/signin HTTP/1.1" 200
+webui-1   | 2026-11-23T23:37:53.178827750Z 2026-11-23 23:37:53.178 | INFO     | open_webui.routers.files:upload_file_handler:350 - file.content_type: text/plain True
+webui-1   | 2026-11-23T23:37:53.179963709Z 2026-11-23 23:37:53.179 | INFO     | uvicorn.protocols.http.httptools_impl:send:482 - 172.19.0.1:0 - "POST /api/v1/files/ HTTP/1.1" 200
+webui-1   | 2026-11-23T23:37:53.185136459Z 2026-11-23 23:37:53.185 | INFO     | uvicorn.protocols.http.httptools_impl:send:482 - 172.19.0.1:0 - "GET /api/v1/files/ee9b1c67-0df1-4825-b190-407886d39742/process/status HTTP/1.1" 200
+webui-1   | 2026-11-23T23:37:53.186068167Z 2026-11-23 23:37:53.185 | INFO     | open_webui.routers.retrieval:_chunk_docs:1445 - Using markdown header text splitter
+webui-1   | 2026-11-23T23:37:53.186415625Z 2026-11-23 23:37:53.186 | INFO     | open_webui.routers.retrieval:save_docs_to_vector_db:1551 - generating embeddings for file-ee9b1c67-0df1-4825-b190-407886d39742
+webui-1   | 2026-11-23T23:37:53.186436875Z 2026-11-23 23:37:53.186 | INFO     | open_webui.routers.retrieval:save_docs_to_vector_db:1590 - adding to collection file-ee9b1c67-0df1-4825-b190-407886d39742
+webui-1   | 2026-11-23T23:37:53.202685334Z 2026-11-23 23:37:53.200 | INFO     | open_webui.routers.retrieval:save_docs_to_vector_db:1606 - embeddings generated 1 for 1 items
+webui-1   | 2026-11-23T23:37:53.213484542Z 2026-11-23 23:37:53.213 | INFO     | open_webui.routers.retrieval:save_docs_to_vector_db:1638 - added 1 items to collection file-ee9b1c67-0df1-4825-b190-407886d39742
+webui-1   | 2026-11-23T23:37:53.213494500Z 2026-11-23 23:37:53.213 | INFO     | open_webui.routers.retrieval:index_file:1858 - added 1 items to collection file-ee9b1c67-0df1-4825-b190-407886d39742
+webui-1   | 2026-11-23T23:37:55.207977376Z 2026-11-23 23:37:55.207 | INFO     | uvicorn.protocols.http.httptools_impl:send:482 - 172.19.0.1:0 - "GET /api/v1/files/ee9b1c67-0df1-4825-b190-407886d39742/process/status HTTP/1.1" 200
+webui-1   | 2026-11-23T23:37:55.216700001Z 2026-11-23 23:37:55.216 | INFO     | uvicorn.protocols.http.httptools_impl:send:482 - 172.19.0.1:0 - "GET /api/v1/files/ee9b1c67-0df1-4825-b190-407886d39742/data/content HTTP/1.1" 200
+webui-1   | 2026-11-23T23:37:56.567759377Z 2026-11-23 23:37:56.567 | INFO     | uvicorn.protocols.http.httptools_impl:send:482 - 172.19.0.1:0 - "POST /api/chat/completions HTTP/1.1" 200

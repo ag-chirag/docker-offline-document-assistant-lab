@@ -1,0 +1,16 @@
+{
+  "started_at": "2026-11-23T23:37:25.318695+00:00",
+  "browser": "Google Chrome 158.0.8127.37 (macOS ARM64)",
+  "local_url": "http://127.0.0.1:3077",
+  "document": "harbor-access.txt",
+  "question": "Read the attached harbor-access.txt. Copy the exact weekday opening time from the document. Cite the file. Do not infer a different time.",
+  "fresh_context": true,
+  "browser_egress_control": "dead 127.0.0.1:9 HTTP proxy; explicit loopback bypass",
+  "local_http_status": 200,
+  "ui_text": "Skip to main content\nOpen WebUI\nNew Chat\n\u2318\u21e7O\nSearch\n\u2318K\nNotes\nWorkspace\nFolders\nChats\nToday\nWeekday Opening Time\na few seconds ago\nWeekday Opening Time\na minute ago\n1m\nHarbor Access File: Copy Exact Weekday Opening Time\n7 minutes ago\n6m\nComprehensive Time Specification for Harbor Access\n8 minutes ago\n7m\nHarbor Access Time Details\n15 minutes ago\n15m\nOffice Hours: Weekly Schedule\n17 minutes ago\n17m\nOffice Hours and Opening Times\n20 minutes ago\n20m\nLoading...\nAdmin\nResponse complete\nChat Conversation\nharbor-access.txt\n155.0 B\n\nRead the attached harbor-access.txt. Copy the exact weekday opening time from the document. Cite the file. Do not infer a different time.\n\nNov 23, 3:37 PM\nqwen2.5:1.5b\nRetrieved 1 source\n\nThe synthetic harbor office opens at 09:15 on weekdays. \nharbor-access.txt\n\n1 Source\n1\nharbor-access.txt\nNov 23, 3:37 PM\nFollow up\nPlease confirm the exact time again to avoid any discrepancies.\nDid you understand the time exactly as provided?\nIs there anything else from the document that you need help with?\n\n\n\n\nqwen2.5:1.5b\nWeekday Opening Time\nOpen WebUI\nDid you understand the time exactly as provided?",
+  "source_visible": true,
+  "external_http_blocked": true,
+  "external_error": "Page.goto: net::ERR_PROXY_CONNECTION_FAILED at https://example.com/",
+  "passed_browser_controls": true,
+  "finished_at": "2026-11-23T23:37:40.726888+00:00"
+}

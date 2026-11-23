@@ -1,0 +1,11 @@
+flowchart LR
+    B[Fresh host browser profile] -->|localhost only| E[nginx edge]
+    E -->|internal app network| W[Open WebUI]
+    W -->|ollama:11434| O[Ollama]
+    W --> D[(webui-data: accounts, files, vectors)]
+    O --> M[(ollama-data: generator and embedder)]
+    E --- A[access bridge: host port]
+    W --- I[internal app network offline]
+    O --- I
+    X[External internet] -. blocked for browser profile and app network .- I
+    X -. edge still has a route; only reverse proxy is configured .- A

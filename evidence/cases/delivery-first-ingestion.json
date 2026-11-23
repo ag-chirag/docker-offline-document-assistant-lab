@@ -1,0 +1,77 @@
+{
+  "case": "delivery-first-ingestion",
+  "started_at": "2026-11-23T23:37:52.958591+00:00",
+  "document": "fresh-ingestion.txt",
+  "question": "What is the synthetic maintenance switch code? Copy the exact code and cite the attached file.",
+  "expected": "marigold-jetty-906",
+  "steps": [
+    {
+      "at": "2026-11-23T23:37:53.170051+00:00",
+      "name": "local_signin",
+      "http_status": 200,
+      "data": {
+        "role": "admin",
+        "token_received": true
+      }
+    },
+    {
+      "at": "2026-11-23T23:37:53.180818+00:00",
+      "name": "upload",
+      "http_status": 200,
+      "data": {
+        "file_id": "ee9b1c67-0df1-4825-b190-407886d39742",
+        "error": null
+      }
+    },
+    {
+      "at": "2026-11-23T23:37:55.209813+00:00",
+      "name": "processing",
+      "http_status": 200,
+      "data": {
+        "status": "completed"
+      }
+    },
+    {
+      "at": "2026-11-23T23:37:55.217974+00:00",
+      "name": "extracted_text",
+      "http_status": 200,
+      "data": {
+        "content": "Fresh-ingestion memo, revision 1.\nThe synthetic maintenance switch code is marigold-jetty-906.\nThis invented fact is only introduced after the offline network cut.\n"
+      }
+    },
+    {
+      "at": "2026-11-23T23:37:56.568499+00:00",
+      "name": "chat",
+      "http_status": 200,
+      "data": {
+        "answer": "The synthetic maintenance switch code is marigold-jetty-906. [1]",
+        "sources": [
+          {
+            "source": {
+              "type": "file",
+              "id": "ee9b1c67-0df1-4825-b190-407886d39742"
+            },
+            "document": [
+              "Fresh-ingestion memo, revision 1.\nThe synthetic maintenance switch code is marigold-jetty-906.\nThis invented fact is only introduced after the offline network cut.\n"
+            ],
+            "metadata": [
+              {
+                "file_id": "ee9b1c67-0df1-4825-b190-407886d39742",
+                "name": "fresh-ingestion.txt",
+                "source": "fresh-ingestion.txt"
+              }
+            ]
+          }
+        ],
+        "error": null
+      }
+    }
+  ],
+  "assessment": {
+    "retrieved_fact": true,
+    "cited_file": true,
+    "answer_contains_fact": true
+  },
+  "pass": true,
+  "finished_at": "2026-11-23T23:37:56.568549+00:00"
+}

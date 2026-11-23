@@ -1,0 +1,3 @@
+Final negative-control memo, revision 1.
+The synthetic recovery beacon code is silver-bay-604.
+This unique fact is used only to verify failure and restoration of the embedding asset.

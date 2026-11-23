@@ -1,0 +1,20 @@
+{
+  "at": "2026-11-23T23:37:02.628533+00:00",
+  "containers": {
+    "offline-doc-lab-webui-1": {
+      "id": "7e0914ca472afc0e2fe63d5aa8bf3f4613723b142a72e0b9c0a99d010466b654",
+      "pid": 10227,
+      "started_at": "2026-11-23T23:36:50.173860055Z"
+    },
+    "offline-doc-lab-ollama-1": {
+      "id": "28138951aeb390db90f8eb5e0de9afbc05837924ad07678256eb8953100929ab",
+      "pid": 10130,
+      "started_at": "2026-11-23T23:36:50.111966471Z"
+    },
+    "offline-doc-lab-edge-1": {
+      "id": "f5700ef142982f0d9d4369e4751d0afaa980d6de06a195a6bb2ba92d6adf9829",
+      "pid": 10281,
+      "started_at": "2026-11-23T23:36:50.23847518Z"
+    }
+  }
+}

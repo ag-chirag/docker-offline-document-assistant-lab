@@ -1,0 +1,3 @@
+Harbor access memo, revision 1.
+The synthetic harbor office opens at 09:15 on weekdays.
+The access badge color is violet. No real site uses these details.

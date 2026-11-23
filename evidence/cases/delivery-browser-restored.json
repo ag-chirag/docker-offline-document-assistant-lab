@@ -1,0 +1,16 @@
+{
+  "started_at": "2026-11-23T23:41:43.671022+00:00",
+  "browser": "Google Chrome 158.0.8127.37 (macOS ARM64)",
+  "local_url": "http://127.0.0.1:3078",
+  "document": "negative-final.txt",
+  "question": "Read the attached negative-final.txt. Copy the exact synthetic recovery beacon code and cite the file.",
+  "fresh_context": true,
+  "browser_egress_control": "dead 127.0.0.1:9 HTTP proxy; explicit loopback bypass",
+  "local_http_status": 200,
+  "ui_text": "Skip to main content\nOpen WebUI\nNew Chat\n\u2318\u21e7O\nSearch\n\u2318K\nNotes\nWorkspace\nFolders\nChats\nToday\nBeacon Code & Citation\na few seconds ago\nLoading...\nAdmin\nResponse complete\nChat Conversation\nnegative-final.txt\n183.0 B\n\nRead the attached negative-final.txt. Copy the exact synthetic recovery beacon code and cite the file.\n\nNov 23, 3:41 PM\nqwen2.5:1.5b\nRetrieved 1 source\n\nThe synthetic recovery beacon code is silver-bay-604. \nnegative-final.txt\n\n1 Source\n1\nnegative-final.txt\nNov 23, 3:41 PM\nFollow up\nPlease confirm the source of the negative-final.txt file.\nIs there a specific reason why you need the synthetic recovery beacon code?\nCould you elaborate on what the synthetic recovery beacon code is used for?\nIs there a particular part or section of the file you need assistance with?\nAny other details or context would be helpful.\n\n\n\n\nqwen2.5:1.5b\nBeacon Code & Citation\nOpen WebUI\nCould you elaborate on what the synthetic recovery beacon code is used for?",
+  "source_visible": true,
+  "external_http_blocked": true,
+  "external_error": "Page.goto: net::ERR_PROXY_CONNECTION_FAILED at https://example.com/",
+  "passed_browser_controls": true,
+  "finished_at": "2026-11-23T23:41:58.541180+00:00"
+}
