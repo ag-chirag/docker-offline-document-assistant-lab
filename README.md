@@ -22,7 +22,7 @@ Editable source: [`docs/architecture.mmd`](docs/architecture.mmd). The `webui` a
 
 ## Prerequisites and resources
 
-- Linux/ARM64 Docker Engine with the Compose plugin. The recorded run uses the Linux engine inside a disposable Docker Desktop VM on an ARM64 Mac; it is not a bare-metal Linux-host test. On another architecture, resolve and review fresh image digests before use.
+- Linux/ARM64 Docker Engine with the Compose plugin, Python 3, and host `curl`. The recorded run uses the Linux engine inside a disposable Docker Desktop VM on an ARM64 Mac; it is not a bare-metal Linux-host test. On another architecture, resolve and review fresh image digests before use.
 - A local browser for the UI rehearsal. Use a fresh profile and a reversible browser-specific external-access block. Keep `localhost` reachable.
 - Roughly 5 GB of image/model downloads and several GB of persistent-volume space; 8 GB RAM is a practical minimum for the selected CPU models. The exact observed usage belongs in the run record.
 - No hosted model account or paid API. The synthetic fixtures are invented and contain no personal documents.
@@ -72,6 +72,7 @@ python3 scripts/rehearse.py first-ingestion fixtures/fresh-ingestion.txt \
 ```
 
 `offline` removes and recreates **only this project's containers and networks**, retaining named volumes. `restart` creates new application/model/edge containers while retaining volumes. “Cold” means new processes/containers, **not** deleted model assets. The `first-ingestion` file must be new to the volume; use a fresh unique fixture if repeating this run. Compare JSON `sources[].document` and `sources[].metadata` with the fixture and evaluate the answer separately. A correct uncited answer is not a pass.
+The start/restart commands wait for the local UI health endpoint, which can lag behind Compose's container-running state.
 
 For the browser check, install Playwright in a disposable local environment and point it at a **preinstalled** Chrome/Chromium binary. This does not download another browser. The script starts a fresh browser context, sends external requests to a dead per-browser proxy, explicitly bypasses that proxy for loopback, uploads the file through the UI, asks the question, captures a source screenshot, and checks that `https://example.com/` fails. It does not change global host networking:
 

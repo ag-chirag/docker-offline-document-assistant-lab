@@ -25,6 +25,15 @@ request separately. Each cited API and browser rehearsal returned exit status
 0 for its expected outcome. The negative control's status is an expected
 application failure, not a claim that ingestion succeeded.
 
+The final review found a startup race: immediately after one cold Compose
+restart, the edge proxy briefly returned HTTP 502 before WebUI was ready.
+`scripts/lab.sh` now waits for the local `/health` endpoint after starting or
+recreating containers. A repeat cold journey, a newly created offline file,
+and a fresh browser journey passed. The negative-control failure and recovery
+were also repeated. These final repeat records are retained locally under
+`.local/final-*.json`; the table above provides the portable representative
+records and screenshots from the same application/model configuration.
+
 The network observations are in [`network.json`](network.json): `webui` and
 `ollama` were attached only to the internal `app` bridge, had no default
 route, and could reach `ollama:11434` locally. Both returned DNS `SERVFAIL`
