@@ -1,0 +1,81 @@
+{
+  "case": "restored",
+  "started_at": "2026-11-24T00:02:50.205823+00:00",
+  "document": "negative-final.txt",
+  "question": "What is the synthetic recovery beacon code? Copy the exact code and cite the attached file.",
+  "expected": "silver-bay-604",
+  "steps": [
+    {
+      "at": "2026-11-24T00:02:50.392815+00:00",
+      "name": "local_signin",
+      "http_status": 200,
+      "data": {
+        "role": "admin",
+        "token_received": true
+      }
+    },
+    {
+      "at": "2026-11-24T00:02:50.427316+00:00",
+      "name": "upload",
+      "http_status": 200,
+      "data": {
+        "file_id": "4ea525f7-1bc5-4df9-8887-152fb5ad1740",
+        "error": null
+      }
+    },
+    {
+      "at": "2026-11-24T00:02:52.503373+00:00",
+      "name": "processing",
+      "http_status": 200,
+      "data": {
+        "status": "completed"
+      }
+    },
+    {
+      "at": "2026-11-24T00:02:52.513542+00:00",
+      "name": "extracted_text",
+      "http_status": 200,
+      "data": {
+        "content": "Final negative-control memo, revision 1.\nThe synthetic recovery beacon code is silver-bay-604.\nThis unique fact is used only to verify failure and restoration of the embedding asset.\n"
+      }
+    },
+    {
+      "at": "2026-11-24T00:02:56.015026+00:00",
+      "name": "chat",
+      "http_status": 200,
+      "data": {
+        "answer": "The synthetic recovery beacon code is silver-bay-604. [1]",
+        "sources": [
+          {
+            "source": {
+              "type": "file",
+              "id": "4ea525f7-1bc5-4df9-8887-152fb5ad1740"
+            },
+            "document": [
+              "Final negative-control memo, revision 1.\nThe synthetic recovery beacon code is silver-bay-604.\nThis unique fact is used only to verify failure and restoration of the embedding asset.\n"
+            ],
+            "metadata": [
+              {
+                "file_id": "4ea525f7-1bc5-4df9-8887-152fb5ad1740",
+                "name": "negative-final.txt",
+                "source": "negative-final.txt"
+              }
+            ]
+          }
+        ],
+        "error": null
+      }
+    }
+  ],
+  "assessment": {
+    "source_matches_uploaded_file": true,
+    "retrieved_fact": true,
+    "answer_contains_fact": true,
+    "answer_citations_after_fact": [
+      1
+    ],
+    "citation_matches_supporting_source": true
+  },
+  "pass": true,
+  "finished_at": "2026-11-24T00:02:56.015194+00:00"
+}

@@ -2,7 +2,7 @@
 
 This lab deploys **Open WebUI + Ollama** on Linux Docker Engine, then rehearses a narrow offline journey: upload a plain-text file, retrieve its supporting passage, and ask a local model for an answer with a cited source. It separates online asset preparation from offline operation. It does **not** claim an airtight air gap, universal plugin isolation, or reliable answers for arbitrary documents.
 
-The recorded results, screenshots, raw log excerpts, and case matrix are in [`evidence/report.md`](evidence/report.md).
+The recorded results, screenshots, raw log excerpts, and case matrix are in [`evidence/report.md`](evidence/report.md). The citation-aware repeat run and its exact command/exit ledger are in [`evidence/final/README.md`](evidence/final/README.md).
 
 ## Boundaries
 
@@ -82,6 +82,7 @@ python3 -m venv .local/browser-venv
 CHROME_BIN=/usr/bin/google-chrome .local/browser-venv/bin/python \
   scripts/browser_rehearse.py fixtures/harbor-access.txt \
   'Read the attached file. Copy its exact weekday opening time and cite the source.' \
+  --expected 09:15 \
   --screenshot .local/ui-citation.png --report .local/browser.json
 ```
 
@@ -108,6 +109,17 @@ WEBUI_PORT=3078 python3 scripts/rehearse.py restored-offline \
 The failed upload should have `status=failed`; inspect WebUI logs for the `Ollama embed error (404)` identifying the absent model. A generic connectivity error is not equivalent. The recovery run must show the restored file in retrieved sources and a supported answer. Do not delete a user's existing models or alter the baseline volume.
 
 `scripts/rehearse.py` uses Open WebUI's `POST /api/v1/files/`, processing-status endpoint, and `POST /api/chat/completions` with `files:[{"type":"file","id":"..."}]` to separate processing and retrieved `sources` evidence. The UI journey runs in a real browser as a distinct check. Preserve exact timestamps, commands, exit statuses, logs and screenshots in `evidence/`; a model-generated answer alone is not proof of retrieval.
+For the pinned Open WebUI response format, the API check also requires the
+answer's numeric citation to map to the retrieved passage from the uploaded
+file. The browser check requires a rendered citation inside the assistant's
+answer and its opened source row; text in the upload chip or user prompt does
+not qualify. Run the focused accepting/rejecting controls with:
+
+```sh
+python3 scripts/check_assessment.py
+CHROME_BIN=/usr/bin/google-chrome .local/browser-venv/bin/python \
+  scripts/check_browser_assessment.py
+```
 
 ## Recovery and cleanup
 

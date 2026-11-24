@@ -1,0 +1,4 @@
+webui-1  | 2026-11-24 00:02:22.530 | ERROR    | open_webui.routers.retrieval:save_docs_to_vector_db:1641 - Ollama embed error (404): model 'all-minilm:latest' not found
+webui-1  | Exception: Ollama embed error (404): model 'all-minilm:latest' not found
+webui-1  | 2026-11-24 00:02:22.532 | ERROR    | open_webui.routers.retrieval:index_file:1893 - Ollama embed error (404): model 'all-minilm:latest' not found
+webui-1  | Exception: Ollama embed error (404): model 'all-minilm:latest' not found

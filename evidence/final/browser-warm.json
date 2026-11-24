@@ -1,0 +1,19 @@
+{
+  "started_at": "2026-11-24T00:00:23.318640+00:00",
+  "browser": "Google Chrome 158.0.8127.37 (preinstalled macOS ARM64 binary)",
+  "local_url": "http://127.0.0.1:3077",
+  "document": "harbor-access.txt",
+  "question": "Read the attached file. Copy its exact weekday opening time and cite the source.",
+  "expected": "09:15",
+  "fresh_context": true,
+  "browser_egress_control": "dead 127.0.0.1:9 HTTP proxy; explicit loopback bypass",
+  "local_http_status": 200,
+  "assistant_answer_contains_expected": true,
+  "assistant_citation_visible": true,
+  "assistant_source_panel_visible": true,
+  "assistant_answer_text": "The synthetic harbor office opens at 09:15 on weekdays. \nharbor-access.txt",
+  "external_http_blocked": true,
+  "external_error": "Page.goto: net::ERR_PROXY_CONNECTION_FAILED at https://example.com/",
+  "passed_browser_controls": true,
+  "finished_at": "2026-11-24T00:00:36.105976+00:00"
+}

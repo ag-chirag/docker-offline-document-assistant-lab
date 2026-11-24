@@ -1,0 +1,41 @@
+{
+  "at": "2026-11-24T00:05:18.453040+00:00",
+  "project": "offline-doc-negative",
+  "containers": {
+    "ollama": {
+      "id": "5bfa584143d67df4658223e4f6c875cd5e7587a4cab9f729c238a784caf900fd",
+      "image_id": "sha256:ccc42bcd3d5fcf7ab0d532b300382154e1a4da56fc666bdb313b78ebdd912754",
+      "image_reference": "ollama/ollama:0.40.17@sha256:ccc42bcd3d5fcf7ab0d532b300382154e1a4da56fc666bdb313b78ebdd912754",
+      "networks": [
+        "offline-doc-negative_app"
+      ]
+    },
+    "webui": {
+      "id": "5a4c5c43725018f7519bf74ef4dd119bde56757f82409f6271dbe8ab3d2d5eb1",
+      "image_id": "sha256:d5168bfbc28609eff5bea1b438dd864cf64d185cf6582c02244865e18385b901",
+      "image_reference": "ghcr.io/open-webui/open-webui:v0.13.4@sha256:d5168bfbc28609eff5bea1b438dd864cf64d185cf6582c02244865e18385b901",
+      "networks": [
+        "offline-doc-negative_app"
+      ]
+    },
+    "edge": {
+      "id": "b98541013fcfc27ae0d549de45479ddc31885aa5aa709ef0de06794333a4a71d",
+      "image_id": "sha256:aceb952b920393b7d0bc7b978927fc283370bea89fb082c6fef0ce18c60f96a9",
+      "image_reference": "nginx:1.31.10-alpine@sha256:aceb952b920393b7d0bc7b978927fc283370bea89fb082c6fef0ce18c60f96a9",
+      "networks": [
+        "offline-doc-negative_access",
+        "offline-doc-negative_app"
+      ]
+    }
+  },
+  "networks": {
+    "offline-doc-negative_app": {
+      "internal": true,
+      "driver": "bridge"
+    },
+    "offline-doc-negative_access": {
+      "internal": false,
+      "driver": "bridge"
+    }
+  }
+}

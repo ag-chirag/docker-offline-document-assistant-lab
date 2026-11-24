@@ -1,0 +1,19 @@
+{
+  "started_at": "2026-11-24T00:02:56.099125+00:00",
+  "browser": "Google Chrome 158.0.8127.37 (preinstalled macOS ARM64 binary)",
+  "local_url": "http://127.0.0.1:3078",
+  "document": "negative-final.txt",
+  "question": "Read the attached file. Copy the exact synthetic recovery beacon code and cite the source.",
+  "expected": "silver-bay-604",
+  "fresh_context": true,
+  "browser_egress_control": "dead 127.0.0.1:9 HTTP proxy; explicit loopback bypass",
+  "local_http_status": 200,
+  "assistant_answer_contains_expected": true,
+  "assistant_citation_visible": true,
+  "assistant_source_panel_visible": true,
+  "assistant_answer_text": "The synthetic recovery beacon code is silver-bay-604, as stated in the final negative-control memo, revision 1. \nnegative-final.txt",
+  "external_http_blocked": true,
+  "external_error": "Page.goto: net::ERR_PROXY_CONNECTION_FAILED at https://example.com/",
+  "passed_browser_controls": true,
+  "finished_at": "2026-11-24T00:03:09.130192+00:00"
+}

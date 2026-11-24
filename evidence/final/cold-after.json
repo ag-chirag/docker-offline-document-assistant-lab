@@ -1,0 +1,8 @@
+{
+  "at": "2026-11-24T00:00:46.752391+00:00",
+  "containers": {
+    "ollama": "811189f3d78fa85a8e5aae0e6b9aa0f2cfe7bc9d5aac2e14a9ca5c75cb059fdb",
+    "webui": "75525ad8a6f4297c8978b4baab5953ab265fb94328949af8f15c360ab6a99f2f",
+    "edge": "b36cf523018eaa9e56460ee3607434387bc3adf165b72b286035380c7aa8d0cf"
+  }
+}

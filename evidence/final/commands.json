@@ -1,0 +1,856 @@
+[
+  {
+    "label": "api-citation-controls",
+    "started_at": "2026-11-24T00:00:19.187546+00:00",
+    "argv": [
+      "python3",
+      "scripts/check_assessment.py"
+    ],
+    "env_override": {},
+    "finished_at": "2026-11-24T00:00:19.224420+00:00",
+    "exit_status": 0,
+    "stdout_tail": "[\n  {\n    \"control\": \"supported citation\",\n    \"expected_pass\": true,\n    \"actual_pass\": true,\n    \"control_pass\": true\n  },\n  {\n    \"control\": \"correct but uncited\",\n    \"expected_pass\": false,\n    \"actual_pass\": false,\n    \"control_pass\": true\n  },\n  {\n    \"control\": \"citation to wrong source\",\n    \"expected_pass\": false,\n    \"actual_pass\": false,\n    \"control_pass\": true\n  },\n  {\n    \"control\": \"citation before fact\",\n    \"expected_pass\": false,\n    \"actual_pass\": false,\n    \"control_pass\": true\n  },\n  {\n    \"control\": \"unrelated uploaded file\",\n    \"expected_pass\": false,\n    \"actual_pass\": false,\n    \"control_pass\": true\n  }\n]\n",
+    "stderr_tail": ""
+  },
+  {
+    "label": "browser-citation-controls",
+    "started_at": "2026-11-24T00:00:19.224698+00:00",
+    "argv": [
+      ".local/browser-venv/bin/python",
+      "scripts/check_browser_assessment.py"
+    ],
+    "env_override": {
+      "CHROME_BIN": "<preinstalled Chrome 158 binary>"
+    },
+    "finished_at": "2026-11-24T00:00:19.796321+00:00",
+    "exit_status": 0,
+    "stdout_tail": "[\n  {\n    \"control\": \"assistant citation\",\n    \"expected_pass\": true,\n    \"actual_pass\": true,\n    \"control_pass\": true\n  },\n  {\n    \"control\": \"upload chip and prompt only\",\n    \"expected_pass\": false,\n    \"actual_pass\": false,\n    \"control_pass\": true\n  },\n  {\n    \"control\": \"wrong assistant source\",\n    \"expected_pass\": false,\n    \"actual_pass\": false,\n    \"control_pass\": true\n  }\n]\n",
+    "stderr_tail": ""
+  },
+  {
+    "label": "offline-compose-config",
+    "started_at": "2026-11-24T00:00:19.796624+00:00",
+    "argv": [
+      "docker",
+      "compose",
+      "-f",
+      "compose.yaml",
+      "-f",
+      "compose.offline.yaml",
+      "config",
+      "--quiet"
+    ],
+    "env_override": {},
+    "finished_at": "2026-11-24T00:00:19.843744+00:00",
+    "exit_status": 0,
+    "stdout_tail": "",
+    "stderr_tail": ""
+  },
+  {
+    "label": "baseline-assets",
+    "started_at": "2026-11-24T00:00:19.844021+00:00",
+    "argv": [
+      "python3",
+      "scripts/verify_assets.py"
+    ],
+    "env_override": {},
+    "finished_at": "2026-11-24T00:00:20.126434+00:00",
+    "exit_status": 0,
+    "stdout_tail": "PASS image open_webui: ghcr.io/open-webui/open-webui:v0.13.4@sha256:d5168bfbc28609eff5bea1b438dd864cf64d185cf6582c02244865e18385b901\nPASS image ollama: ollama/ollama:0.40.17@sha256:ccc42bcd3d5fcf7ab0d532b300382154e1a4da56fc666bdb313b78ebdd912754\nPASS image nginx: nginx:1.31.10-alpine@sha256:aceb952b920393b7d0bc7b978927fc283370bea89fb082c6fef0ce18c60f96a9\nPASS model qwen2.5:1.5b: sha256:f2b0a490f661d58f20c4b98e5797ecf55e6e96293a88b71e96e7cc389f658f7e\nPASS model all-minilm:latest: sha256:692629b6278dbb5874038a004782bf661d23d1fae05c1c551a3d70dc2e2fe092\n",
+    "stderr_tail": ""
+  },
+  {
+    "label": "warm",
+    "started_at": "2026-11-24T00:00:20.126857+00:00",
+    "argv": [
+      "python3",
+      "scripts/rehearse.py",
+      "warm",
+      "fixtures/harbor-access.txt",
+      "When does the synthetic harbor office open on weekdays?",
+      "--expected",
+      "09:15",
+      "--output",
+      ".local/revision-run/warm.json"
+    ],
+    "env_override": {},
+    "finished_at": "2026-11-24T00:00:23.260011+00:00",
+    "exit_status": 0,
+    "stdout_tail": "{\"case\": \"warm\", \"pass\": true, \"assessment\": {\"source_matches_uploaded_file\": true, \"retrieved_fact\": true, \"answer_contains_fact\": true, \"answer_citations_after_fact\": [1], \"citation_matches_supporting_source\": true}, \"error\": null, \"record\": \".local/revision-run/warm.json\"}\n",
+    "stderr_tail": ""
+  },
+  {
+    "label": "browser-warm",
+    "started_at": "2026-11-24T00:00:23.260358+00:00",
+    "argv": [
+      ".local/browser-venv/bin/python",
+      "scripts/browser_rehearse.py",
+      "fixtures/harbor-access.txt",
+      "Read the attached file. Copy its exact weekday opening time and cite the source.",
+      "--expected",
+      "09:15",
+      "--screenshot",
+      ".local/revision-run/browser-warm.png",
+      "--report",
+      ".local/revision-run/browser-warm.json"
+    ],
+    "env_override": {
+      "CHROME_BIN": "<preinstalled Chrome 158 binary>"
+    },
+    "finished_at": "2026-11-24T00:00:36.114695+00:00",
+    "exit_status": 0,
+    "stdout_tail": "{\"passed_browser_controls\": true, \"local_http_status\": 200, \"assistant_citation_visible\": true, \"assistant_source_panel_visible\": true, \"external_http_blocked\": true, \"error\": null}\n",
+    "stderr_tail": ""
+  },
+  {
+    "label": "cold-before-ollama",
+    "started_at": "2026-11-24T00:00:36.115066+00:00",
+    "argv": [
+      "docker",
+      "compose",
+      "-p",
+      "offline-doc-lab",
+      "-f",
+      "compose.yaml",
+      "-f",
+      "compose.offline.yaml",
+      "ps",
+      "-q",
+      "ollama"
+    ],
+    "env_override": {},
+    "finished_at": "2026-11-24T00:00:36.174031+00:00",
+    "exit_status": 0,
+    "stdout_tail": "57ec37eeed8d36ad4b02d7c07b351e5fbac513b8cba2a5c1973df37abbb0dd74\n",
+    "stderr_tail": ""
+  },
+  {
+    "label": "cold-before-webui",
+    "started_at": "2026-11-24T00:00:36.174465+00:00",
+    "argv": [
+      "docker",
+      "compose",
+      "-p",
+      "offline-doc-lab",
+      "-f",
+      "compose.yaml",
+      "-f",
+      "compose.offline.yaml",
+      "ps",
+      "-q",
+      "webui"
+    ],
+    "env_override": {},
+    "finished_at": "2026-11-24T00:00:36.234912+00:00",
+    "exit_status": 0,
+    "stdout_tail": "9e1e4d48727373415a2e0babfce9f70ac085ffca08ad4437e7ab776c7280338d\n",
+    "stderr_tail": ""
+  },
+  {
+    "label": "cold-before-edge",
+    "started_at": "2026-11-24T00:00:36.235305+00:00",
+    "argv": [
+      "docker",
+      "compose",
+      "-p",
+      "offline-doc-lab",
+      "-f",
+      "compose.yaml",
+      "-f",
+      "compose.offline.yaml",
+      "ps",
+      "-q",
+      "edge"
+    ],
+    "env_override": {},
+    "finished_at": "2026-11-24T00:00:36.298366+00:00",
+    "exit_status": 0,
+    "stdout_tail": "db7f74228fd741db89b938d7b6fdc99906e90b4aaa158316b7307077a73259fa\n",
+    "stderr_tail": ""
+  },
+  {
+    "label": "cold-restart",
+    "started_at": "2026-11-24T00:00:36.298896+00:00",
+    "argv": [
+      "scripts/lab.sh",
+      "restart"
+    ],
+    "env_override": {},
+    "finished_at": "2026-11-24T00:00:46.554352+00:00",
+    "exit_status": 0,
+    "stdout_tail": "",
+    "stderr_tail": " Container offline-doc-lab-edge-1 Stopping \n Container offline-doc-lab-edge-1 Stopped \n Container offline-doc-lab-webui-1 Stopping \n Container offline-doc-lab-webui-1 Stopped \n Container offline-doc-lab-ollama-1 Stopping \n Container offline-doc-lab-ollama-1 Stopped \n Container offline-doc-lab-ollama-1 Recreate \n Container offline-doc-lab-ollama-1 Recreated \n Container offline-doc-lab-webui-1 Recreate \n Container offline-doc-lab-webui-1 Recreated \n Container offline-doc-lab-edge-1 Recreate \n Container offline-doc-lab-edge-1 Recreated \n Container offline-doc-lab-ollama-1 Starting \n Container offline-doc-lab-ollama-1 Started \n Container offline-doc-lab-webui-1 Starting \n Container offline-doc-lab-webui-1 Started \n Container offline-doc-lab-edge-1 Starting \n Container offline-doc-lab-edge-1 Started \n"
+  },
+  {
+    "label": "cold-after-ollama",
+    "started_at": "2026-11-24T00:00:46.555288+00:00",
+    "argv": [
+      "docker",
+      "compose",
+      "-p",
+      "offline-doc-lab",
+      "-f",
+      "compose.yaml",
+      "-f",
+      "compose.offline.yaml",
+      "ps",
+      "-q",
+      "ollama"
+    ],
+    "env_override": {},
+    "finished_at": "2026-11-24T00:00:46.632898+00:00",
+    "exit_status": 0,
+    "stdout_tail": "811189f3d78fa85a8e5aae0e6b9aa0f2cfe7bc9d5aac2e14a9ca5c75cb059fdb\n",
+    "stderr_tail": ""
+  },
+  {
+    "label": "cold-after-webui",
+    "started_at": "2026-11-24T00:00:46.633319+00:00",
+    "argv": [
+      "docker",
+      "compose",
+      "-p",
+      "offline-doc-lab",
+      "-f",
+      "compose.yaml",
+      "-f",
+      "compose.offline.yaml",
+      "ps",
+      "-q",
+      "webui"
+    ],
+    "env_override": {},
+    "finished_at": "2026-11-24T00:00:46.694205+00:00",
+    "exit_status": 0,
+    "stdout_tail": "75525ad8a6f4297c8978b4baab5953ab265fb94328949af8f15c360ab6a99f2f\n",
+    "stderr_tail": ""
+  },
+  {
+    "label": "cold-after-edge",
+    "started_at": "2026-11-24T00:00:46.694616+00:00",
+    "argv": [
+      "docker",
+      "compose",
+      "-p",
+      "offline-doc-lab",
+      "-f",
+      "compose.yaml",
+      "-f",
+      "compose.offline.yaml",
+      "ps",
+      "-q",
+      "edge"
+    ],
+    "env_override": {},
+    "finished_at": "2026-11-24T00:00:46.751986+00:00",
+    "exit_status": 0,
+    "stdout_tail": "b36cf523018eaa9e56460ee3607434387bc3adf165b72b286035380c7aa8d0cf\n",
+    "stderr_tail": ""
+  },
+  {
+    "label": "cold",
+    "started_at": "2026-11-24T00:00:46.752531+00:00",
+    "argv": [
+      "python3",
+      "scripts/rehearse.py",
+      "cold",
+      "fixtures/harbor-access.txt",
+      "When does the synthetic harbor office open on weekdays?",
+      "--expected",
+      "09:15",
+      "--output",
+      ".local/revision-run/cold.json"
+    ],
+    "env_override": {},
+    "finished_at": "2026-11-24T00:00:51.727233+00:00",
+    "exit_status": 0,
+    "stdout_tail": "{\"case\": \"cold\", \"pass\": true, \"assessment\": {\"source_matches_uploaded_file\": true, \"retrieved_fact\": true, \"answer_contains_fact\": true, \"answer_citations_after_fact\": [1], \"citation_matches_supporting_source\": true}, \"error\": null, \"record\": \".local/revision-run/cold.json\"}\n",
+    "stderr_tail": ""
+  },
+  {
+    "label": "browser-cold",
+    "started_at": "2026-11-24T00:00:51.727743+00:00",
+    "argv": [
+      ".local/browser-venv/bin/python",
+      "scripts/browser_rehearse.py",
+      "fixtures/harbor-access.txt",
+      "Read the attached file. Copy its exact weekday opening time and cite the source.",
+      "--expected",
+      "09:15",
+      "--screenshot",
+      ".local/revision-run/browser-cold.png",
+      "--report",
+      ".local/revision-run/browser-cold.json"
+    ],
+    "env_override": {
+      "CHROME_BIN": "<preinstalled Chrome 158 binary>"
+    },
+    "finished_at": "2026-11-24T00:01:04.650224+00:00",
+    "exit_status": 0,
+    "stdout_tail": "{\"passed_browser_controls\": true, \"local_http_status\": 200, \"assistant_citation_visible\": true, \"assistant_source_panel_visible\": true, \"external_http_blocked\": true, \"error\": null}\n",
+    "stderr_tail": ""
+  },
+  {
+    "label": "first-ingestion",
+    "started_at": "2026-11-24T00:01:04.650662+00:00",
+    "argv": [
+      "python3",
+      "scripts/rehearse.py",
+      "first-ingestion",
+      "fixtures/revision-first.txt",
+      "What is the synthetic dockside verification word? Copy it exactly and cite the file.",
+      "--expected",
+      "indigo-wharf-573",
+      "--output",
+      ".local/revision-run/first-ingestion.json"
+    ],
+    "env_override": {},
+    "finished_at": "2026-11-24T00:01:07.770534+00:00",
+    "exit_status": 0,
+    "stdout_tail": "{\"case\": \"first-ingestion\", \"pass\": true, \"assessment\": {\"source_matches_uploaded_file\": true, \"retrieved_fact\": true, \"answer_contains_fact\": true, \"answer_citations_after_fact\": [1], \"citation_matches_supporting_source\": true}, \"error\": null, \"record\": \".local/revision-run/first-ingestion.json\"}\n",
+    "stderr_tail": ""
+  },
+  {
+    "label": "network-inspect",
+    "started_at": "2026-11-24T00:01:07.770968+00:00",
+    "argv": [
+      "docker",
+      "network",
+      "inspect",
+      "offline-doc-lab_app",
+      "offline-doc-lab_access"
+    ],
+    "env_override": {},
+    "finished_at": "2026-11-24T00:01:07.786500+00:00",
+    "exit_status": 0,
+    "stdout_tail": "",
+    "stderr_tail": ""
+  },
+  {
+    "label": "container-inspect-ollama",
+    "started_at": "2026-11-24T00:01:07.787027+00:00",
+    "argv": [
+      "docker",
+      "inspect",
+      "811189f3d78fa85a8e5aae0e6b9aa0f2cfe7bc9d5aac2e14a9ca5c75cb059fdb"
+    ],
+    "env_override": {},
+    "finished_at": "2026-11-24T00:01:07.802425+00:00",
+    "exit_status": 0,
+    "stdout_tail": "",
+    "stderr_tail": ""
+  },
+  {
+    "label": "container-inspect-webui",
+    "started_at": "2026-11-24T00:01:07.802915+00:00",
+    "argv": [
+      "docker",
+      "inspect",
+      "75525ad8a6f4297c8978b4baab5953ab265fb94328949af8f15c360ab6a99f2f"
+    ],
+    "env_override": {},
+    "finished_at": "2026-11-24T00:01:07.819176+00:00",
+    "exit_status": 0,
+    "stdout_tail": "",
+    "stderr_tail": ""
+  },
+  {
+    "label": "container-inspect-edge",
+    "started_at": "2026-11-24T00:01:07.819685+00:00",
+    "argv": [
+      "docker",
+      "inspect",
+      "b36cf523018eaa9e56460ee3607434387bc3adf165b72b286035380c7aa8d0cf"
+    ],
+    "env_override": {},
+    "finished_at": "2026-11-24T00:01:07.835303+00:00",
+    "exit_status": 0,
+    "stdout_tail": "",
+    "stderr_tail": ""
+  },
+  {
+    "label": "ollama-route",
+    "started_at": "2026-11-24T00:01:07.835846+00:00",
+    "argv": [
+      "docker",
+      "exec",
+      "811189f3d78fa85a8e5aae0e6b9aa0f2cfe7bc9d5aac2e14a9ca5c75cb059fdb",
+      "sh",
+      "-c",
+      "ip route || cat /proc/net/route"
+    ],
+    "env_override": {},
+    "finished_at": "2026-11-24T00:01:07.888650+00:00",
+    "exit_status": 0,
+    "stdout_tail": "Iface\tDestination\tGateway \tFlags\tRefCnt\tUse\tMetric\tMask\t\tMTU\tWindow\tIRTT                                                       \neth0\t000012AC\t00000000\t0001\t0\t0\t0\t0000FFFF\t0\t0\t0                                                                               \n",
+    "stderr_tail": "sh: 1: ip: not found\n"
+  },
+  {
+    "label": "ollama-external_dns",
+    "started_at": "2026-11-24T00:01:07.889154+00:00",
+    "argv": [
+      "docker",
+      "exec",
+      "811189f3d78fa85a8e5aae0e6b9aa0f2cfe7bc9d5aac2e14a9ca5c75cb059fdb",
+      "nslookup",
+      "example.com"
+    ],
+    "env_override": {},
+    "finished_at": "2026-11-24T00:01:07.947607+00:00",
+    "exit_status": 127,
+    "stdout_tail": "OCI runtime exec failed: exec failed: unable to start container process: exec: \"nslookup\": executable file not found in $PATH\n",
+    "stderr_tail": ""
+  },
+  {
+    "label": "network-inspect",
+    "started_at": "2026-11-24T00:02:12.430452+00:00",
+    "argv": [
+      "docker",
+      "network",
+      "inspect",
+      "offline-doc-lab_app",
+      "offline-doc-lab_access"
+    ],
+    "env_override": {},
+    "finished_at": "2026-11-24T00:02:12.453108+00:00",
+    "exit_status": 0,
+    "stdout_tail": "",
+    "stderr_tail": ""
+  },
+  {
+    "label": "container-inspect-ollama",
+    "started_at": "2026-11-24T00:02:12.453667+00:00",
+    "argv": [
+      "docker",
+      "inspect",
+      "811189f3d78fa85a8e5aae0e6b9aa0f2cfe7bc9d5aac2e14a9ca5c75cb059fdb"
+    ],
+    "env_override": {},
+    "finished_at": "2026-11-24T00:02:12.471566+00:00",
+    "exit_status": 0,
+    "stdout_tail": "",
+    "stderr_tail": ""
+  },
+  {
+    "label": "container-inspect-webui",
+    "started_at": "2026-11-24T00:02:12.472092+00:00",
+    "argv": [
+      "docker",
+      "inspect",
+      "75525ad8a6f4297c8978b4baab5953ab265fb94328949af8f15c360ab6a99f2f"
+    ],
+    "env_override": {},
+    "finished_at": "2026-11-24T00:02:12.488153+00:00",
+    "exit_status": 0,
+    "stdout_tail": "",
+    "stderr_tail": ""
+  },
+  {
+    "label": "container-inspect-edge",
+    "started_at": "2026-11-24T00:02:12.488714+00:00",
+    "argv": [
+      "docker",
+      "inspect",
+      "b36cf523018eaa9e56460ee3607434387bc3adf165b72b286035380c7aa8d0cf"
+    ],
+    "env_override": {},
+    "finished_at": "2026-11-24T00:02:12.506979+00:00",
+    "exit_status": 0,
+    "stdout_tail": "",
+    "stderr_tail": ""
+  },
+  {
+    "label": "ollama-route",
+    "started_at": "2026-11-24T00:02:12.507498+00:00",
+    "argv": [
+      "docker",
+      "run",
+      "--rm",
+      "--pull",
+      "never",
+      "--network",
+      "container:811189f3d78fa85a8e5aae0e6b9aa0f2cfe7bc9d5aac2e14a9ca5c75cb059fdb",
+      "nginx:1.31.10-alpine@sha256:aceb952b920393b7d0bc7b978927fc283370bea89fb082c6fef0ce18c60f96a9",
+      "ip",
+      "route"
+    ],
+    "env_override": {},
+    "finished_at": "2026-11-24T00:02:12.629868+00:00",
+    "exit_status": 0,
+    "stdout_tail": "172.18.0.0/16 dev eth0 scope link  src 172.18.0.2 \n",
+    "stderr_tail": ""
+  },
+  {
+    "label": "ollama-external_dns",
+    "started_at": "2026-11-24T00:02:12.630347+00:00",
+    "argv": [
+      "docker",
+      "run",
+      "--rm",
+      "--pull",
+      "never",
+      "--network",
+      "container:811189f3d78fa85a8e5aae0e6b9aa0f2cfe7bc9d5aac2e14a9ca5c75cb059fdb",
+      "nginx:1.31.10-alpine@sha256:aceb952b920393b7d0bc7b978927fc283370bea89fb082c6fef0ce18c60f96a9",
+      "nslookup",
+      "example.com"
+    ],
+    "env_override": {},
+    "finished_at": "2026-11-24T00:02:12.758859+00:00",
+    "exit_status": 1,
+    "stdout_tail": "Server:\t\t127.0.0.11\nAddress:\t127.0.0.11:53\n\n** server can't find example.com: SERVFAIL\n\n** server can't find example.com: SERVFAIL\n\n",
+    "stderr_tail": ""
+  },
+  {
+    "label": "ollama-external_http",
+    "started_at": "2026-11-24T00:02:12.759373+00:00",
+    "argv": [
+      "docker",
+      "run",
+      "--rm",
+      "--pull",
+      "never",
+      "--network",
+      "container:811189f3d78fa85a8e5aae0e6b9aa0f2cfe7bc9d5aac2e14a9ca5c75cb059fdb",
+      "nginx:1.31.10-alpine@sha256:aceb952b920393b7d0bc7b978927fc283370bea89fb082c6fef0ce18c60f96a9",
+      "wget",
+      "-T",
+      "3",
+      "-O",
+      "/dev/null",
+      "http://1.1.1.1"
+    ],
+    "env_override": {},
+    "finished_at": "2026-11-24T00:02:12.876414+00:00",
+    "exit_status": 1,
+    "stdout_tail": "",
+    "stderr_tail": "Connecting to 1.1.1.1 (1.1.1.1:80)\nwget: can't connect to remote host (1.1.1.1): Network unreachable\n"
+  },
+  {
+    "label": "ollama-local_ollama",
+    "started_at": "2026-11-24T00:02:12.877391+00:00",
+    "argv": [
+      "docker",
+      "run",
+      "--rm",
+      "--pull",
+      "never",
+      "--network",
+      "container:811189f3d78fa85a8e5aae0e6b9aa0f2cfe7bc9d5aac2e14a9ca5c75cb059fdb",
+      "nginx:1.31.10-alpine@sha256:aceb952b920393b7d0bc7b978927fc283370bea89fb082c6fef0ce18c60f96a9",
+      "wget",
+      "-T",
+      "3",
+      "-O",
+      "/dev/null",
+      "http://ollama:11434/api/version"
+    ],
+    "env_override": {},
+    "finished_at": "2026-11-24T00:02:12.994912+00:00",
+    "exit_status": 0,
+    "stdout_tail": "",
+    "stderr_tail": "Connecting to ollama:11434 (172.18.0.2:11434)\nsaving to '/dev/null'\nnull                 100% |********************************|    21  0:00:00 ETA\n'/dev/null' saved\n"
+  },
+  {
+    "label": "webui-route",
+    "started_at": "2026-11-24T00:02:12.995945+00:00",
+    "argv": [
+      "docker",
+      "run",
+      "--rm",
+      "--pull",
+      "never",
+      "--network",
+      "container:75525ad8a6f4297c8978b4baab5953ab265fb94328949af8f15c360ab6a99f2f",
+      "nginx:1.31.10-alpine@sha256:aceb952b920393b7d0bc7b978927fc283370bea89fb082c6fef0ce18c60f96a9",
+      "ip",
+      "route"
+    ],
+    "env_override": {},
+    "finished_at": "2026-11-24T00:02:13.120277+00:00",
+    "exit_status": 0,
+    "stdout_tail": "172.18.0.0/16 dev eth0 scope link  src 172.18.0.3 \n",
+    "stderr_tail": ""
+  },
+  {
+    "label": "webui-external_dns",
+    "started_at": "2026-11-24T00:02:13.121360+00:00",
+    "argv": [
+      "docker",
+      "run",
+      "--rm",
+      "--pull",
+      "never",
+      "--network",
+      "container:75525ad8a6f4297c8978b4baab5953ab265fb94328949af8f15c360ab6a99f2f",
+      "nginx:1.31.10-alpine@sha256:aceb952b920393b7d0bc7b978927fc283370bea89fb082c6fef0ce18c60f96a9",
+      "nslookup",
+      "example.com"
+    ],
+    "env_override": {},
+    "finished_at": "2026-11-24T00:02:13.232766+00:00",
+    "exit_status": 1,
+    "stdout_tail": "Server:\t\t127.0.0.11\nAddress:\t127.0.0.11:53\n\n** server can't find example.com: SERVFAIL\n\n** server can't find example.com: SERVFAIL\n\n",
+    "stderr_tail": ""
+  },
+  {
+    "label": "webui-external_http",
+    "started_at": "2026-11-24T00:02:13.233747+00:00",
+    "argv": [
+      "docker",
+      "run",
+      "--rm",
+      "--pull",
+      "never",
+      "--network",
+      "container:75525ad8a6f4297c8978b4baab5953ab265fb94328949af8f15c360ab6a99f2f",
+      "nginx:1.31.10-alpine@sha256:aceb952b920393b7d0bc7b978927fc283370bea89fb082c6fef0ce18c60f96a9",
+      "wget",
+      "-T",
+      "3",
+      "-O",
+      "/dev/null",
+      "http://1.1.1.1"
+    ],
+    "env_override": {},
+    "finished_at": "2026-11-24T00:02:13.355420+00:00",
+    "exit_status": 1,
+    "stdout_tail": "",
+    "stderr_tail": "Connecting to 1.1.1.1 (1.1.1.1:80)\nwget: can't connect to remote host (1.1.1.1): Network unreachable\n"
+  },
+  {
+    "label": "webui-local_ollama",
+    "started_at": "2026-11-24T00:02:13.357256+00:00",
+    "argv": [
+      "docker",
+      "run",
+      "--rm",
+      "--pull",
+      "never",
+      "--network",
+      "container:75525ad8a6f4297c8978b4baab5953ab265fb94328949af8f15c360ab6a99f2f",
+      "nginx:1.31.10-alpine@sha256:aceb952b920393b7d0bc7b978927fc283370bea89fb082c6fef0ce18c60f96a9",
+      "wget",
+      "-T",
+      "3",
+      "-O",
+      "/dev/null",
+      "http://ollama:11434/api/version"
+    ],
+    "env_override": {},
+    "finished_at": "2026-11-24T00:02:13.473917+00:00",
+    "exit_status": 0,
+    "stdout_tail": "",
+    "stderr_tail": "Connecting to ollama:11434 (172.18.0.2:11434)\nsaving to '/dev/null'\nnull                 100% |********************************|    21  0:00:00 ETA\n'/dev/null' saved\n"
+  },
+  {
+    "label": "negative-offline-start",
+    "started_at": "2026-11-24T00:02:13.475488+00:00",
+    "argv": [
+      "scripts/lab.sh",
+      "offline"
+    ],
+    "env_override": {
+      "LAB_PROJECT": "offline-doc-negative",
+      "WEBUI_PORT": "3078"
+    },
+    "finished_at": "2026-11-24T00:02:22.048630+00:00",
+    "exit_status": 0,
+    "stdout_tail": "",
+    "stderr_tail": " Network offline-doc-negative_access Creating \n Network offline-doc-negative_access Created \n Network offline-doc-negative_app Creating \n Network offline-doc-negative_app Created \n Container offline-doc-negative-ollama-1 Creating \n Container offline-doc-negative-ollama-1 Created \n Container offline-doc-negative-webui-1 Creating \n Container offline-doc-negative-webui-1 Created \n Container offline-doc-negative-edge-1 Creating \n Container offline-doc-negative-edge-1 Created \n Container offline-doc-negative-ollama-1 Starting \n Container offline-doc-negative-ollama-1 Started \n Container offline-doc-negative-webui-1 Starting \n Container offline-doc-negative-webui-1 Started \n Container offline-doc-negative-edge-1 Starting \n Container offline-doc-negative-edge-1 Started \n"
+  },
+  {
+    "label": "negative-ollama-id",
+    "started_at": "2026-11-24T00:02:22.049896+00:00",
+    "argv": [
+      "docker",
+      "compose",
+      "-p",
+      "offline-doc-negative",
+      "-f",
+      "compose.yaml",
+      "-f",
+      "compose.offline.yaml",
+      "ps",
+      "-q",
+      "ollama"
+    ],
+    "env_override": {},
+    "finished_at": "2026-11-24T00:02:22.122945+00:00",
+    "exit_status": 0,
+    "stdout_tail": "b953e7429d564d5e3f614d6d0d1279ca56f945ee896c167ae3e2ea42eacae53a\n",
+    "stderr_tail": ""
+  },
+  {
+    "label": "negative-remove-embedder",
+    "started_at": "2026-11-24T00:02:22.123513+00:00",
+    "argv": [
+      "docker",
+      "exec",
+      "b953e7429d564d5e3f614d6d0d1279ca56f945ee896c167ae3e2ea42eacae53a",
+      "ollama",
+      "rm",
+      "all-minilm:latest"
+    ],
+    "env_override": {},
+    "finished_at": "2026-11-24T00:02:22.202868+00:00",
+    "exit_status": 0,
+    "stdout_tail": "deleted 'all-minilm:latest'\n",
+    "stderr_tail": "\u001b[?2026h\u001b[?25l\u001b[1G\u001b[K\u001b[?25h\u001b[?2026l\u001b[?25l\u001b[2K\u001b[1G\u001b[?25h"
+  },
+  {
+    "label": "missing-embedder",
+    "started_at": "2026-11-24T00:02:22.203553+00:00",
+    "argv": [
+      "python3",
+      "scripts/rehearse.py",
+      "missing-embedder",
+      "fixtures/negative-final.txt",
+      "What is the synthetic recovery beacon code?",
+      "--expected",
+      "silver-bay-604",
+      "--expect-processing-failure",
+      "--output",
+      ".local/revision-run/missing-embedder.json"
+    ],
+    "env_override": {
+      "WEBUI_PORT": "3078"
+    },
+    "finished_at": "2026-11-24T00:02:24.552881+00:00",
+    "exit_status": 0,
+    "stdout_tail": "{\"case\": \"missing-embedder\", \"pass\": true, \"assessment\": null, \"error\": null, \"record\": \".local/revision-run/missing-embedder.json\"}\n",
+    "stderr_tail": ""
+  },
+  {
+    "label": "negative-webui-logs",
+    "started_at": "2026-11-24T00:02:24.553459+00:00",
+    "argv": [
+      "docker",
+      "compose",
+      "-p",
+      "offline-doc-negative",
+      "-f",
+      "compose.yaml",
+      "-f",
+      "compose.offline.yaml",
+      "logs",
+      "--no-color",
+      "webui"
+    ],
+    "env_override": {},
+    "finished_at": "2026-11-24T00:02:24.610790+00:00",
+    "exit_status": 0,
+    "stdout_tail": "",
+    "stderr_tail": ""
+  },
+  {
+    "label": "negative-online-prepare",
+    "started_at": "2026-11-24T00:02:24.611522+00:00",
+    "argv": [
+      "scripts/lab.sh",
+      "online"
+    ],
+    "env_override": {
+      "LAB_PROJECT": "offline-doc-negative",
+      "WEBUI_PORT": "3078"
+    },
+    "finished_at": "2026-11-24T00:02:35.123920+00:00",
+    "exit_status": 0,
+    "stdout_tail": "",
+    "stderr_tail": "ainer offline-doc-negative-webui-1 Removed \n Container offline-doc-negative-ollama-1 Stopping \n Container offline-doc-negative-ollama-1 Stopped \n Container offline-doc-negative-ollama-1 Removing \n Container offline-doc-negative-ollama-1 Removed \n Network offline-doc-negative_access Removing \n Network offline-doc-negative_app Removing \n Network offline-doc-negative_access Removed \n Network offline-doc-negative_app Removed \n Network offline-doc-negative_app Creating \n Network offline-doc-negative_app Created \n Network offline-doc-negative_access Creating \n Network offline-doc-negative_access Created \n Container offline-doc-negative-ollama-1 Creating \n Container offline-doc-negative-ollama-1 Created \n Container offline-doc-negative-webui-1 Creating \n Container offline-doc-negative-webui-1 Created \n Container offline-doc-negative-edge-1 Creating \n Container offline-doc-negative-edge-1 Created \n Container offline-doc-negative-ollama-1 Starting \n Container offline-doc-negative-ollama-1 Started \n Container offline-doc-negative-webui-1 Starting \n Container offline-doc-negative-webui-1 Started \n Container offline-doc-negative-edge-1 Starting \n Container offline-doc-negative-edge-1 Started \n"
+  },
+  {
+    "label": "negative-prepare-embedder",
+    "started_at": "2026-11-24T00:02:35.125035+00:00",
+    "argv": [
+      "scripts/lab.sh",
+      "prepare",
+      "embedder"
+    ],
+    "env_override": {
+      "LAB_PROJECT": "offline-doc-negative",
+      "WEBUI_PORT": "3078"
+    },
+    "finished_at": "2026-11-24T00:02:39.175019+00:00",
+    "exit_status": 0,
+    "stdout_tail": "NAME                 ID              SIZE      MODIFIED               \nall-minilm:latest    1b226e2802db    45 MB     Less than a second ago    \nqwen2.5:1.5b         65ec06548149    986 MB    23 minutes ago            \n",
+    "stderr_tail": " 797b70c4edf8:  96% \u2595\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588 \u258f  44 MB/ 45 MB   33 MB/s      0s\u001b[K\u001b[?25h\u001b[?2026l\u001b[?2026h\u001b[?25l\u001b[A\u001b[1Gpulling manifest \u001b[K\npulling 797b70c4edf8:  96% \u2595\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588 \u258f  44 MB/ 45 MB   33 MB/s      0s\u001b[K\u001b[?25h\u001b[?2026l\u001b[?2026h\u001b[?25l\u001b[A\u001b[1Gpulling manifest \u001b[K\npulling 797b70c4edf8:  96% \u2595\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588 \u258f  44 MB/ 45 MB   33 MB/s      0s\u001b[K\u001b[?25h\u001b[?2026l\u001b[?2026h\u001b[?25l\u001b[A\u001b[1Gpulling manifest \u001b[K\npulling 797b70c4edf8:  96% \u2595\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588 \u258f  44 MB/ 45 MB   33 MB/s      0s\u001b[K\u001b[?25h\u001b[?2026l\u001b[?2026h\u001b[?25l\u001b[A\u001b[1Gpulling manifest \u001b[K\npulling 797b70c4edf8:  96% \u2595\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588 \u258f  44 MB/ 45 MB   33 MB/s      0s\u001b[K\u001b[?25h\u001b[?2026l\u001b[?2026h\u001b[?25l\u001b[A\u001b[1Gpulling manifest \u001b[K\npulling 797b70c4edf8:  96% \u2595\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588 \u258f  44 MB/ 45 MB   33 MB/s      0s\u001b[K\u001b[?25h\u001b[?2026l\u001b[?2026h\u001b[?25l\u001b[A\u001b[1Gpulling manifest \u001b[K\npulling 797b70c4edf8:  96% \u2595\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588 \u258f  44 MB/ 45 MB   33 MB/s      0s\u001b[K\u001b[?25h\u001b[?2026l\u001b[?2026h\u001b[?25l\u001b[A\u001b[1Gpulling manifest \u001b[K\npulling 797b70c4edf8:  96% \u2595\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588 \u258f  44 MB/ 45 MB   33 MB/s      0s\u001b[K\npulling 548455b72658: 100% \u2595\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u258f  407 B                         \u001b[K\nverifying sha256 digest \u001b[K\nwriting manifest \u001b[K\nsuccess \u001b[K\u001b[?25h\u001b[?2026l\n"
+  },
+  {
+    "label": "negative-offline-restored",
+    "started_at": "2026-11-24T00:02:39.175878+00:00",
+    "argv": [
+      "scripts/lab.sh",
+      "offline"
+    ],
+    "env_override": {
+      "LAB_PROJECT": "offline-doc-negative",
+      "WEBUI_PORT": "3078"
+    },
+    "finished_at": "2026-11-24T00:02:49.859809+00:00",
+    "exit_status": 0,
+    "stdout_tail": "",
+    "stderr_tail": "ainer offline-doc-negative-webui-1 Removed \n Container offline-doc-negative-ollama-1 Stopping \n Container offline-doc-negative-ollama-1 Stopped \n Container offline-doc-negative-ollama-1 Removing \n Container offline-doc-negative-ollama-1 Removed \n Network offline-doc-negative_app Removing \n Network offline-doc-negative_access Removing \n Network offline-doc-negative_access Removed \n Network offline-doc-negative_app Removed \n Network offline-doc-negative_app Creating \n Network offline-doc-negative_app Created \n Network offline-doc-negative_access Creating \n Network offline-doc-negative_access Created \n Container offline-doc-negative-ollama-1 Creating \n Container offline-doc-negative-ollama-1 Created \n Container offline-doc-negative-webui-1 Creating \n Container offline-doc-negative-webui-1 Created \n Container offline-doc-negative-edge-1 Creating \n Container offline-doc-negative-edge-1 Created \n Container offline-doc-negative-ollama-1 Starting \n Container offline-doc-negative-ollama-1 Started \n Container offline-doc-negative-webui-1 Starting \n Container offline-doc-negative-webui-1 Started \n Container offline-doc-negative-edge-1 Starting \n Container offline-doc-negative-edge-1 Started \n"
+  },
+  {
+    "label": "restored-assets",
+    "started_at": "2026-11-24T00:02:49.861117+00:00",
+    "argv": [
+      "python3",
+      "scripts/verify_assets.py"
+    ],
+    "env_override": {
+      "LAB_PROJECT": "offline-doc-negative"
+    },
+    "finished_at": "2026-11-24T00:02:50.165761+00:00",
+    "exit_status": 0,
+    "stdout_tail": "PASS image open_webui: ghcr.io/open-webui/open-webui:v0.13.4@sha256:d5168bfbc28609eff5bea1b438dd864cf64d185cf6582c02244865e18385b901\nPASS image ollama: ollama/ollama:0.40.17@sha256:ccc42bcd3d5fcf7ab0d532b300382154e1a4da56fc666bdb313b78ebdd912754\nPASS image nginx: nginx:1.31.10-alpine@sha256:aceb952b920393b7d0bc7b978927fc283370bea89fb082c6fef0ce18c60f96a9\nPASS model qwen2.5:1.5b: sha256:f2b0a490f661d58f20c4b98e5797ecf55e6e96293a88b71e96e7cc389f658f7e\nPASS model all-minilm:latest: sha256:692629b6278dbb5874038a004782bf661d23d1fae05c1c551a3d70dc2e2fe092\n",
+    "stderr_tail": ""
+  },
+  {
+    "label": "restored",
+    "started_at": "2026-11-24T00:02:50.166512+00:00",
+    "argv": [
+      "python3",
+      "scripts/rehearse.py",
+      "restored",
+      "fixtures/negative-final.txt",
+      "What is the synthetic recovery beacon code? Copy the exact code and cite the attached file.",
+      "--expected",
+      "silver-bay-604",
+      "--output",
+      ".local/revision-run/restored.json"
+    ],
+    "env_override": {
+      "WEBUI_PORT": "3078"
+    },
+    "finished_at": "2026-11-24T00:02:56.024901+00:00",
+    "exit_status": 0,
+    "stdout_tail": "{\"case\": \"restored\", \"pass\": true, \"assessment\": {\"source_matches_uploaded_file\": true, \"retrieved_fact\": true, \"answer_contains_fact\": true, \"answer_citations_after_fact\": [1], \"citation_matches_supporting_source\": true}, \"error\": null, \"record\": \".local/revision-run/restored.json\"}\n",
+    "stderr_tail": ""
+  },
+  {
+    "label": "browser-restored",
+    "started_at": "2026-11-24T00:02:56.025524+00:00",
+    "argv": [
+      ".local/browser-venv/bin/python",
+      "scripts/browser_rehearse.py",
+      "fixtures/negative-final.txt",
+      "Read the attached file. Copy the exact synthetic recovery beacon code and cite the source.",
+      "--expected",
+      "silver-bay-604",
+      "--screenshot",
+      ".local/revision-run/browser-restored.png",
+      "--report",
+      ".local/revision-run/browser-restored.json"
+    ],
+    "env_override": {
+      "CHROME_BIN": "<preinstalled Chrome 158 binary>",
+      "WEBUI_PORT": "3078"
+    },
+    "finished_at": "2026-11-24T00:03:09.139912+00:00",
+    "exit_status": 0,
+    "stdout_tail": "{\"passed_browser_controls\": true, \"local_http_status\": 200, \"assistant_citation_visible\": true, \"assistant_source_panel_visible\": true, \"external_http_blocked\": true, \"error\": null}\n",
+    "stderr_tail": ""
+  }
+]

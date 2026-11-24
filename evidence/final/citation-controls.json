@@ -1,0 +1,54 @@
+{
+  "api-citation-controls": [
+    {
+      "control": "supported citation",
+      "expected_pass": true,
+      "actual_pass": true,
+      "control_pass": true
+    },
+    {
+      "control": "correct but uncited",
+      "expected_pass": false,
+      "actual_pass": false,
+      "control_pass": true
+    },
+    {
+      "control": "citation to wrong source",
+      "expected_pass": false,
+      "actual_pass": false,
+      "control_pass": true
+    },
+    {
+      "control": "citation before fact",
+      "expected_pass": false,
+      "actual_pass": false,
+      "control_pass": true
+    },
+    {
+      "control": "unrelated uploaded file",
+      "expected_pass": false,
+      "actual_pass": false,
+      "control_pass": true
+    }
+  ],
+  "browser-citation-controls": [
+    {
+      "control": "assistant citation",
+      "expected_pass": true,
+      "actual_pass": true,
+      "control_pass": true
+    },
+    {
+      "control": "upload chip and prompt only",
+      "expected_pass": false,
+      "actual_pass": false,
+      "control_pass": true
+    },
+    {
+      "control": "wrong assistant source",
+      "expected_pass": false,
+      "actual_pass": false,
+      "control_pass": true
+    }
+  ]
+}

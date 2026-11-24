@@ -1,0 +1,81 @@
+{
+  "case": "first-ingestion",
+  "started_at": "2026-11-24T00:01:04.687542+00:00",
+  "document": "revision-first.txt",
+  "question": "What is the synthetic dockside verification word? Copy it exactly and cite the file.",
+  "expected": "indigo-wharf-573",
+  "steps": [
+    {
+      "at": "2026-11-24T00:01:04.897349+00:00",
+      "name": "local_signin",
+      "http_status": 200,
+      "data": {
+        "role": "admin",
+        "token_received": true
+      }
+    },
+    {
+      "at": "2026-11-24T00:01:04.903871+00:00",
+      "name": "upload",
+      "http_status": 200,
+      "data": {
+        "file_id": "77190ed5-50ac-4931-86f3-7fe79374e218",
+        "error": null
+      }
+    },
+    {
+      "at": "2026-11-24T00:01:06.933177+00:00",
+      "name": "processing",
+      "http_status": 200,
+      "data": {
+        "status": "completed"
+      }
+    },
+    {
+      "at": "2026-11-24T00:01:06.940810+00:00",
+      "name": "extracted_text",
+      "http_status": 200,
+      "data": {
+        "content": "Post-cutover fixture, revision 1.\nThe synthetic dockside verification word is indigo-wharf-573.\nThis invented fact was first uploaded after the internal network was enabled.\n"
+      }
+    },
+    {
+      "at": "2026-11-24T00:01:07.762450+00:00",
+      "name": "chat",
+      "http_status": 200,
+      "data": {
+        "answer": "The synthetic dockside verification word is indigo-wharf-573. [1]",
+        "sources": [
+          {
+            "source": {
+              "type": "file",
+              "id": "77190ed5-50ac-4931-86f3-7fe79374e218"
+            },
+            "document": [
+              "Post-cutover fixture, revision 1.\nThe synthetic dockside verification word is indigo-wharf-573.\nThis invented fact was first uploaded after the internal network was enabled.\n"
+            ],
+            "metadata": [
+              {
+                "file_id": "77190ed5-50ac-4931-86f3-7fe79374e218",
+                "name": "revision-first.txt",
+                "source": "revision-first.txt"
+              }
+            ]
+          }
+        ],
+        "error": null
+      }
+    }
+  ],
+  "assessment": {
+    "source_matches_uploaded_file": true,
+    "retrieved_fact": true,
+    "answer_contains_fact": true,
+    "answer_citations_after_fact": [
+      1
+    ],
+    "citation_matches_supporting_source": true
+  },
+  "pass": true,
+  "finished_at": "2026-11-24T00:01:07.762609+00:00"
+}

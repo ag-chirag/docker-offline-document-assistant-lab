@@ -1,0 +1,88 @@
+{
+  "at": "2026-11-24T00:02:12.453662+00:00",
+  "networks": {
+    "offline-doc-lab_app": {
+      "internal": true,
+      "driver": "bridge",
+      "subnets": [
+        "172.18.0.0/16"
+      ]
+    },
+    "offline-doc-lab_access": {
+      "internal": false,
+      "driver": "bridge",
+      "subnets": [
+        "172.19.0.0/16"
+      ]
+    }
+  },
+  "containers": {
+    "ollama": {
+      "id": "811189f3d78fa85a8e5aae0e6b9aa0f2cfe7bc9d5aac2e14a9ca5c75cb059fdb",
+      "image_id": "sha256:ccc42bcd3d5fcf7ab0d532b300382154e1a4da56fc666bdb313b78ebdd912754",
+      "image_reference": "ollama/ollama:0.40.17@sha256:ccc42bcd3d5fcf7ab0d532b300382154e1a4da56fc666bdb313b78ebdd912754",
+      "networks": [
+        "offline-doc-lab_app"
+      ]
+    },
+    "webui": {
+      "id": "75525ad8a6f4297c8978b4baab5953ab265fb94328949af8f15c360ab6a99f2f",
+      "image_id": "sha256:d5168bfbc28609eff5bea1b438dd864cf64d185cf6582c02244865e18385b901",
+      "image_reference": "ghcr.io/open-webui/open-webui:v0.13.4@sha256:d5168bfbc28609eff5bea1b438dd864cf64d185cf6582c02244865e18385b901",
+      "networks": [
+        "offline-doc-lab_app"
+      ]
+    },
+    "edge": {
+      "id": "b36cf523018eaa9e56460ee3607434387bc3adf165b72b286035380c7aa8d0cf",
+      "image_id": "sha256:aceb952b920393b7d0bc7b978927fc283370bea89fb082c6fef0ce18c60f96a9",
+      "image_reference": "nginx:1.31.10-alpine@sha256:aceb952b920393b7d0bc7b978927fc283370bea89fb082c6fef0ce18c60f96a9",
+      "networks": [
+        "offline-doc-lab_access",
+        "offline-doc-lab_app"
+      ]
+    }
+  },
+  "checks": {
+    "ollama-route": {
+      "exit_status": 0,
+      "stdout": "172.18.0.0/16 dev eth0 scope link  src 172.18.0.2 \n",
+      "stderr": ""
+    },
+    "ollama-external_dns": {
+      "exit_status": 1,
+      "stdout": "Server:\t\t127.0.0.11\nAddress:\t127.0.0.11:53\n\n** server can't find example.com: SERVFAIL\n\n** server can't find example.com: SERVFAIL\n\n",
+      "stderr": ""
+    },
+    "ollama-external_http": {
+      "exit_status": 1,
+      "stdout": "",
+      "stderr": "Connecting to 1.1.1.1 (1.1.1.1:80)\nwget: can't connect to remote host (1.1.1.1): Network unreachable\n"
+    },
+    "ollama-local_ollama": {
+      "exit_status": 0,
+      "stdout": "",
+      "stderr": "Connecting to ollama:11434 (172.18.0.2:11434)\nsaving to '/dev/null'\nnull                 100% |********************************|    21  0:00:00 ETA\n'/dev/null' saved\n"
+    },
+    "webui-route": {
+      "exit_status": 0,
+      "stdout": "172.18.0.0/16 dev eth0 scope link  src 172.18.0.3 \n",
+      "stderr": ""
+    },
+    "webui-external_dns": {
+      "exit_status": 1,
+      "stdout": "Server:\t\t127.0.0.11\nAddress:\t127.0.0.11:53\n\n** server can't find example.com: SERVFAIL\n\n** server can't find example.com: SERVFAIL\n\n",
+      "stderr": ""
+    },
+    "webui-external_http": {
+      "exit_status": 1,
+      "stdout": "",
+      "stderr": "Connecting to 1.1.1.1 (1.1.1.1:80)\nwget: can't connect to remote host (1.1.1.1): Network unreachable\n"
+    },
+    "webui-local_ollama": {
+      "exit_status": 0,
+      "stdout": "",
+      "stderr": "Connecting to ollama:11434 (172.18.0.2:11434)\nsaving to '/dev/null'\nnull                 100% |********************************|    21  0:00:00 ETA\n'/dev/null' saved\n"
+    }
+  }
+}

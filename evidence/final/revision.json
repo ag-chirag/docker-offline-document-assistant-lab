@@ -1,0 +1,20 @@
+{
+  "base_commit": "10b518b44c3d324d1e3f7d3db28f5445530a35fd",
+  "validation_started_at": "2026-11-24T00:00:19.187546+00:00",
+  "validation_finished_at": "2026-11-24T00:03:09.139912+00:00",
+  "platform": "Docker Desktop Linux/ARM64 VM on macOS ARM64; Chrome 158 fresh contexts",
+  "validated_files_sha256": {
+    "compose.yaml": "79f0cc4cd214ba036240ddca82bcd8a414cd2e95f6316eb352952179d73b8328",
+    "compose.offline.yaml": "95f09a3a0b0875397535c0ae585df33c841f2d0e4ec205a53015a7856be5a824",
+    "nginx.conf": "423bfefb4d5b740e03c751822674bc20b5450285f6dc0ce15349810d470df461",
+    "assets.lock.json": "325f84e036c3f68b407409e3af7a9135dde7b3e9f6fec2d6da1feb90087f28b3",
+    "scripts/lab.sh": "95cf3a398177e43d6b2dac2ec1a5408c5b487fa198816fdc64d4bc867904cb2f",
+    "scripts/rehearse.py": "6fd595c349c8d08eb548743c6da0b5be772ee7ca4b778213a7d38f58a0f47f23",
+    "scripts/browser_rehearse.py": "73d06fa3af4ce4e6e8bfca6fa8ca1d0ea9e8b237814a03a6afd267c6e117acaf",
+    "scripts/verify_assets.py": "445fa9c539b47486fd67cbdbd15e9ca13a5b1b7284402f14280d2f642a17893d",
+    "scripts/check_assessment.py": "2f29a112b037cc32738732280b92bc96300b6a060be20deeb227bc5ab2c4d678",
+    "scripts/check_browser_assessment.py": "9fb11aea65465eed403e62531bee9882d94254bef04fe5ec5932f0d2a251d8a5",
+    "fixtures/revision-first.txt": "5b1e822324634b4ac8dbdc2083228f1eb4a0ed07a708e937e44668600ceeb62c"
+  },
+  "note": "The delivery commit includes these exact code/config/fixture bytes plus this evidence."
+}

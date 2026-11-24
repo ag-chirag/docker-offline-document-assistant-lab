@@ -1,0 +1,13 @@
+# baseline-assets (exit 0)
+PASS image open_webui: ghcr.io/open-webui/open-webui:v0.13.4@sha256:d5168bfbc28609eff5bea1b438dd864cf64d185cf6582c02244865e18385b901
+PASS image ollama: ollama/ollama:0.40.17@sha256:ccc42bcd3d5fcf7ab0d532b300382154e1a4da56fc666bdb313b78ebdd912754
+PASS image nginx: nginx:1.31.10-alpine@sha256:aceb952b920393b7d0bc7b978927fc283370bea89fb082c6fef0ce18c60f96a9
+PASS model qwen2.5:1.5b: sha256:f2b0a490f661d58f20c4b98e5797ecf55e6e96293a88b71e96e7cc389f658f7e
+PASS model all-minilm:latest: sha256:692629b6278dbb5874038a004782bf661d23d1fae05c1c551a3d70dc2e2fe092
+
+# restored-assets (exit 0)
+PASS image open_webui: ghcr.io/open-webui/open-webui:v0.13.4@sha256:d5168bfbc28609eff5bea1b438dd864cf64d185cf6582c02244865e18385b901
+PASS image ollama: ollama/ollama:0.40.17@sha256:ccc42bcd3d5fcf7ab0d532b300382154e1a4da56fc666bdb313b78ebdd912754
+PASS image nginx: nginx:1.31.10-alpine@sha256:aceb952b920393b7d0bc7b978927fc283370bea89fb082c6fef0ce18c60f96a9
+PASS model qwen2.5:1.5b: sha256:f2b0a490f661d58f20c4b98e5797ecf55e6e96293a88b71e96e7cc389f658f7e
+PASS model all-minilm:latest: sha256:692629b6278dbb5874038a004782bf661d23d1fae05c1c551a3d70dc2e2fe092

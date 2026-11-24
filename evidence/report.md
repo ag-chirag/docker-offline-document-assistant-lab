@@ -28,11 +28,10 @@ application failure, not a claim that ingestion succeeded.
 The final review found a startup race: immediately after one cold Compose
 restart, the edge proxy briefly returned HTTP 502 before WebUI was ready.
 `scripts/lab.sh` now waits for the local `/health` endpoint after starting or
-recreating containers. A repeat cold journey, a newly created offline file,
-and a fresh browser journey passed. The negative-control failure and recovery
-were also repeated. These final repeat records are retained locally under
-`.local/final-*.json`; the table above provides the portable representative
-records and screenshots from the same application/model configuration.
+recreating containers. The current citation-aware repeat run, including a
+newly created offline fixture and the negative-control recovery, is published
+in [`final/README.md`](final/README.md). The table above remains the earlier
+delivery's evidence and provenance.
 
 The network observations are in [`network.json`](network.json): `webui` and
 `ollama` were attached only to the internal `app` bridge, had no default

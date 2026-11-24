@@ -1,0 +1,3 @@
+Post-cutover fixture, revision 1.
+The synthetic dockside verification word is indigo-wharf-573.
+This invented fact was first uploaded after the internal network was enabled.

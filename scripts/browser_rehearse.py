@@ -19,10 +19,31 @@ from playwright.sync_api import sync_playwright
 ROOT = Path(__file__).resolve().parents[1]
 
 
+def assistant_citation_state(page, filename, expected):
+    """Inspect only the assistant's rendered answer and opened source panel."""
+    assistant = page.locator(".chat-assistant").last
+    answer = assistant.locator("#response-content-container .markdown-prose")
+    citation = answer.get_by_role("button", name=f"View source: {filename}", exact=True)
+    source_row = assistant.get_by_role(
+        "button", name=re.compile(r"^View source: [1-9][0-9]* "
+                                  + re.escape(filename) + r"$"))
+    citation_visible = citation.count() == 1 and citation.is_visible()
+    cited_paragraph_has_fact = (
+        citation_visible and expected in citation.locator("xpath=ancestor::p[1]").inner_text()
+    )
+    return {
+        "assistant_answer_contains_expected": cited_paragraph_has_fact,
+        "assistant_citation_visible": citation_visible,
+        "assistant_source_panel_visible": source_row.count() > 0 and source_row.first.is_visible(),
+        "assistant_answer_text": answer.inner_text()[-1000:] if answer.count() else "",
+    }
+
+
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("document", type=Path)
     parser.add_argument("question")
+    parser.add_argument("--expected", required=True, help="fact required in the assistant's cited answer")
     parser.add_argument("--screenshot", type=Path, required=True)
     parser.add_argument("--report", type=Path, required=True)
     args = parser.parse_args()
@@ -35,7 +56,7 @@ def main():
         parser.error("set CHROME_BIN to an installed Chrome/Chromium executable")
     report = {"started_at": datetime.now(timezone.utc).isoformat(),
               "browser": chrome, "local_url": base, "document": args.document.name,
-              "question": args.question, "fresh_context": True,
+              "question": args.question, "expected": args.expected, "fresh_context": True,
               "browser_egress_control": "dead 127.0.0.1:9 HTTP proxy; explicit loopback bypass"}
     try:
         with sync_playwright() as playwright:
@@ -63,12 +84,16 @@ def main():
             page.locator('input[type="file"]').first.set_input_files(str(args.document.resolve()))
             page.get_by_role("textbox", name=re.compile("How can I help|Send a Message")).fill(args.question)
             page.get_by_role("textbox", name=re.compile("How can I help|Send a Message")).press("Enter")
-            source_button = page.get_by_role("button", name=re.compile(r"Toggle [1-9][0-9]* source"))
+            assistant = page.locator(".chat-assistant").last
+            source_button = assistant.get_by_role(
+                "button", name=re.compile(r"Toggle [1-9][0-9]* source"))
             source_button.wait_for(timeout=120000)
             page.wait_for_timeout(3000)
             source_button.click()
-            report["ui_text"] = page.locator("body").inner_text()[-3000:]
-            report["source_visible"] = args.document.name in report["ui_text"]
+            assistant.locator("#response-content-container .markdown-prose").get_by_role(
+                "button", name=f"View source: {args.document.name}", exact=True
+            ).wait_for(timeout=10000)
+            report.update(assistant_citation_state(page, args.document.name, args.expected))
             args.screenshot.parent.mkdir(parents=True, exist_ok=True)
             page.screenshot(path=str(args.screenshot), full_page=True)
             try:
@@ -78,7 +103,10 @@ def main():
                 report["external_http_blocked"] = True
                 report["external_error"] = str(exc).splitlines()[0]
             report["passed_browser_controls"] = (
-                report["local_http_status"] == 200 and report["source_visible"]
+                report["local_http_status"] == 200
+                and report["assistant_answer_contains_expected"]
+                and report["assistant_citation_visible"]
+                and report["assistant_source_panel_visible"]
                 and report["external_http_blocked"]
             )
             browser.close()
@@ -89,7 +117,8 @@ def main():
     args.report.parent.mkdir(parents=True, exist_ok=True)
     args.report.write_text(json.dumps(report, indent=2) + "\n")
     print(json.dumps({key: report.get(key) for key in
-                      ("passed_browser_controls", "local_http_status", "source_visible",
+                      ("passed_browser_controls", "local_http_status",
+                       "assistant_citation_visible", "assistant_source_panel_visible",
                        "external_http_blocked", "error")}))
     return 0 if report["passed_browser_controls"] else 1
 

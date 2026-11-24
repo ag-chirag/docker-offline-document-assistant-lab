@@ -6,6 +6,7 @@ import json
 import mimetypes
 import os
 from pathlib import Path
+import re
 import secrets
 import sys
 import time
@@ -56,6 +57,40 @@ def upload_body(path):
         f"Content-Type: {kind}\r\n\r\n"
     ).encode() + data + f"\r\n--{boundary}--\r\n".encode()
     return body, f"multipart/form-data; boundary={boundary}"
+
+
+def assess_answer(message, sources, *, expected, filename, file_id):
+    """Check the answer and its 1-based citations against the uploaded source.
+
+    The pinned Open WebUI response numbers the `sources` array from 1 in its
+    answer text. A filename elsewhere in the response is insufficient.
+    """
+    matching_indices = []
+    supporting_indices = []
+    for index, source in enumerate(sources, 1):
+        identity = source.get("source") or {}
+        metadata = source.get("metadata") or []
+        if identity.get("type") != "file" or identity.get("id") != file_id:
+            continue
+        if not any(meta.get("file_id") == file_id and meta.get("name") == filename
+                   for meta in metadata):
+            continue
+        matching_indices.append(index)
+        if any(expected in passage for passage in source.get("document") or []):
+            supporting_indices.append(index)
+
+    fact_position = message.find(expected)
+    answer_has_fact = fact_position >= 0
+    citations = [int(match.group(1)) for match in re.finditer(r"\[(\d+)\]", message)
+                 if answer_has_fact and fact_position + len(expected) <= match.start()
+                 <= fact_position + len(expected) + 160]
+    return {
+        "source_matches_uploaded_file": bool(matching_indices),
+        "retrieved_fact": bool(supporting_indices),
+        "answer_contains_fact": answer_has_fact,
+        "answer_citations_after_fact": citations,
+        "citation_matches_supporting_source": bool(set(citations) & set(supporting_indices)),
+    }
 
 
 def main():
@@ -126,12 +161,16 @@ def main():
         message = (answer.get("choices") or [{}])[0].get("message", {}).get("content", "")
         sources = answer.get("sources", [])
         step("chat", status, {"answer": message, "sources": sources, "error": answer.get("error")})
-        retrieved = args.expected in json.dumps(sources)
-        cited = args.document.name in json.dumps(sources)
-        answered = args.expected in message
-        record["assessment"] = {"retrieved_fact": retrieved, "cited_file": cited,
-                                "answer_contains_fact": answered}
-        record["pass"] = status == 200 and retrieved and cited and answered
+        record["assessment"] = assess_answer(
+            message, sources, expected=args.expected,
+            filename=args.document.name, file_id=file_id,
+        )
+        record["pass"] = status == 200 and all((
+            record["assessment"]["source_matches_uploaded_file"],
+            record["assessment"]["retrieved_fact"],
+            record["assessment"]["answer_contains_fact"],
+            record["assessment"]["citation_matches_supporting_source"],
+        ))
         return 0 if record["pass"] else 1
     except (OSError, URLError, RuntimeError, TimeoutError, KeyError) as exc:
         record["error"] = str(exc)
